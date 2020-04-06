@@ -1,11 +1,15 @@
 import React from 'react';
 import './App.css';
 import Racktable from './rack-table/racktable';
+import TopNav from './navbar/navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
-    <Racktable></Racktable>
+    <React.Fragment>
+      <TopNav></TopNav>
+      <Racktable></Racktable>
+    </React.Fragment>
   );
 }
 export default App;
