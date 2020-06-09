@@ -1,11 +1,11 @@
 import React from 'react';
 import {Card,Table, Container, Row} from 'react-bootstrap'
-const DC = require('./dc');
+
 
 class Racktable extends React.Component {
    state = {}
     renderRack(){
-      return DC.map(rack => {
+      return this.props.dc.map(rack => {
         return(
           <Card className="ml-auto mr-auto">
             <Card.Body>

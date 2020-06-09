@@ -31,7 +31,7 @@ module.exports = [{rack_id:3001,network:"Secret", brief:"Netapp,Cisco,UCS,Networ
              {id:7,name:'Cisco-UCS-C220M5'},
              {id:8,name:'ProjectX'},
              {id:9,name:''},
-             {id:10,name:''},
+             {id:10,name:'arad'},
              {id:11,name:''},
              {id:12,name:''},
              {id:13,name:''},
