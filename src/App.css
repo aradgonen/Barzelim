@@ -12,7 +12,20 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
+input {
+  background: transparent;
+  border: 2px solid transparent;
+  border-bottom: 1px solid #FFF;
+  color:#000000;
+  font-size: 16px;
+  height: 6vh;
+  margin-bottom: 3vh;
+  padding: 12px;
+  text-align: center;
+  vertical-align: middle;
+  width: 100%;
+  outline-color: white;
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

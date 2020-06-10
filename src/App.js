@@ -13,19 +13,14 @@ function App() {
   };
   React.useEffect(() => {
     const results = DC.filter(rack =>
-      JSON.stringify(rack).toLowerCase().includes(searchTerm.trim()));
+      JSON.stringify(rack).toLowerCase().includes(searchTerm.toLowerCase().trim()));
     setSearchResults(results);
   }, [searchTerm]);
  
   return (
     <React.Fragment>
       <TopNav></TopNav>
-      <input
-  type="text"
-  placeholder="Type here..."
-  value={searchTerm}
-  onChange={handleChange}
-  />
+      <input type="text" placeholder="Type any vaule to search in the DC..." value={searchTerm} onChange={handleChange}/>
       <Racktable dc={searchResults}></Racktable>
     </React.Fragment>
   );
