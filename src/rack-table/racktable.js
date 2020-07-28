@@ -1,6 +1,7 @@
 import React from 'react';
 import {Card,Table, Container, Row} from 'react-bootstrap';
 import UModal from './Umodal';
+import rack_34u from './rack_34u.png';
 
 class Racktable extends React.Component {
   state = { showUModal: false , curU:''};
@@ -60,12 +61,12 @@ class Racktable extends React.Component {
     }
     render() {
         return (
-          <Container>
+          <Container align="center">
             <Row xs='4'>
             {this.renderRack()}
           </Row>
-          <UModal show={this.state.showUModal} uData = {this.state.curU} hide = {this.hideModal}></UModal>
-          </Container>
+          <UModal show={this.state.showUModal} uData = {this.state.curU} hide = {this.hideModal} ></UModal>
+        </Container>
               
 
         );
