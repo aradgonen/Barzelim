@@ -1,6 +1,15 @@
 import React from 'react';
 import {Navbar, Nav,Form, FormControl, Button, NavDropdown} from 'react-bootstrap'
 class TopNav extends React.Component {
+    componentDidMount() {
+        fetch('/api/devices')
+        .then(res => res.json())
+        .then((data) => {
+          //this.setState({ contacts: data })
+          console.log(data)
+        })
+        .catch(console.log)
+      }
     render() {
         return (
             <Navbar bg="dark" expand="lg" variant="dark">
