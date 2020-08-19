@@ -1,4 +1,5 @@
 zarilabs\barzelim\BarzelimBackend.class
-zarilabs\barzelim\DeviceRepository.class
+zarilabs\barzelim\device\DeviceRepository.class
+zarilabs\barzelim\storage\Storage.class
 zarilabs\barzelim\DatabaseLoader.class
-zarilabs\barzelim\Device.class
+zarilabs\barzelim\device\Device.class

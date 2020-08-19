@@ -1,5 +1,7 @@
-C:\Users\gonen\Downloads\barzelim\src\main\java\zarilabs\barzelim\DeviceController.java
-C:\Users\gonen\Downloads\barzelim\src\main\java\zarilabs\barzelim\DeviceRepository.java
+C:\Users\gonen\Downloads\barzelim\src\main\java\zarilabs\barzelim\device\DeviceController.java
 C:\Users\gonen\Downloads\barzelim\src\main\java\zarilabs\barzelim\BarzelimBackend.java
 C:\Users\gonen\Downloads\barzelim\src\main\java\zarilabs\barzelim\DatabaseLoader.java
-C:\Users\gonen\Downloads\barzelim\src\main\java\zarilabs\barzelim\Device.java
+C:\Users\gonen\Downloads\barzelim\src\main\java\zarilabs\barzelim\storage\StorageRepository.java
+C:\Users\gonen\Downloads\barzelim\src\main\java\zarilabs\barzelim\device\Device.java
+C:\Users\gonen\Downloads\barzelim\src\main\java\zarilabs\barzelim\storage\Storage.java
+C:\Users\gonen\Downloads\barzelim\src\main\java\zarilabs\barzelim\device\DeviceRepository.java

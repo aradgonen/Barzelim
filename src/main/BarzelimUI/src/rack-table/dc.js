@@ -16,7 +16,7 @@ module.exports = [
             {id:9,name:'NetApp-FAS8040N1-2'},
             {id:10,name:'NetApp-E-Series-E2860N1-2'},
             {id:11,name:'NetApp-E-Series-E2860N1-2'},
-            {id:12,name:''},
+            {id:12,name:'nas'},
             {id:13,name:''},
             {id:14,name:''},
             {id:15,name:''}

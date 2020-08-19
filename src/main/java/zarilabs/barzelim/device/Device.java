@@ -1,4 +1,4 @@
-package zarilabs.barzelim;
+package zarilabs.barzelim.device;
 
 
 
@@ -9,8 +9,7 @@ import java.util.Objects;
 
 @Entity
 public class Device {
-    private @Id
-    String serialNumber;
+    private @Id String serialNumber;
     private String name;
     private int vendorId;
     private int osTypeId;

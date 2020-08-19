@@ -3,6 +3,7 @@ package zarilabs.barzelim;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+import zarilabs.barzelim.device.DeviceRepository;
 
 @Component
 public class DatabaseLoader implements CommandLineRunner {
