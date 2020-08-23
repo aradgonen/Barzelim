@@ -4,9 +4,9 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import zarilabs.barzelim.device.Device;
-import zarilabs.barzelim.device.DeviceRepository;
-import zarilabs.barzelim.storage.Storage;
+import zarilabs.barzelim.baseobjects.Device;
+import zarilabs.barzelim.repositories.DeviceRepository;
+import zarilabs.barzelim.baseobjects.Storage;
 
 import java.util.stream.Stream;
 

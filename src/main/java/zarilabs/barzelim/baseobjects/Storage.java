@@ -1,6 +1,6 @@
-package zarilabs.barzelim.storage;
+package zarilabs.barzelim.baseobjects;
 
-import zarilabs.barzelim.device.Device;
+import zarilabs.barzelim.baseobjects.Device;
 
 public class Storage extends Device {
     private int arrayTypeId;
