@@ -1,10 +1,10 @@
 package zarilabs.barzelim.services;
 
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import zarilabs.barzelim.baseobjects.Network;
 
-import java.util.List;
-
-public interface NetworkService {
-    List<Network> findAll();
+@RepositoryRestResource
+public interface NetworkService extends CrudRepository<Network, String> {
 
 }

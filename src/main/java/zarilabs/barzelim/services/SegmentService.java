@@ -1,10 +1,10 @@
 package zarilabs.barzelim.services;
 
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import zarilabs.barzelim.baseobjects.Segment;
 
-import java.util.List;
-
-public interface SegmentService {
-    List<Segment> findAll();
+@RepositoryRestResource
+public interface SegmentService extends CrudRepository<Segment, String> {
 
 }

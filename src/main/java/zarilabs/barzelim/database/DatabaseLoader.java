@@ -3,13 +3,13 @@ package zarilabs.barzelim.database;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-import zarilabs.barzelim.repositories.DeviceRepository;
+import zarilabs.barzelim.services.DeviceService;
 
 @Component
 public class DatabaseLoader implements CommandLineRunner {
-    private final DeviceRepository repository;
+    private final DeviceService repository;
     @Autowired
-    public DatabaseLoader(DeviceRepository repository) {
+    public DatabaseLoader(DeviceService repository) {
         this.repository = repository;
     }
 

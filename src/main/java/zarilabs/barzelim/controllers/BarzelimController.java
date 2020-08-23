@@ -1,9 +1,6 @@
 package zarilabs.barzelim.controllers;
 
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import zarilabs.barzelim.baseobjects.*;
@@ -33,30 +30,30 @@ public class BarzelimController {
 
     @GetMapping(value = "/deviceList")
     public List<Device> getDevices() {
-        return deviceService.findAll();
+        return (List<Device>) deviceService.findAll();
     }
     @GetMapping(value = "/storageList")
     public List<Storage> getStorages() {
-        return storageService.findAll();
+        return (List<Storage>) storageService.findAll();
     }
     @GetMapping(value = "/networkList")
     public List<Network> getNetworks() {
-        return networkService.findAll();
+        return (List<Network>) networkService.findAll();
     }
     @GetMapping(value = "/linkList")
     public List<Link> getLinks() {
-        return linkService.findAll();
+        return (List<Link>) linkService.findAll();
     }
     @GetMapping(value = "/segmentList")
     public List<Segment> getSegments() {
-        return segmentService.findAll();
+        return (List<Segment>) segmentService.findAll();
     }
     @GetMapping(value = "/serverList")
     public List<Server> getServers() {
-        return serverService.findAll();
+        return (List<Server>) serverService.findAll();
     }
     @GetMapping(value = "/clusterList")
     public List<Cluster> getClusters() {
-        return clusterService.findAll();
+        return (List<Cluster>) clusterService.findAll();
     }
 }

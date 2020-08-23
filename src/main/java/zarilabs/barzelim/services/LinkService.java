@@ -1,10 +1,10 @@
 package zarilabs.barzelim.services;
 
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import zarilabs.barzelim.baseobjects.Link;
 
-import java.util.List;
-
-public interface LinkService {
-    List<Link> findAll();
+@RepositoryRestResource
+public interface LinkService extends CrudRepository<Link, String> {
 
 }
