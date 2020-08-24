@@ -1,13 +1,16 @@
 package zarilabs.barzelim.baseobjects;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Server extends Device{
     private int fromFactorID;
-    private Storage externalStorage;
+    private String externalStorage; //used to be Storage
 
     public Server(String serialNumber, String name, int vendorId, int osTypeId, int osVersionId, int fromFactorID, Storage externalStorage) {
         super(serialNumber, name, vendorId, osTypeId, osVersionId);
         this.fromFactorID = fromFactorID;
-        this.externalStorage = externalStorage;
+        this.externalStorage = externalStorage.getSerialNumber();
     }
 
     public int getFromFactorID() {
@@ -18,12 +21,12 @@ public class Server extends Device{
         this.fromFactorID = fromFactorID;
     }
 
-    public Storage getExternalStorage() {
+    public String getExternalStorage() {
         return externalStorage;
     }
 
     public void setExternalStorage(Storage externalStorage) {
-        this.externalStorage = externalStorage;
+        this.externalStorage = externalStorage.getSerialNumber();
     }
 
     @Override

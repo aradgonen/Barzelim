@@ -1,5 +1,8 @@
 package zarilabs.barzelim.baseobjects;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Network extends Device {
     private boolean isLayer3;
     private boolean isLayer2;

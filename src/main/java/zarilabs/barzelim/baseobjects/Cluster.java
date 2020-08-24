@@ -1,8 +1,14 @@
 package zarilabs.barzelim.baseobjects;
 
+import javax.persistence.*;
 import java.util.Arrays;
 
+@Entity
 public class Cluster {
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    @SequenceGenerator(name="cluster_generator", sequenceName = "car_seq", allocationSize=50)
+    private Long id;
     private Device[] members;
     private String clusterName;
     private int typeId;

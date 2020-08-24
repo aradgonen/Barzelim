@@ -1,5 +1,8 @@
 package zarilabs.barzelim.baseobjects;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Storage extends Device {
     private int arrayTypeId;
     private int arrayProtocolId;

@@ -1,36 +1,43 @@
 package zarilabs.barzelim.baseobjects;
 
+import javax.persistence.*;
+
+@Entity
 public class Link {
-    private Device fromDevice;
-    private Device toDevice;
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    @SequenceGenerator(name="link_generator", sequenceName = "car_seq", allocationSize=50)
+    private Long id;
+    private String fromDevice; //used to be Device
+    private String toDevice;
     private boolean isOneDirection;
     private int speed;
     private String fromPort;
     private String toPort;
 
     public Link(Device fromDevice, Device toDevice, boolean isOneDirection, int speed, String fromPort, String toPort) {
-        this.fromDevice = fromDevice;
-        this.toDevice = toDevice;
+        this.fromDevice = fromDevice.getSerialNumber();
+        this.toDevice = toDevice.getSerialNumber();
         this.isOneDirection = isOneDirection;
         this.speed = speed;
         this.fromPort = fromPort;
         this.toPort = toPort;
     }
 
-    public Device getFromDevice() {
+    public String getFromDevice() {
         return fromDevice;
     }
 
     public void setFromDevice(Device fromDevice) {
-        this.fromDevice = fromDevice;
+        this.fromDevice = fromDevice.getSerialNumber();
     }
 
-    public Device getToDevice() {
+    public String getToDevice() {
         return toDevice;
     }
 
     public void setToDevice(Device toDevice) {
-        this.toDevice = toDevice;
+        this.toDevice = toDevice.getSerialNumber();
     }
 
     public boolean isOneDirection() {

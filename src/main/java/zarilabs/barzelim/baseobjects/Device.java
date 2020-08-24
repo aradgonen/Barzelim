@@ -1,8 +1,5 @@
 package zarilabs.barzelim.baseobjects;
 
-
-
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.util.Objects;
