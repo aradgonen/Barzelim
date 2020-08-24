@@ -13,6 +13,8 @@ public class Cluster {
     private String clusterName;
     private int typeId;
 
+    private Cluster() {}
+
     public Cluster(Device[] members, String clusterName, int typeId) {
         this.members = members;
         this.clusterName = clusterName;

@@ -8,4 +8,5 @@ public class Segment {
     @GeneratedValue(strategy= GenerationType.AUTO)
     @SequenceGenerator(name="segment_generator", sequenceName = "car_seq", allocationSize=50)
     private Long id;
+    private Segment() {}
 }

@@ -6,7 +6,9 @@ import javax.persistence.Entity;
 public class Network extends Device {
     private boolean isLayer3;
     private boolean isLayer2;
-
+    private Network() {
+        super();
+    }
     public Network(String serialNumber, String name, int vendorId, int osTypeId, int osVersionId, boolean isLayer3, boolean isLayer2) {
         super(serialNumber, name, vendorId, osTypeId, osVersionId);
         this.isLayer3 = isLayer3;

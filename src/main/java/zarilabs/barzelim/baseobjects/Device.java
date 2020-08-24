@@ -12,7 +12,7 @@ public class Device {
     private int osTypeId;
     private int osVersionId;
 
-    private Device() {}
+    protected Device() {}
 
     public Device(String serialNumber,String name, int vendorId, int osTypeId, int osVersionId) {
         this.serialNumber = serialNumber;

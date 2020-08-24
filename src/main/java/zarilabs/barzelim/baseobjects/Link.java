@@ -15,6 +15,9 @@ public class Link {
     private String fromPort;
     private String toPort;
 
+    private Link(){
+
+    }
     public Link(Device fromDevice, Device toDevice, boolean isOneDirection, int speed, String fromPort, String toPort) {
         this.fromDevice = fromDevice.getSerialNumber();
         this.toDevice = toDevice.getSerialNumber();

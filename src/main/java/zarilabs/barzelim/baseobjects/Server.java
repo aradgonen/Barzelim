@@ -7,6 +7,9 @@ public class Server extends Device{
     private int fromFactorID;
     private String externalStorage; //used to be Storage
 
+    private Server(){
+        super();
+    }
     public Server(String serialNumber, String name, int vendorId, int osTypeId, int osVersionId, int fromFactorID, Storage externalStorage) {
         super(serialNumber, name, vendorId, osTypeId, osVersionId);
         this.fromFactorID = fromFactorID;
