@@ -2,9 +2,13 @@ package zarilabs.barzelim.baseobjects;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import java.util.Objects;
 
 @Entity
+//@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Inheritance( strategy = InheritanceType.JOINED )
 public class Device {
     private @Id String serialNumber;
     private String name;

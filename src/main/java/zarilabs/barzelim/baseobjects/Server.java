@@ -1,8 +1,13 @@
 package zarilabs.barzelim.baseobjects;
 
 import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
+//@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@PrimaryKeyJoinColumn(referencedColumnName="serialNumber")
 public class Server extends Device{
     private int fromFactorID;
     private String externalStorage; //used to be Storage

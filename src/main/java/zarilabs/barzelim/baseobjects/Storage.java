@@ -1,8 +1,12 @@
 package zarilabs.barzelim.baseobjects;
 
 import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 
 @Entity
+//@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Inheritance( strategy = InheritanceType.JOINED )
 public class Storage extends Device {
     private int arrayTypeId;
     private int arrayProtocolId;
