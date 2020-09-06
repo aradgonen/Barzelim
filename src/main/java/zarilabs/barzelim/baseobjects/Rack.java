@@ -6,7 +6,7 @@ import javax.persistence.*;
 public class Rack {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    @SequenceGenerator(name="segment_generator", sequenceName = "car_seq", allocationSize=50)
+    @SequenceGenerator(name="rack_generator", sequenceName = "rack_seq", allocationSize=50)
     private Long id;
     private int number;
     private String[] content;

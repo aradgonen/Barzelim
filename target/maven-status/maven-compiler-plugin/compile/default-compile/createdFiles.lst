@@ -4,10 +4,12 @@ zarilabs\barzelim\services\ClusterService.class
 zarilabs\barzelim\baseobjects\Storage.class
 zarilabs\barzelim\services\LinkService.class
 zarilabs\barzelim\baseobjects\Link.class
+zarilabs\barzelim\services\RackService.class
 zarilabs\barzelim\baseobjects\Segment.class
 zarilabs\barzelim\baseobjects\Device.class
 zarilabs\barzelim\services\StorageService.class
 zarilabs\barzelim\baseobjects\Server.class
+zarilabs\barzelim\baseobjects\Rack.class
 zarilabs\barzelim\services\NetworkService.class
 zarilabs\barzelim\services\DeviceService.class
 zarilabs\barzelim\baseobjects\Cluster.class

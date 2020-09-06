@@ -6,7 +6,7 @@ import javax.persistence.*;
 public class Segment {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    @SequenceGenerator(name="segment_generator", sequenceName = "car_seq", allocationSize=50)
+    @SequenceGenerator(name="segment_generator", sequenceName = "segment_seq", allocationSize=50)
     private Long id;
     private String ipaddress;
     private int[] vlans;

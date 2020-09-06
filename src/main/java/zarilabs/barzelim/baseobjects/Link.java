@@ -6,7 +6,7 @@ import javax.persistence.*;
 public class Link {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    @SequenceGenerator(name="link_generator", sequenceName = "car_seq", allocationSize=50)
+    @SequenceGenerator(name="link_generator", sequenceName = "link_seq", allocationSize=50)
     private Long id;
     private String fromDevice; //used to be Device
     private String toDevice;

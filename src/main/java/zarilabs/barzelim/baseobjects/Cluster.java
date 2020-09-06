@@ -7,7 +7,7 @@ import java.util.Arrays;
 public class Cluster {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    @SequenceGenerator(name="cluster_generator", sequenceName = "car_seq", allocationSize=50)
+    @SequenceGenerator(name="cluster_generator", sequenceName = "cluster_seq", allocationSize=50)
     private Long id;
     private String[] members;
     private String clusterName;

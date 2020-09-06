@@ -30,35 +30,31 @@ public class BarzelimController {
     @Resource
     RackService rackService;
 
-    @GetMapping(value = "/deviceList")
+    @GetMapping(value = "/devices")
     public List<Device> getDevices() {
         return (List<Device>) deviceService.findAll();
     }
-    @GetMapping(value = "/storageList")
-    public List<Storage> getStorages() {
-        return (List<Storage>) storageService.findAll();
-    }
-    @GetMapping(value = "/networkList")
+    @GetMapping(value = "/devices/storage")
+    public List<Storage> getStorages() { return (List<Storage>) storageService.findAll(); }
+    @GetMapping(value = "/devices/network")
     public List<Network> getNetworks() {
         return (List<Network>) networkService.findAll();
     }
-    @GetMapping(value = "/linkList")
+    @GetMapping(value = "/devices/servers")
+    public List<Server> getServers() { return (List<Server>) serverService.findAll(); }
+    @GetMapping(value = "/links")
     public List<Link> getLinks() {
         return (List<Link>) linkService.findAll();
     }
-    @GetMapping(value = "/segmentList")
+    @GetMapping(value = "/segments")
     public List<Segment> getSegments() {
         return (List<Segment>) segmentService.findAll();
     }
-    @GetMapping(value = "/serverList")
-    public List<Server> getServers() {
-        return (List<Server>) serverService.findAll();
-    }
-    @GetMapping(value = "/clusterList")
+    @GetMapping(value = "/clusters")
     public List<Cluster> getClusters() {
         return (List<Cluster>) clusterService.findAll();
     }
-    @GetMapping(value = "/rackList")
+    @GetMapping(value = "/racks")
     public List<Rack> getRacks() {
         return (List<Rack>) rackService.findAll();
     }
