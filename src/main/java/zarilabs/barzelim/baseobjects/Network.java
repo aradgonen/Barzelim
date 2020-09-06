@@ -13,8 +13,10 @@ public class Network extends Device {
     private Network() {
         super();
     }
-    public Network(String serialNumber, String name, int vendorId, int osTypeId, int osVersionId, boolean isLayer3, boolean isLayer2) {
-        super(serialNumber, name, vendorId, osTypeId, osVersionId);
+
+
+    public Network(String serialNumber, String name, int vendorId, int osTypeId, int osVersionId, int rackNumber, int uNumber, boolean isLayer3, boolean isLayer2) {
+        super(serialNumber, name, vendorId, osTypeId, osVersionId, rackNumber, uNumber);
         this.isLayer3 = isLayer3;
         this.isLayer2 = isLayer2;
     }

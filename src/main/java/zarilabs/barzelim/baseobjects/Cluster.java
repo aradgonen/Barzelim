@@ -9,23 +9,23 @@ public class Cluster {
     @GeneratedValue(strategy= GenerationType.AUTO)
     @SequenceGenerator(name="cluster_generator", sequenceName = "car_seq", allocationSize=50)
     private Long id;
-    private Device[] members;
+    private String[] members;
     private String clusterName;
     private int typeId;
 
     private Cluster() {}
 
-    public Cluster(Device[] members, String clusterName, int typeId) {
+    public Cluster(String[] members, String clusterName, int typeId) {
         this.members = members;
         this.clusterName = clusterName;
         this.typeId = typeId;
     }
 
-    public Device[] getMembers() {
+    public String[] getMembers() {
         return members;
     }
 
-    public void setMembers(Device[] members) {
+    public void setMembers(String[] members) {
         this.members = members;
     }
 

@@ -15,8 +15,9 @@ public class Storage extends Device {
     private Storage(){
         super();
     }
-    public Storage(String serialNumber, String name, int vendorId, int osTypeId, int osVersionId, int arrayTypeId, int arrayProtocolId, String extramgmtIps) {
-        super(serialNumber, name, vendorId, osTypeId, osVersionId);
+
+    public Storage(String serialNumber, String name, int vendorId, int osTypeId, int osVersionId, int rackNumber, int uNumber, int arrayTypeId, int arrayProtocolId, String extramgmtIps) {
+        super(serialNumber, name, vendorId, osTypeId, osVersionId, rackNumber, uNumber);
         this.arrayTypeId = arrayTypeId;
         this.arrayProtocolId = arrayProtocolId;
         this.extramgmtIps = extramgmtIps;

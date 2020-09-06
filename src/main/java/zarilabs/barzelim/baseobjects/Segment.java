@@ -8,5 +8,37 @@ public class Segment {
     @GeneratedValue(strategy= GenerationType.AUTO)
     @SequenceGenerator(name="segment_generator", sequenceName = "car_seq", allocationSize=50)
     private Long id;
-    private Segment() {}
+    private String ipaddress;
+    private int[] vlans;
+
+    protected Segment() {}
+
+    public Segment(String ipaddress, int[] vlans) {
+        this.ipaddress = ipaddress;
+        this.vlans = vlans;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getIpaddress() {
+        return ipaddress;
+    }
+
+    public void setIpaddress(String ipaddress) {
+        this.ipaddress = ipaddress;
+    }
+
+    public int[] getVlans() {
+        return vlans;
+    }
+
+    public void setVlans(int[] vlans) {
+        this.vlans = vlans;
+    }
 }

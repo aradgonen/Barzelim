@@ -27,6 +27,8 @@ public class BarzelimController {
     ServerService serverService;
     @Resource
     ClusterService clusterService;
+    @Resource
+    RackService rackService;
 
     @GetMapping(value = "/deviceList")
     public List<Device> getDevices() {
@@ -55,5 +57,9 @@ public class BarzelimController {
     @GetMapping(value = "/clusterList")
     public List<Cluster> getClusters() {
         return (List<Cluster>) clusterService.findAll();
+    }
+    @GetMapping(value = "/rackList")
+    public List<Rack> getRacks() {
+        return (List<Rack>) rackService.findAll();
     }
 }

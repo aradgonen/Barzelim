@@ -15,10 +15,12 @@ public class Server extends Device{
     private Server(){
         super();
     }
-    public Server(String serialNumber, String name, int vendorId, int osTypeId, int osVersionId, int fromFactorID, Storage externalStorage) {
-        super(serialNumber, name, vendorId, osTypeId, osVersionId);
+
+
+    public Server(String serialNumber, String name, int vendorId, int osTypeId, int osVersionId, int rackNumber, int uNumber, int fromFactorID, String externalStorage) {
+        super(serialNumber, name, vendorId, osTypeId, osVersionId, rackNumber, uNumber);
         this.fromFactorID = fromFactorID;
-        this.externalStorage = externalStorage.getSerialNumber();
+        this.externalStorage = externalStorage;
     }
 
     public int getFromFactorID() {

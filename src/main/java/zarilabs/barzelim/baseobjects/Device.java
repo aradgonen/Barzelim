@@ -7,7 +7,6 @@ import javax.persistence.InheritanceType;
 import java.util.Objects;
 
 @Entity
-//@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @Inheritance( strategy = InheritanceType.JOINED )
 public class Device {
     private @Id String serialNumber;
@@ -15,15 +14,19 @@ public class Device {
     private int vendorId;
     private int osTypeId;
     private int osVersionId;
+    private int rackNumber;
+    private int uNumber;
 
     protected Device() {}
 
-    public Device(String serialNumber,String name, int vendorId, int osTypeId, int osVersionId) {
+    public Device(String serialNumber,String name, int vendorId, int osTypeId, int osVersionId, int rackNumber, int uNumber) {
         this.serialNumber = serialNumber;
         this.name = name;
         this.vendorId = vendorId;
         this.osTypeId = osTypeId;
         this.osVersionId = osVersionId;
+        this.rackNumber = rackNumber;
+        this.uNumber = uNumber;
     }
 
     @Override
@@ -74,14 +77,32 @@ public class Device {
         this.osVersionId = osVersionId;
     }
 
+    public int getRackNumber() {
+        return rackNumber;
+    }
+
+    public void setRackNumber(int rackNumber) {
+        this.rackNumber = rackNumber;
+    }
+
+    public int getuNumber() {
+        return uNumber;
+    }
+
+    public void setuNumber(int uNumber) {
+        this.uNumber = uNumber;
+    }
+
     @Override
     public String toString() {
         return "Device{" +
                 "serialNumber='" + serialNumber + '\'' +
                 ", name='" + name + '\'' +
-                ", vendorId=" + vendorId + '\'' +
-                ", osTypeId=" + osTypeId + '\'' +
+                ", vendorId=" + vendorId +
+                ", osTypeId=" + osTypeId +
                 ", osVersionId=" + osVersionId +
+                ", rackNumber=" + rackNumber +
+                ", uNumber=" + uNumber +
                 '}';
     }
 }
