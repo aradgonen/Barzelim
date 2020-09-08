@@ -53,37 +53,3 @@ class App extends Component {
   }
 
 export default App;
-
-
-/**
-function App() {
-  const DC = require('../src/rack-table/dc');
-  const dataReciver = require('./utilities/dataReciver')
-  let devices = []
-  let racks = []
-  dataReciver.getDevices().then(devices_ => devices = devices_)
-  dataReciver.getRacks(racks_ => racks = racks_)
-  dataReciver.createDc(racks, devices)
-
-
-  const [searchTerm, setSearchTerm] = React.useState("");
-  const [searchResults, setSearchResults] = React.useState([]);
-  const handleChange = event => {
-    setSearchTerm(event.target.value);
-  };
-  React.useEffect(() => {
-    const results = DC.filter(rack =>
-      JSON.stringify(rack).toLowerCase().includes(searchTerm.toLowerCase().trim()));
-    setSearchResults(results);
-  }, [searchTerm]);
- 
-  return (
-    <React.Fragment>
-      <TopNav></TopNav>
-      <input type="text" placeholder="Type any vaule to search in the DC..." value={searchTerm} onChange={handleChange}/>
-      <Racktable dc={searchResults}></Racktable>
-    </React.Fragment>
-  );
-}
-export default App;
- */
