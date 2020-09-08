@@ -38,14 +38,14 @@ class Racktable extends React.Component {
         
     }
     renderU(rack){
-      return rack.data.map((u,index) => {
+      let rackContent = rack.data.reverse()
+      return rackContent.map((u,index) => {
         return(
           <tbody>
                 <tr onClick={() => this.openUdata(u)}>
-                  <td bgcolor="#000000" width="3%" >{index}</td>
-                  <td align='center'>{u.name} </td>
-                  <td bgcolor="#000000" width="3%">{index}</td>
-                  
+                  <td bgcolor="#000000" width="3%" >{rack.data.length - index}</td>
+                  <td align='center'>{u.name}</td>
+                  <td bgcolor="#000000" width="3%">{rack.data.length - index}</td>
                 </tr>
           </tbody>
         )

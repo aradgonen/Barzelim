@@ -43,15 +43,6 @@ const dataReciver = {
         return (racks)
     },
 
-    // TODO:
-    // create dc object that copies the dc.js object
-    // Map each rack to a rack in the new dc object
-    // Map devices into the rack based on the racks id of devices array
-    // Give Racks and devices the correct network by networkID
-
-    // initialize all the empty U (crash because of infinite loop)
-    // finish creating the dc send back and done!
-    // also - make the mudal values generate from the valus of the device itself! (not predetermide)
     createDc : async (racks = [], devices = []) => {
         let dc = []
         let temporaryRack = {}
@@ -70,7 +61,7 @@ const dataReciver = {
                 devices.forEach(deviceInArray => {
                     if (deviceInArray.deviceID === deviceID) { device = deviceInArray}
                 });
-                temporaryRack.data[device.uNumber] = device
+                temporaryRack.data[device.uNumber - 1] = device // -1 so that the device in 1 will be in the index 0.
                 console.log('device ID!' + device)
             });
             console.log('temporaryRack')
