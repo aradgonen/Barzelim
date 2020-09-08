@@ -11,13 +11,15 @@ public class Rack {
     private int number;
     private String[] content;
     private int networkId;
+    private int size;
 
     protected Rack() {}
 
-    public Rack(int number, String[] content, int networkId) {
+    public Rack(int number, String[] content, int networkId, int size) {
         this.number = number;
         this.content = content;
         this.networkId = networkId;
+        this.size = size;
     }
 
     public Long getId() {
@@ -51,4 +53,8 @@ public class Rack {
     public void setNetworkId(int networkId) {
         this.networkId = networkId;
     }
+
+    public int getSize() { return size; }
+
+    public void setSize(int size) { this.size = size; }
 }

@@ -7,6 +7,11 @@ class UModal extends React.Component {
     let link = this.props.uData.name
     window.open("ssh://"+link , link);
   };
+
+  componentDidMount() {
+    console.log('bruh')
+    console.log(this.props)
+  }
     render() {
         return (
             <Modal show={this.props.show}  animation={true} aria-labelledby="contained-modal-title-vcenter"

@@ -17,7 +17,7 @@ class Racktable extends React.Component {
       return this.props.dc.map(rack => {
         return(
           <Card className="ml-auto mr-auto">
-            <Card.Body>
+            <Card.Body key = {rack.rack_id}>
               <Card.Title>Rack #{rack.rack_id}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">{rack.network}</Card.Subtitle>
                   <Table responsive hover borderless > 

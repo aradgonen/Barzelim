@@ -4,7 +4,7 @@ module.exports = [
     network:"Secret",
     brief:"Netapp,Storage",
       data:[
-            {id:0,name:'NetApp-A300N1-8'},
+            {id:0,name:'NetApp-A300N1-8', other:'hello'},
             {id:1,name:'NetApp-A300N1-8'},
             {id:2,name:'NetApp-A300N1-8'},
             {id:3,name:'NetApp-A300N1-8'},

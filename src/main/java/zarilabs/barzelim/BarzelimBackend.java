@@ -37,7 +37,7 @@ public class BarzelimBackend {
 				//segments
 				{"SEGMENT","1.1.1.1","[100,101]"},
 				//racks
-				{"RACK","892","qwerty123456,lkjhgf8765,kdjfbjd678,fox567890,123456789,123456788","1"},
+				{"RACK","892","qwerty123456,lkjhgf8765,kdjfbjd678,fox567890,123456789,123456788","1","45"},
 				//clusters
 				{"CLUSTER","123456789,123456788","NetApp_Prod_1","1"}
 		};
@@ -64,7 +64,7 @@ public class BarzelimBackend {
 						break;
 					case "RACK":
 						//Rack rack = new Rack(Long.parseLong(UUID.randomUUID().toString(), 16),Integer.parseInt(array[1]),array[2].split(","),Integer.parseInt(array[3]));
-						Rack rack = new Rack(Integer.parseInt(array[1]),array[2].split(","),Integer.parseInt(array[3]));
+						Rack rack = new Rack(Integer.parseInt(array[1]),array[2].split(","),Integer.parseInt(array[3]), Integer.parseInt((array[4])));
 						rackService.save(rack);
 						break;
 					case "CLUSTER":
