@@ -1,14 +1,16 @@
 package zarilabs.barzelim.baseobjects;
 
 import javax.persistence.*;
-
+import lombok.Getter;
+import lombok.Setter;
+@Getter @Setter
 @Entity
 public class Link {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     @SequenceGenerator(name="link_generator", sequenceName = "link_seq", allocationSize=50)
     private Long id;
-    private String fromDevice; //used to be Device
+    private String fromDevice;
     private String toDevice;
     private boolean isOneDirection;
     private int speed;
@@ -18,60 +20,12 @@ public class Link {
     private Link(){
 
     }
-    public Link(Device fromDevice, Device toDevice, boolean isOneDirection, int speed, String fromPort, String toPort) {
-        this.fromDevice = fromDevice.getSerialNumber();
-        this.toDevice = toDevice.getSerialNumber();
+    public Link(String fromDeviceSerial, String toDeviceSerial, boolean isOneDirection, int speed, String fromPort, String toPort) {
+        this.fromDevice = fromDeviceSerial;
+        this.toDevice = toDeviceSerial;
         this.isOneDirection = isOneDirection;
         this.speed = speed;
         this.fromPort = fromPort;
-        this.toPort = toPort;
-    }
-
-    public String getFromDevice() {
-        return fromDevice;
-    }
-
-    public void setFromDevice(Device fromDevice) {
-        this.fromDevice = fromDevice.getSerialNumber();
-    }
-
-    public String getToDevice() {
-        return toDevice;
-    }
-
-    public void setToDevice(Device toDevice) {
-        this.toDevice = toDevice.getSerialNumber();
-    }
-
-    public boolean isOneDirection() {
-        return isOneDirection;
-    }
-
-    public void setOneDirection(boolean oneDirection) {
-        isOneDirection = oneDirection;
-    }
-
-    public int getSpeed() {
-        return speed;
-    }
-
-    public void setSpeed(int speed) {
-        this.speed = speed;
-    }
-
-    public String getFromPort() {
-        return fromPort;
-    }
-
-    public void setFromPort(String fromPort) {
-        this.fromPort = fromPort;
-    }
-
-    public String getToPort() {
-        return toPort;
-    }
-
-    public void setToPort(String toPort) {
         this.toPort = toPort;
     }
 

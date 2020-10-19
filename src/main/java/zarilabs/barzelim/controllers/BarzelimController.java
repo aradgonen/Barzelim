@@ -1,8 +1,6 @@
 package zarilabs.barzelim.controllers;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import zarilabs.barzelim.baseobjects.*;
 import zarilabs.barzelim.services.*;
 
@@ -34,6 +32,14 @@ public class BarzelimController {
     public List<Device> getDevices() {
         return (List<Device>) deviceService.findAll();
     }
+    @PostMapping(path = "/devices", consumes = "application/json", produces = "application/json")
+    public void addMember(@RequestBody Device device) {
+        deviceService.save(device);
+    }
+    @GetMapping(path = "/devices/rack/{rack_number}")
+    public List<Device> getDevicesByRack(@PathVariable("rack_number") String rack_number )  {
+        return deviceService.findDeviceByRack(Integer.parseInt(rack_number));
+    }
     @GetMapping(value = "/devices/storage")
     public List<Storage> getStorages() { return (List<Storage>) storageService.findAll(); }
     @GetMapping(value = "/devices/network")
@@ -57,5 +63,9 @@ public class BarzelimController {
     @GetMapping(value = "/racks")
     public List<Rack> getRacks() {
         return (List<Rack>) rackService.findAll();
+    }
+    @PostMapping(path = "/racks", consumes = "application/json", produces = "application/json")
+    public void addMember(@RequestBody Rack rack) {
+        rackService.save(rack);
     }
 }

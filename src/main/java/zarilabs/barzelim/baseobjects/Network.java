@@ -3,9 +3,10 @@ package zarilabs.barzelim.baseobjects;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-
+import lombok.Getter;
+import lombok.Setter;
+@Getter @Setter
 @Entity
-//@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @Inheritance( strategy = InheritanceType.JOINED )
 public class Network extends Device {
     private boolean isLayer3;
@@ -15,26 +16,10 @@ public class Network extends Device {
     }
 
 
-    public Network(String serialNumber, String name, int vendorId, int osTypeId, int osVersionId, int rackNumber, int uNumber, boolean isLayer3, boolean isLayer2) {
-        super(serialNumber, name, vendorId, osTypeId, osVersionId, rackNumber, uNumber);
+    public Network(String serialNumber, String name, int vendorId, int osTypeId, int osVersionId, int rack_number, int uNumber, boolean isLayer3, boolean isLayer2) {
+        super(serialNumber, name, vendorId, osTypeId, osVersionId, rack_number, uNumber);
         this.isLayer3 = isLayer3;
         this.isLayer2 = isLayer2;
-    }
-
-    public boolean isLayer3() {
-        return isLayer3;
-    }
-
-    public void setLayer3(boolean layer3) {
-        isLayer3 = layer3;
-    }
-
-    public boolean isLayer2() {
-        return isLayer2;
-    }
-
-    public void setLayer2(boolean layer2) {
-        isLayer2 = layer2;
     }
 
     @Override

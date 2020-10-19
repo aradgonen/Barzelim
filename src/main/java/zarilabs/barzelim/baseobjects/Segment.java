@@ -1,7 +1,9 @@
 package zarilabs.barzelim.baseobjects;
 
 import javax.persistence.*;
-
+import lombok.Getter;
+import lombok.Setter;
+@Getter @Setter
 @Entity
 public class Segment {
     @Id
@@ -15,30 +17,6 @@ public class Segment {
 
     public Segment(String ipaddress, int[] vlans) {
         this.ipaddress = ipaddress;
-        this.vlans = vlans;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getIpaddress() {
-        return ipaddress;
-    }
-
-    public void setIpaddress(String ipaddress) {
-        this.ipaddress = ipaddress;
-    }
-
-    public int[] getVlans() {
-        return vlans;
-    }
-
-    public void setVlans(int[] vlans) {
         this.vlans = vlans;
     }
 }
