@@ -6,7 +6,10 @@ C:\Users\gonen\Documents\Barzelim\src\main\java\zarilabs\barzelim\services\Devic
 C:\Users\gonen\Documents\Barzelim\src\main\java\zarilabs\barzelim\baseobjects\Rack.java
 C:\Users\gonen\Documents\Barzelim\src\main\java\zarilabs\barzelim\services\StorageService.java
 C:\Users\gonen\Documents\Barzelim\src\main\java\zarilabs\barzelim\baseobjects\Network.java
+C:\Users\gonen\Documents\Barzelim\src\main\java\zarilabs\barzelim\neo4jrepositories\DeviceNodeService.java
 C:\Users\gonen\Documents\Barzelim\src\main\java\zarilabs\barzelim\services\LinkService.java
+C:\Users\gonen\Documents\Barzelim\src\main\java\zarilabs\barzelim\basenodes\RackNode.java
+C:\Users\gonen\Documents\Barzelim\src\main\java\zarilabs\barzelim\basenodes\DeviceNode.java
 C:\Users\gonen\Documents\Barzelim\src\main\java\zarilabs\barzelim\services\NetworkService.java
 C:\Users\gonen\Documents\Barzelim\src\main\java\zarilabs\barzelim\baseobjects\Link.java
 C:\Users\gonen\Documents\Barzelim\src\main\java\zarilabs\barzelim\services\SegmentService.java
@@ -14,7 +17,7 @@ C:\Users\gonen\Documents\Barzelim\src\main\java\zarilabs\barzelim\baseobjects\Se
 C:\Users\gonen\Documents\Barzelim\src\main\java\zarilabs\barzelim\baseobjects\Storage.java
 C:\Users\gonen\Documents\Barzelim\src\main\java\zarilabs\barzelim\services\ClusterService.java
 C:\Users\gonen\Documents\Barzelim\src\main\java\zarilabs\barzelim\BarzelimBackend.java
+C:\Users\gonen\Documents\Barzelim\src\main\java\zarilabs\barzelim\neo4jrepositories\RackNodeService.java
 C:\Users\gonen\Documents\Barzelim\src\main\java\zarilabs\barzelim\controllers\BarzelimController.java
 C:\Users\gonen\Documents\Barzelim\src\main\java\zarilabs\barzelim\database\DatabaseLoader.java
-C:\Users\gonen\Documents\Barzelim\src\main\java\zarilabs\barzelim\repositories\DeviceRepository.java
 C:\Users\gonen\Documents\Barzelim\src\main\java\zarilabs\barzelim\baseobjects\Cluster.java
