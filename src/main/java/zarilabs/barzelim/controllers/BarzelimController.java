@@ -1,7 +1,9 @@
 package zarilabs.barzelim.controllers;
 
 import org.springframework.web.bind.annotation.*;
+import zarilabs.barzelim.basenodes.*;
 import zarilabs.barzelim.baseobjects.*;
+import zarilabs.barzelim.neo4jrepositories.*;
 import zarilabs.barzelim.services.*;
 
 import javax.annotation.Resource;
@@ -27,6 +29,9 @@ public class BarzelimController {
     ClusterService clusterService;
     @Resource
     RackService rackService;
+
+
+
 
     @GetMapping(value = "/devices")
     public List<Device> getDevices() {
@@ -67,5 +72,61 @@ public class BarzelimController {
     @PostMapping(path = "/racks", consumes = "application/json", produces = "application/json")
     public void addMember(@RequestBody Rack rack) {
         rackService.save(rack);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //Neo4J Controllers
+    @Resource
+    DeviceNodeService deviceNodeService;
+    @Resource
+    ServerNodeService serverNodeService;
+    @Resource
+    RackNodeService rackNodeService;
+    @Resource
+    StorageNodeService storageNodeService;
+    @Resource
+    LinkRelationService linkRelationService;
+
+    @GetMapping(value = "/neo4j/devices")
+    public List<DeviceNode> getDeviceNodes(){ return (List<DeviceNode>) deviceNodeService.findAll();}
+
+    @PostMapping(value = "/neo4j/servers" ,consumes = "application/json", produces = "application/json")
+    public void newServer(@RequestBody ServerNode serverNode) {
+        RackNode insertTo = rackNodeService.findByName(serverNode.getRackNumber());
+        if(serverNode.getExternalStorage() != null)
+        {
+            StorageNode san = storageNodeService.findByName(serverNode.getExternalStorage());
+            serverNode.connectToSan(san);
+        }
+        insertTo.putInRack(serverNode);
+        rackNodeService.save(insertTo);
+    }
+
+    @PostMapping(value = "/neo4j/lan/connect" ,consumes = "application/json", produces = "application/json")
+    public void connectLan(@RequestParam String fromSerial, @RequestParam String toSerial, @RequestParam String netType){
+        DeviceNode from = deviceNodeService.findByserialNumber(fromSerial);
+        DeviceNode to = deviceNodeService.findByserialNumber(toSerial);
+        LinkRelation lan = new LinkRelation(netType,from,to);
+        linkRelationService.save(lan);
+    }
+
+    @PostMapping(value = "/neo4j/rack/insert", consumes = "application/json", produces = "application/json")
+    public void addDeviceToRack(@RequestParam Integer rackNumber, @RequestParam String serialNumber){
+        RackNode insertTo = rackNodeService.findByName(rackNumber);
+        DeviceNode toInsert = deviceNodeService.findByserialNumber(serialNumber);
+        insertTo.putInRack(toInsert);
     }
 }

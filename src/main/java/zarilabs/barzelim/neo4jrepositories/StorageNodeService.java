@@ -7,4 +7,5 @@ import zarilabs.barzelim.basenodes.StorageNode;
 
 public interface StorageNodeService extends Neo4jRepository<StorageNode, Long> {
     StorageNode findByserialNumber(String serialNumber);
+    StorageNode findByName(String name);
 }
