@@ -40,6 +40,7 @@ class App extends Component {
     this.setState(state_)
     console.log(devices)
     console.log(racks)
+    console.log(DC)
   }
 
   render() {

@@ -30,11 +30,11 @@ public class RackNode {
     @Relationship(type = "IN", direction = Relationship.INCOMING)
     private Set<DeviceNode> content;
 
-    public void putInRack(DeviceNode deviceNode){
+    public void putInRack(DeviceNode DeviceNode){
         if(content == null){
             content = new HashSet<>();
         }
-        content.add(deviceNode);
+        content.add(DeviceNode);
     }
 
     @Override

@@ -102,6 +102,8 @@ public class BarzelimController {
 
     @GetMapping(value = "/neo4j/devices")
     public List<DeviceNode> getDeviceNodes(){ return (List<DeviceNode>) deviceNodeService.findAll();}
+    @GetMapping(value = "/neo4j/racks")
+    public List<RackNode> getRacksNodes(){ return (List<RackNode>) rackNodeService.findAll();}
 
     @PostMapping(value = "/neo4j/servers" ,consumes = "application/json", produces = "application/json")
     public void newServer(@RequestBody ServerNode serverNode) {

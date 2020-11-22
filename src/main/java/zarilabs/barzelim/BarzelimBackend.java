@@ -40,12 +40,12 @@ public class BarzelimBackend {
 			linkRelationService.deleteAll();
 
 			//define devices
-			NetworkNode device_a = new NetworkNode("a1a2a3a4a5a6","access switch","cisco","nxos","10",69,"",19,false,true);
-			ServerNode device_b = new ServerNode("h5h5h65h76h5","esxi","hp","esx","7",69,"",10,"Pizza","NetApp-LAB");
-			StorageNode device_c = new StorageNode("25445424354","NetApp-LAB","NetApp","ONTAP","9.3",69,"",20,"NetApp","SAN","1.1.1.1");
-			ServerNode device_d = new ServerNode("sdfkjsdbkkfdj78dvj","linux","cisco","rhel","8",79,"",12,"Pizza","EMC-PROD");
-			NetworkNode device_e = new NetworkNode("kdhf89df","access switch","cisco","nxos","10",79,"",19,false,true);
-			StorageNode device_f = new StorageNode("ofjsea8","EMC-PROD","EMC","Enginuity","5977",79,"",20,"EMC","SAN","1.1.1.2");
+			NetworkNode device_a = new NetworkNode("a1a2a3a4a5a6","access switch","cisco","nxos","10",69,"",41,false,true);
+			ServerNode device_b = new ServerNode("h5h5h65h76h5","esxi","hp","esx","7",69,"",39,"Pizza","NetApp-LAB");
+			StorageNode device_c = new StorageNode("25445424354","NetApp-LAB","NetApp","ONTAP","9.3",69,"",33,"NetApp","SAN","1.1.1.1");
+			ServerNode device_d = new ServerNode("sdfkjsdbkkfdj78dvj","linux","cisco","rhel","8",79,"",35,"Pizza","EMC-PROD");
+			NetworkNode device_e = new NetworkNode("kdhf89df","access switch","cisco","nxos","10",79,"",42,false,true);
+			StorageNode device_f = new StorageNode("ofjsea8","EMC-PROD","EMC","Enginuity","5977",79,"",40,"EMC","SAN","1.1.1.2");
 			//define racks
 			RackNode rack_a = new RackNode(69,"LAB",42);
 			RackNode rack_b = new RackNode(79,"PROD",42);
