@@ -34,37 +34,54 @@ class UModal extends React.Component {
       }
 
       try{
-        let _modal =
-<Modal show={this.props.show}  animation={true} aria-labelledby="contained-modal-title-vcenter"
-        centered>
-          <Modal.Header>
-            <Modal.Title>More Data</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-          {dataArray}
-          <ResponsiveNeoGraph
-        containerId={"neo4j"}
-        neo4jUri={"bolt://localhost:7687"}
-        neo4jUser={"neo4j"}
-        neo4jPassword={"shMador1"}
-        neo4jcommand={`MATCH (a {serialNumber: "${this.props.uData.serialNumber}"})-[r]-(b) RETURN r, b,a`}
-      />
-      
+        if(this.props.showconnections){
+          let _modal =    <Modal show={this.props.show}  animation={true} aria-labelledby="contained-modal-title-vcenter"
+          centered>
+            <Modal.Header>
+              <Modal.Title>Connection Data</Modal.Title>
+            </Modal.Header>
+            <Modal.Body id="neo4j">
+            <ResponsiveNeoGraph
+          containerId={"neo4j"}
+          neo4jUri={"bolt://localhost:7687"}
+          neo4jUser={"neo4j"}
+          neo4jPassword={"shMador1"}
+          neo4jcommand={`MATCH (a {serialNumber: "${this.props.uData.serialNumber}"})-[r]-(b) RETURN r, b,a`}
+        />
+            </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={this.props.hide}>
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>      
+              return _modal 
+        }
+        else{
+          let _modal =
+          <Modal show={this.props.show}  animation={true} aria-labelledby="contained-modal-title-vcenter"
+                  centered>
+                    <Modal.Header>
+                      <Modal.Title>More Data</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                    {dataArray}
+                    </Modal.Body>
+                  <Modal.Footer>
+                    <Button variant="secondary" onClick={this.props.hide}>
+                      Close
+                    </Button>
+                    <Button variant="info" onClick={this.openssh}>
+                      Open SSH Connection
+                    </Button>
+                  </Modal.Footer>
+                </Modal>
+                      return _modal
+        }
 
-      
-          </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={this.props.hide}>
-            Close
-          </Button>
-          <Button variant="info" onClick={this.openssh}>
-            Open SSH Connection
-          </Button>
-        </Modal.Footer>
-      </Modal>
         
 
-      return _modal
+
       }
       catch(error){
         console.error()

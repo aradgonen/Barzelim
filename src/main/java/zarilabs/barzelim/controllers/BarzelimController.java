@@ -101,7 +101,7 @@ public class BarzelimController {
     LinkRelationService linkRelationService;
 
     @GetMapping(value = "/neo4j/devices")
-    public List<DeviceNode> getDeviceNodes(){ return (List<DeviceNode>) deviceNodeService.findAll();}
+    public List<XDeviceNode> getDeviceNodes(){ return (List<XDeviceNode>) deviceNodeService.findAll();}
     @GetMapping(value = "/neo4j/racks")
     public List<RackNode> getRacksNodes(){ return (List<RackNode>) rackNodeService.findAll();}
 
@@ -119,8 +119,8 @@ public class BarzelimController {
 
     @PostMapping(value = "/neo4j/lan/connect" ,consumes = "application/json", produces = "application/json")
     public void connectLan(@RequestParam String fromSerial, @RequestParam String toSerial, @RequestParam String netType){
-        DeviceNode from = deviceNodeService.findByserialNumber(fromSerial);
-        DeviceNode to = deviceNodeService.findByserialNumber(toSerial);
+        XDeviceNode from = deviceNodeService.findByserialNumber(fromSerial);
+        XDeviceNode to = deviceNodeService.findByserialNumber(toSerial);
         LinkRelation lan = new LinkRelation(netType,from,to);
         linkRelationService.save(lan);
     }
@@ -128,7 +128,7 @@ public class BarzelimController {
     @PostMapping(value = "/neo4j/rack/insert", consumes = "application/json", produces = "application/json")
     public void addDeviceToRack(@RequestParam Integer rackNumber, @RequestParam String serialNumber){
         RackNode insertTo = rackNodeService.findByName(rackNumber);
-        DeviceNode toInsert = deviceNodeService.findByserialNumber(serialNumber);
+        XDeviceNode toInsert = deviceNodeService.findByserialNumber(serialNumber);
         insertTo.putInRack(toInsert);
     }
 }

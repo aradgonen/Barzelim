@@ -9,7 +9,7 @@ import org.neo4j.ogm.annotation.NodeEntity;
 @Getter @Setter
 @NodeEntity
 
-public class StorageNode extends DeviceNode {
+public class StorageNode extends XDeviceNode {
 
     private String arrayType;
     private String arrayProtocol;

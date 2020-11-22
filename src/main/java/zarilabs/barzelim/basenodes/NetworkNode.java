@@ -10,7 +10,7 @@ import org.neo4j.ogm.annotation.Relationship;
 @Getter @Setter
 @NodeEntity
 
-public class NetworkNode extends DeviceNode {
+public class NetworkNode extends XDeviceNode {
 
     @Id @GeneratedValue private Long id;
     private boolean isLayer3;

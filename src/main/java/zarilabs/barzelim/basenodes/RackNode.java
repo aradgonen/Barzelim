@@ -28,13 +28,13 @@ public class RackNode {
     }
 
     @Relationship(type = "IN", direction = Relationship.INCOMING)
-    private Set<DeviceNode> content;
+    private Set<XDeviceNode> content;
 
-    public void putInRack(DeviceNode DeviceNode){
+    public void putInRack(XDeviceNode XDeviceNode){
         if(content == null){
             content = new HashSet<>();
         }
-        content.add(DeviceNode);
+        content.add(XDeviceNode);
     }
 
     @Override

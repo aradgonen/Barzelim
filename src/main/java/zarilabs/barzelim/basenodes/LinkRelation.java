@@ -9,10 +9,10 @@ import org.neo4j.ogm.annotation.*;
 public class LinkRelation {
     @Id @GeneratedValue private Long id;
     @Property private String netType;
-    @StartNode private DeviceNode from;
-    @EndNode private  DeviceNode to;
+    @StartNode private XDeviceNode from;
+    @EndNode private  XDeviceNode to;
 
-    public LinkRelation(String netType, DeviceNode from, DeviceNode to) {
+    public LinkRelation(String netType, XDeviceNode from, XDeviceNode to) {
         this.netType = netType;
         this.from = from;
         this.to = to;

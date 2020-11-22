@@ -10,7 +10,7 @@ import org.neo4j.ogm.annotation.Relationship;
 @Getter @Setter
 @NodeEntity
 
-public class ServerNode extends DeviceNode {
+public class ServerNode extends XDeviceNode {
     @Id @GeneratedValue private Long id;
     private String fromFactor;
     private String externalStorage;

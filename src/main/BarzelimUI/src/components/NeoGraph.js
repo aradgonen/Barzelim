@@ -70,8 +70,8 @@ const NeoGraph = (props) => {
 };
 
 NeoGraph.defaultProps = {
-  width: 8000,
-  height: 8000,
+  width: 6000,
+  height: 6000,
   backgroundColor: "#d3d3d3",
 };
 

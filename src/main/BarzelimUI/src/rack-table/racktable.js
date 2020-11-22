@@ -4,14 +4,16 @@ import UModal from './Umodal';
 import rack_34u from './rack_34u.png';
 
 class Racktable extends React.Component {
-  state = { showUModal: false , curU:''};
+  state = { showInfoModal: false , showDeviceConnectionModal: false, curU:''};
 
-  showModal = (u) => {
-    this.setState({ showUModal: true , curU: u});
+  showInfoModal = (u) => {
+    this.setState({ showInfoModal: true , curU: u, showDeviceConnectionModal:false});
   };
-
+  showDeviceConnectionModal = (u) => {
+    this.setState({ showDeviceConnectionModal: true , curU: u, showInfoModal: false});
+  };
   hideModal = () => {
-    this.setState({ showUModal: false });
+    this.setState({ showInfoModal: false, showDeviceConnectionModal: false });
   };
     renderRack(){
       return this.props.dc.map(rack => {
@@ -42,30 +44,47 @@ class Racktable extends React.Component {
       return rackContent.map((u,index) => {
         return(
           <tbody>
-                <tr onClick={() => this.openUdata(u)}>
+                <tr>
                   <td bgcolor="#000000" width="3%" >{rack.data.length - index}</td>
-                  <td align='center'>{u.name}</td>
-                  <td bgcolor="#000000" width="3%">{rack.data.length - index}</td>
+                  <td align='center' onClick={() => this.openInfoModal(u)}>{u.name}</td>
+                  <td bgcolor="#606060" width="3%" onClick={() => this.openDeviceConnectionModal(u)}>{rack.data.length - index}</td>
                 </tr>
           </tbody>
         )
       })
     }
-    openUdata(u){
-      if(this.state.showUModal){
+    openInfoModal(u){
+      if(this.state.showInfoModal){
         this.hideModal();
       }
       else{
-        this.showModal(u);
+        this.showInfoModal(u);
+      }
+    }
+    openDeviceConnectionModal(u){
+      if(this.state.showDeviceConnectionModal){
+        this.hideModal();
+      }
+      else{
+        this.showDeviceConnectionModal(u);
       }
     }
     render() {
+      let modal;
+      if(this.state.showDeviceConnectionModal)
+      {
+        modal = <UModal show={this.state.showDeviceConnectionModal} uData = {this.state.curU} hide = {this.hideModal} showconnections = {this.state.showDeviceConnectionModal}></UModal>
+      }
+      else{
+        modal = <UModal show={this.state.showInfoModal} uData = {this.state.curU} hide = {this.hideModal}></UModal>
+          
+      }
         return (
           <Container align="center">
             <Row xs='4'>
             {this.renderRack()}
           </Row>
-          <UModal show={this.state.showUModal} uData = {this.state.curU} hide = {this.hideModal} ></UModal>
+          {modal}
         </Container>
               
 

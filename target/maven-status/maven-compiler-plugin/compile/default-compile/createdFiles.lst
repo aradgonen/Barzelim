@@ -24,9 +24,9 @@ zarilabs\barzelim\services\ClusterService.class
 zarilabs\barzelim\services\LinkService.class
 zarilabs\barzelim\basenodes\StorageNode.class
 zarilabs\barzelim\baseobjects\Device.class
+zarilabs\barzelim\basenodes\XDeviceNode.class
 zarilabs\barzelim\basenodes\NetworkNode.class
 zarilabs\barzelim\services\NetworkService.class
 zarilabs\barzelim\BarzelimBackend.class
-zarilabs\barzelim\basenodes\DeviceNode.class
 zarilabs\barzelim\basenodes\LinkRelation.class
 zarilabs\barzelim\services\SegmentService.class

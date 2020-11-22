@@ -14,7 +14,7 @@ import javax.persistence.InheritanceType;
 
 @Getter @Setter
 @NodeEntity
-public class DeviceNode {
+public class XDeviceNode {
     @Id @GeneratedValue private Long id;
     private String serialNumber;
     private String name;
@@ -25,9 +25,9 @@ public class DeviceNode {
     private String clusterName;
     private int uNumber;
 
-    protected DeviceNode() {}
+    protected XDeviceNode() {}
 
-    public DeviceNode(String serialNumber, String name, String vendor, String osType, String osVersion, int rackNumber, String clusterName, int uNumber) {
+    public XDeviceNode(String serialNumber, String name, String vendor, String osType, String osVersion, int rackNumber, String clusterName, int uNumber) {
         this.serialNumber = serialNumber;
         this.name = name;
         this.vendor = vendor;
@@ -40,7 +40,7 @@ public class DeviceNode {
 
     @Override
     public String toString() {
-        return "DeviceNode{" +
+        return "XDeviceNode{" +
                 "serialNumber='" + serialNumber + '\'' +
                 ", name='" + name + '\'' +
                 ", vendor=" + vendor +
