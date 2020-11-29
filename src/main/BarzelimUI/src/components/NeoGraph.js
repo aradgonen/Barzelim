@@ -70,8 +70,8 @@ const NeoGraph = (props) => {
 };
 
 NeoGraph.defaultProps = {
-  width: 6000,
-  height: 6000,
+  width: 300,
+  height: 300,
   backgroundColor: "#d3d3d3",
 };
 
@@ -89,7 +89,7 @@ NeoGraph.propTypes = {
 const ResponsiveNeoGraph = (props) => {
   const [resizeListener, sizes] = useResizeAware();
 
-  const side = Math.max(sizes.width, sizes.height) / 2;
+  const side = Math.max(sizes.width, sizes.height);
   const neoGraphProps = { ...props, width: side, height: side };
   return (
     <div style={{ position: "relative" }}>

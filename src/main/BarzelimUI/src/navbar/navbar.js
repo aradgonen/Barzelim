@@ -31,7 +31,7 @@ class TopNav extends React.Component {
                         </Navbar.Collapse>
                         <Navbar.Collapse className="justify-content-end">
                       <Navbar.Text>
-                        Signed in as: <a href="#login"></a>
+                        Hello Guest !<a href="#login"></a>
                       </Navbar.Text>
                     </Navbar.Collapse>
                 </Navbar>

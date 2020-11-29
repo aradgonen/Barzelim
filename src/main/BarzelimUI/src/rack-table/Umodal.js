@@ -3,13 +3,43 @@ import {Button, Dropdown} from "react-bootstrap"
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {ResponsiveNeoGraph} from "../components/NeoGraph.js"
+// import { Graph } from 'react-d3-graph';
+// const data = {
+//   nodes: [{ id: 'Harry' }, { id: 'Sally' }, { id: 'Alice' }],
+//   links: [{ source: 'Harry', target: 'Sally' }, { source: 'Harry', target: 'Alice' }]
+// };
+
+// the graph configuration, you only need to pass down properties
+// that you want to override, otherwise default ones will be used
+// const myConfig = {
+//   nodeHighlightBehavior: true,
+//   node: {
+//       color: 'lightgreen',
+//       size: 300,
+//       highlightStrokeColor: 'blue'
+//   },
+//   link: {
+//       highlightColor: 'lightblue'
+//   }
+// };
 class UModal extends React.Component {
+  
   openssh = () =>{
     let link = this.props.uData.name
     window.open("ssh://"+link , link);
   };
   componentDidCatch(error){
     console.log()
+  }
+  async getCurUData(uSerialNumber){
+    let uData;
+    try{
+      uData = (await fetch('/neo4j/devices/device/connections/'+uSerialNumber)).json()
+    }
+    catch{
+      console.log()
+    }
+    return uData;
   }
     render() {
 
@@ -40,14 +70,28 @@ class UModal extends React.Component {
             <Modal.Header>
               <Modal.Title>Connection Data</Modal.Title>
             </Modal.Header>
-            <Modal.Body id="neo4j">
-            <ResponsiveNeoGraph
+            <Modal.Body>
+          <ResponsiveNeoGraph id="neo4j"
           containerId={"neo4j"}
           neo4jUri={"bolt://localhost:7687"}
           neo4jUser={"neo4j"}
           neo4jPassword={"shMador1"}
           neo4jcommand={`MATCH (a {serialNumber: "${this.props.uData.serialNumber}"})-[r]-(b) RETURN r, b,a`}
         />
+{/* <Graph
+    id="graph-id" // id is mandatory, if no id is defined rd3g will throw an error
+    data={this.getCurUData(this.props.uData.serialNumber)}
+    config={myConfig}
+    // onClickNode={onClickNode}
+    // onRightClickNode={onRightClickNode}
+    // onClickGraph={onClickGraph}
+    // onClickLink={onClickLink}
+    // onRightClickLink={onRightClickLink}
+    // onMouseOverNode={onMouseOverNode}
+    // onMouseOutNode={onMouseOutNode}
+    // onMouseOverLink={onMouseOverLink}
+    // onMouseOutLink={onMouseOutLink}
+/>; */}
             </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={this.props.hide}>
