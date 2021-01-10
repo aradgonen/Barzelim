@@ -4,7 +4,7 @@ import Racktable from './rack-table/racktable';
 import TopNav from './navbar/navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import dataReciver from './utilities/dataReciver' //use import instead of require because auto build is stupid
-import FirstTimePage from './FirstTImePage/firstTimePage'
+import FirstTimePage from './FirstTimePage/FirstTImePage'
 import Cookies from 'js-cookie'
 const config = require('./config.json');
 
