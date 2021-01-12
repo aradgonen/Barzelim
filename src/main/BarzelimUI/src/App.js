@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
 import './App.css';
-import Racktable from './rack-table/racktable';
-import TopNav from './navbar/navbar';
+import Racktable from './UI/Components/RackTable/RackTable';
+import TopNav from './UI/Components/navbar/navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import dataReciver from './utilities/dataReciver' //use import instead of require because auto build is stupid
-import FirstTimePage from './FirstTimePage/FirstTImePage'
+import dataReciver from './utilities/dataReciver'
 import Cookies from 'js-cookie'
-const config = require('./config.json');
+import FirstTimePage from './UI/Components/FirstTimePage/FirstTImePage'
+
+const config = require('./Configuration/config.json');
 
 //const DC = require('../src/rack-table/dc')
 let DC = [];

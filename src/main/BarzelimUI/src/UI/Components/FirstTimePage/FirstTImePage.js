@@ -1,7 +1,5 @@
 import React from 'react';
-import Modal from "react-bootstrap/Modal";
-import {Button} from "react-bootstrap"
-import 'bootstrap/dist/css/bootstrap.min.css';
+import {Modal, Button} from "react-bootstrap";
 
 class FirstTimePage extends React.Component {
 
