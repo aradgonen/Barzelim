@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
 import Racktable from './rack-table/racktable';
+import DcView from './dc-view/dc_view'
 import TopNav from './navbar/navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import dataReciver from './utilities/dataReciver' //use import instead of require because auto build is stupid
@@ -99,7 +100,8 @@ class App extends Component {
                         <TopNav></TopNav>
                         {popUp}
                         <input type="text" placeholder="Type any vaule to search in the DC..." value={this.state.searchTerm} onChange={this.handleChange}/>
-                        <Racktable dc={this.state.searchResults}></Racktable>
+                        {/* <Racktable dc={this.state.searchResults}></Racktable> */}
+                          <DcView dc={this.state.searchResults}></DcView>
                       </React.Fragment>
 
     return (

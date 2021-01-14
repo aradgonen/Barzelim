@@ -4,9 +4,9 @@ import org.springframework.data.neo4j.annotation.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 import zarilabs.barzelim.basenodes.*;
-import zarilabs.barzelim.baseobjects.*;
+//import zarilabs.barzelim.baseobjects.*;
 import zarilabs.barzelim.neo4jrepositories.*;
-import zarilabs.barzelim.services.*;
+//import zarilabs.barzelim.services.*;
 
 import javax.annotation.Resource;
 import java.util.List;

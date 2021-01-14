@@ -1,16 +1,16 @@
 package zarilabs.barzelim;
 
 //import org.springframework.boot.ApplicationRunner;
-import org.springframework.boot.ApplicationRunner;
+//import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.neo4j.repository.config.EnableNeo4jRepositories;
 import zarilabs.barzelim.basenodes.*;
-import zarilabs.barzelim.baseobjects.*;
+//import zarilabs.barzelim.baseobjects.*;
 import zarilabs.barzelim.neo4jrepositories.*;
-import zarilabs.barzelim.services.*;
+//import zarilabs.barzelim.services.*;
 //import org.springframework.context.annotation.Bean;
 //import zarilabs.barzelim.baseobjects.Device;
 //import zarilabs.barzelim.services.DeviceService;
@@ -49,6 +49,17 @@ public class BarzelimBackend {
 			//define racks
 			RackNode rack_a = new RackNode(69,"LAB",42);
 			RackNode rack_b = new RackNode(79,"PROD",42);
+			RackNode rack_c = new RackNode(80,"PROD",42);
+			RackNode rack_d = new RackNode(81,"PROD",42);
+			RackNode rack_e = new RackNode(82,"PROD",42);
+			RackNode rack_f = new RackNode(83,"PROD",42);
+			RackNode rack_g = new RackNode(84,"PROD",42);
+			RackNode rack_h = new RackNode(85,"PROD",42);
+			RackNode rack_i = new RackNode(86,"PROD",42);
+			RackNode rack_j = new RackNode(87,"PROD",42);
+			RackNode rack_k = new RackNode(88,"PROD",42);
+			RackNode rack_l = new RackNode(89,"PROD",42);
+
 			//define link
 			LinkRelation link_a = new LinkRelation("layer_2",device_b,device_a);
 			rack_a.putInRack(device_a);
@@ -71,6 +82,16 @@ public class BarzelimBackend {
 			storageNodeService.save(device_f);
 			rackNodeService.save(rack_a);
 			rackNodeService.save(rack_b);
+			rackNodeService.save(rack_c);
+			rackNodeService.save(rack_d);
+			rackNodeService.save(rack_e);
+			rackNodeService.save(rack_f);
+			rackNodeService.save(rack_g);
+			rackNodeService.save(rack_h);
+			rackNodeService.save(rack_i);
+			rackNodeService.save(rack_j);
+			rackNodeService.save(rack_k);
+			rackNodeService.save(rack_l);
 			linkRelationService.save(link_a);
 
 

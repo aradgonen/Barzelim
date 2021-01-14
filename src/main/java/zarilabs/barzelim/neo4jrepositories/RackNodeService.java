@@ -5,8 +5,8 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import zarilabs.barzelim.basenodes.XDeviceNode;
 import zarilabs.barzelim.basenodes.RackNode;
-import zarilabs.barzelim.baseobjects.Device;
-import zarilabs.barzelim.baseobjects.Rack;
+//import zarilabs.barzelim.baseobjects.Device;
+//import zarilabs.barzelim.baseobjects.Rack;
 
 import java.util.List;
 
