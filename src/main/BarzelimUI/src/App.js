@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import dataReciver from './utilities/dataReciver' //use import instead of require because auto build is stupid
 import FirstTimePage from './FirstTimePage/FirstTImePage'
 import Cookies from 'js-cookie'
+import { ModalProvider } from './dc-view/modalContext'
 const config = require('./config.json');
 
 //const DC = require('../src/rack-table/dc')
@@ -97,11 +98,13 @@ class App extends Component {
       popUp = <div></div>
     }
     let dcRackView = <React.Fragment>
+                <ModalProvider>
                         <TopNav></TopNav>
                         {popUp}
                         <input type="text" placeholder="Type any vaule to search in the DC..." value={this.state.searchTerm} onChange={this.handleChange}/>
                         {/* <Racktable dc={this.state.searchResults}></Racktable> */}
                           <DcView dc={this.state.searchResults}></DcView>
+                          </ModalProvider>
                       </React.Fragment>
 
     return (

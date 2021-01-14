@@ -16,6 +16,7 @@ function DcView(props) {
   return(
       <Router>
         <Switch>
+              <Route path="/rack/:id" render={(routerProps) => RenderSingleRack(props.dc.find(rack=> rack.rack_id==routerProps.match.params.id))}/>
               <Route exact path="">
               <Container>
                 <CardColumns>
@@ -23,10 +24,14 @@ function DcView(props) {
                 </CardColumns>
               </Container>
               </Route>
-              <Route exact path="/rack/:id" component={() => <DetailedRackCard rack={""}/>}/>
               {/* props.dc.find(rack=> rack.rack_id=id))}/> */}
         </Switch>
       </Router>
     )
+}
+function RenderSingleRack(rack){
+  return(
+    <DetailedRackCard rack={rack}/>
+  )
 }
   export default DcView;
