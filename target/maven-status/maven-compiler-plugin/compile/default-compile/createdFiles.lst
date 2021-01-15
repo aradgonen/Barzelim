@@ -4,6 +4,7 @@ zarilabs\barzelim\neo4jrepositories\StorageNodeService.class
 zarilabs\barzelim\controllers\BarzelimController.class
 zarilabs\barzelim\neo4jrepositories\ServerNodeService.class
 zarilabs\barzelim\neo4jrepositories\NetworkNodeService.class
+zarilabs\barzelim\controllers\HomeController.class
 zarilabs\barzelim\neo4jrepositories\RackNodeService.class
 zarilabs\barzelim\basenodes\RackNode.class
 zarilabs\barzelim\basenodes\ServerNode.class
