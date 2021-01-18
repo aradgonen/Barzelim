@@ -2,7 +2,7 @@ import Modal from "react-bootstrap/Modal";
 import {Button, Dropdown} from "react-bootstrap"
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {ResponsiveNeoGraph} from "../components/NeoGraph.js"
+import {ResponsiveNeoGraph} from "../UI/Components/NeoGraph/NeoGraph.js"
 // import { Graph } from 'react-d3-graph';
 // const data = {
 //   nodes: [{ id: 'Harry' }, { id: 'Sally' }, { id: 'Alice' }],

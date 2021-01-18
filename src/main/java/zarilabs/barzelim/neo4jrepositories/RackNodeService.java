@@ -12,5 +12,4 @@ import java.util.List;
 
 public interface RackNodeService extends Neo4jRepository<RackNode, Long> {
     RackNode findByName(Integer name);
-    List<XDeviceNode> findDevicerackByName(Integer name);
 }

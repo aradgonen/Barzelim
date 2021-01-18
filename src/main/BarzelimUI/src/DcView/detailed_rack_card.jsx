@@ -6,12 +6,12 @@ import {
   Link,
   useHistory 
 } from "react-router-dom";
-import {CardColumns,Card,Table,Container} from 'react-bootstrap'
+import {CardColumns,Card,Table,Container, Col} from 'react-bootstrap'
 import rack_icon from './rack.svg'
 import RackCard from './rack_card'
 import { ModalProvider } from './modalContext'
 import { ModalContext } from './modalContext'
-import {ResponsiveNeoGraph} from "../components/NeoGraph.js"
+import {ResponsiveNeoGraph} from "../UI/Components/NeoGraph/NeoGraph.js"
 
 function DetailedRackCard(rack){
   let { handleModal } = React.useContext(ModalContext);
@@ -21,6 +21,7 @@ function DetailedRackCard(rack){
         return(
           <ModalProvider>
           <Container>
+          <Col>
           <Card className="ml-auto mr-auto">
             <Card.Body key = {rack.rack_id}>
               <Card.Title>Rack #{rack.rack_id}</Card.Title>
@@ -37,6 +38,8 @@ function DetailedRackCard(rack){
                   </Table>
             </Card.Body>
           </Card>
+          </Col>
+          <Col></Col>
           </Container>
           </ModalProvider>
     

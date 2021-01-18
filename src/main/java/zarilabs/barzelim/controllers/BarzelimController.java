@@ -107,22 +107,26 @@ public class BarzelimController {
 //        List<XDeviceNode> temp = deviceNodeService.getAllConnections(serialNumber);
 //        return temp;
 //    }
-    @GetMapping(value = "/neo4j/devices")
-    public List<XDeviceNode> getDeviceNodes(){ return (List<XDeviceNode>) deviceNodeService.findAll();}
-    @GetMapping(value = "/neo4j/racks")
+    @GetMapping(value = "/devices")
+    public List<XDeviceNode> getDevices(){ return (List<XDeviceNode>) deviceNodeService.findAll();}
+    @GetMapping(value = "/devices/" , params = "id")
+    public XDeviceNode getDeviceById(@RequestParam String id) {return (XDeviceNode) deviceNodeService.findByserialNumber(id);}
+
+    @GetMapping(value = "/racks")
     public List<RackNode> getRacksNodes(){ return (List<RackNode>) rackNodeService.findAll();}
 
-    @PostMapping(value = "/neo4j/servers" ,consumes = "application/json", produces = "application/json")
-    public void newServer(@RequestBody ServerNode serverNode) {
-        RackNode insertTo = rackNodeService.findByName(serverNode.getRackNumber());
-        if(serverNode.getExternalStorage() != null)
-        {
-            StorageNode san = storageNodeService.findByName(serverNode.getExternalStorage());
-            serverNode.connectToSan(san);
-        }
-        insertTo.putInRack(serverNode);
-        rackNodeService.save(insertTo);
-    }
+
+//    @PostMapping(value = "/neo4j/servers" ,consumes = "application/json", produces = "application/json")
+//    public void newServer(@RequestBody ServerNode serverNode) {
+//        RackNode insertTo = rackNodeService.findByName(serverNode.getRackNumber());
+//        if(serverNode.getExternalStorage() != null)
+//        {
+//            StorageNode san = storageNodeService.findByName(serverNode.getExternalStorage());
+//            serverNode.connectToSan(san);
+//        }
+//        insertTo.putInRack(serverNode);
+//        rackNodeService.save(insertTo);
+//    }
 
 //    @PostMapping(value = "/neo4j/lan/connect" ,consumes = "application/json", produces = "application/json")
 //    public void connectLan(@RequestParam String fromSerial, @RequestParam String toSerial, @RequestParam String netType){

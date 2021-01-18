@@ -22,7 +22,7 @@ const dataReciver = {
     //     console.error();
     // }
         try{
-            devicesRaw = await fetch('/api/barzelim/neo4j/devices')
+            devicesRaw = await fetch('/api/barzelim/devices')
             devicesRaw = await devicesRaw.json()
             console.log(devicesRaw)
             return devicesRaw
@@ -40,7 +40,7 @@ const dataReciver = {
 
         let racks
         try {
-            racks = await (await fetch('/api/barzelim/neo4j/racks')).json()
+            racks = await (await fetch('/api/barzelim/racks')).json()
             // racks = racks['_embedded']['racks']
             console.log('racks')
             console.log(racks)

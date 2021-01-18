@@ -1,13 +1,14 @@
 import React, {Component} from 'react';
 import './App.css';
 import Racktable from './rack-table/racktable';
-import DcView from './dc-view/dc_view'
-import TopNav from './navbar/navbar';
+import DcView from './DcView/dc_view'
+import TopNav from './UI/Components/Navbar/Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import dataReciver from './utilities/dataReciver' //use import instead of require because auto build is stupid
+import dataReciver from './utilities/dataReciver'
 import FirstTimePage from './FirstTimePage/FirstTImePage'
 import Cookies from 'js-cookie'
-import { ModalProvider } from './dc-view/modalContext'
+import {BrowserRouter} from 'react-router-dom'
+import { ModalProvider } from './DcView/modalContext'
 const config = require('./config.json');
 
 //const DC = require('../src/rack-table/dc')
@@ -108,7 +109,9 @@ class App extends Component {
                       </React.Fragment>
 
     return (
-      dcRackView
+      <BrowserRouter>
+      {dcRackView}
+      </BrowserRouter>
     )}
   }
 
