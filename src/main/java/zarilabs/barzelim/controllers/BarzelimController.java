@@ -110,10 +110,13 @@ public class BarzelimController {
     @GetMapping(value = "/devices")
     public List<XDeviceNode> getDevices(){ return (List<XDeviceNode>) deviceNodeService.findAll();}
     @GetMapping(value = "/devices/" , params = "id")
-    public XDeviceNode getDeviceById(@RequestParam String id) {return (XDeviceNode) deviceNodeService.findByserialNumber(id);}
+    public XDeviceNode getDeviceById(@RequestParam String id) { return (XDeviceNode) deviceNodeService.findByserialNumber(id); }
 
     @GetMapping(value = "/racks")
-    public List<RackNode> getRacksNodes(){ return (List<RackNode>) rackNodeService.findAll();}
+    public List<RackNode> getRacksNodes() { return (List<RackNode>) rackNodeService.findAll(); }
+    @GetMapping(value = "/racks/racknumbers")
+    public List<String> getRacksNodesNumbers() { return (List<String>) rackNodeService.getAllRackNumber(); }
+
 
 
 //    @PostMapping(value = "/neo4j/servers" ,consumes = "application/json", produces = "application/json")
