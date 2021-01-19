@@ -5,12 +5,12 @@ import lombok.Setter;
 import org.neo4j.ogm.annotation.GeneratedValue;
 import org.neo4j.ogm.annotation.Id;
 import org.neo4j.ogm.annotation.NodeEntity;
-import org.neo4j.ogm.annotation.Relationship;
-
-import javax.persistence.Entity;
-
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
+//import org.neo4j.ogm.annotation.Relationship;
+//
+//import javax.persistence.Entity;
+//
+//import javax.persistence.Inheritance;
+//import javax.persistence.InheritanceType;
 
 @Getter @Setter
 @NodeEntity

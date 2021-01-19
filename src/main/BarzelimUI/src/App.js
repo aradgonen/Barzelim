@@ -1,13 +1,15 @@
 import React, {Component} from 'react';
 import './App.css';
-import Racktable from './UI/Components/RackTable/RackTable';
-import TopNav from './UI/Components/navbar/navbar';
+import Racktable from './rack-table/racktable';
+import DcView from './DcView/dc_view'
+import TopNav from './UI/Components/Navbar/Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import dataReciver from './utilities/dataReciver'
+import FirstTimePage from './FirstTimePage/FirstTImePage'
 import Cookies from 'js-cookie'
-import FirstTimePage from './UI/Components/FirstTimePage/FirstTImePage'
-
-const config = require('./Configuration/config.json');
+import {BrowserRouter} from 'react-router-dom'
+import { ModalProvider } from './DcView/modalContext'
+const config = require('./config.json');
 
 //const DC = require('../src/rack-table/dc')
 let DC = [];
@@ -97,14 +99,19 @@ class App extends Component {
       popUp = <div></div>
     }
     let dcRackView = <React.Fragment>
+                <ModalProvider>
                         <TopNav></TopNav>
                         {popUp}
                         <input type="text" placeholder="Type any vaule to search in the DC..." value={this.state.searchTerm} onChange={this.handleChange}/>
-                        <Racktable dc={this.state.searchResults}></Racktable>
+                        {/* <Racktable dc={this.state.searchResults}></Racktable> */}
+                          <DcView dc={this.state.searchResults}></DcView>
+                          </ModalProvider>
                       </React.Fragment>
 
     return (
-      dcRackView
+      <BrowserRouter>
+      {dcRackView}
+      </BrowserRouter>
     )}
   }
 
