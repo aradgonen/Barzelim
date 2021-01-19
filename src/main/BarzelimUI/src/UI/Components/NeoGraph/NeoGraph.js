@@ -1,12 +1,11 @@
-import React, { useEffect, useRef } from "react"
-import useResizeAware from "react-resize-aware"
-import PropTypes from "prop-types"
-import Neovis from "neovis.js/dist/neovis.js"
-import rack_icon from "./GraphIcons/rack.jpg"
-import network_icon from "./GraphIcons/network-switch.jpg"
-import server_icon from "./GraphIcons/server.png"
-import storage_icon from "./GraphIcons/storage.png"
-
+import React, { useEffect, useRef } from "react";
+import useResizeAware from "react-resize-aware";
+import PropTypes from "prop-types";
+import Neovis from "neovis.js/dist/neovis.js";
+import rack_icon from "../../../Resources/NeoGraphImages/server-rack.jpg"
+import network_icon from "../../../Resources/NeoGraphImages/network-switch.jpg"
+import server_icon from "../../../Resources/NeoGraphImages/server-icon.png"
+import storage_icon from "../../../Resources/NeoGraphImages/storage-icon.png"
 
 const NeoGraph = (props) => {
   const {

@@ -27,28 +27,29 @@
 			<version>3.8.1</version>
 			<type>maven-plugin</type>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.github.eirslett/frontend-maven-plugin -->
 		<dependency>
 			<groupId>com.github.eirslett</groupId>
 			<artifactId>frontend-maven-plugin</artifactId>
-			<version>1.10.3</version>
+			<version>1.11.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-rest</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.boot</groupId>-->
+<!--			<artifactId>spring-boot-starter-data-jpa</artifactId>-->
+<!--		</dependency>-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.postgresql</groupId>
-			<artifactId>postgresql</artifactId>
-			<scope>runtime</scope>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>org.postgresql</groupId>-->
+<!--			<artifactId>postgresql</artifactId>-->
+<!--			<scope>runtime</scope>-->
+<!--		</dependency>-->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
@@ -91,9 +92,9 @@
 			</plugin>
 			<plugin>
 <!--				start of frontend-maven-plugin-->
-			<groupId>com.github.eirslett</groupId>
-			<artifactId>frontend-maven-plugin</artifactId>
-<!--				<version>1.10.3</version>-->
+				<groupId>com.github.eirslett</groupId>
+				<artifactId>frontend-maven-plugin</artifactId>
+				<version>1.11.0</version>
 			<configuration>
 				<workingDirectory>src/main/BarzelimUI</workingDirectory>
 				<installDirectory>target</installDirectory>

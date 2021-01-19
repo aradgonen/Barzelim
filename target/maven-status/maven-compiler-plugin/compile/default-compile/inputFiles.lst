@@ -2,6 +2,10 @@ D:\SimpliDC\Barzelim\src\main\java\zarilabs\barzelim\baseobjects\Device.java
 D:\SimpliDC\Barzelim\src\main\java\zarilabs\barzelim\services\ServerService.java
 D:\SimpliDC\Barzelim\src\main\java\zarilabs\barzelim\neo4jrepositories\LinkRelationService.java
 D:\SimpliDC\Barzelim\src\main\java\zarilabs\barzelim\basenodes\SegmentNode.java
+<<<<<<< HEAD
+=======
+D:\SimpliDC\Barzelim\src\main\java\zarilabs\barzelim\controllers\AppErrorController.java
+>>>>>>> ce514511f9750e6d6967fcbbea6eae89267058a9
 D:\SimpliDC\Barzelim\src\main\java\zarilabs\barzelim\basenodes\RackNode.java
 D:\SimpliDC\Barzelim\src\main\java\zarilabs\barzelim\baseobjects\Cluster.java
 D:\SimpliDC\Barzelim\src\main\java\zarilabs\barzelim\database\DatabaseLoader.java

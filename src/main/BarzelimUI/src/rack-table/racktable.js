@@ -1,7 +1,7 @@
 import React from 'react';
 import {Card,Table, Container, Row} from 'react-bootstrap';
-import UModal from '../UModal/UModal';
-//import rack_34u from './RackImages/rack_34u';
+import UModal from './Umodal';
+import rack_34u from './rack_34u.png';
 
 class Racktable extends React.Component {
   state = { showInfoModal: false , showDeviceConnectionModal: false, curU:''};

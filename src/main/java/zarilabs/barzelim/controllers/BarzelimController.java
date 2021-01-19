@@ -4,9 +4,9 @@ import org.springframework.data.neo4j.annotation.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 import zarilabs.barzelim.basenodes.*;
-import zarilabs.barzelim.baseobjects.*;
+//import zarilabs.barzelim.baseobjects.*;
 import zarilabs.barzelim.neo4jrepositories.*;
-import zarilabs.barzelim.services.*;
+//import zarilabs.barzelim.services.*;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -107,22 +107,29 @@ public class BarzelimController {
 //        List<XDeviceNode> temp = deviceNodeService.getAllConnections(serialNumber);
 //        return temp;
 //    }
-    @GetMapping(value = "/neo4j/devices")
-    public List<XDeviceNode> getDeviceNodes(){ return (List<XDeviceNode>) deviceNodeService.findAll();}
-    @GetMapping(value = "/neo4j/racks")
-    public List<RackNode> getRacksNodes(){ return (List<RackNode>) rackNodeService.findAll();}
+    @GetMapping(value = "/devices")
+    public List<XDeviceNode> getDevices(){ return (List<XDeviceNode>) deviceNodeService.findAll();}
+    @GetMapping(value = "/devices/" , params = "id")
+    public XDeviceNode getDeviceById(@RequestParam String id) { return (XDeviceNode) deviceNodeService.findByserialNumber(id); }
 
-    @PostMapping(value = "/neo4j/servers" ,consumes = "application/json", produces = "application/json")
-    public void newServer(@RequestBody ServerNode serverNode) {
-        RackNode insertTo = rackNodeService.findByName(serverNode.getRackNumber());
-        if(serverNode.getExternalStorage() != null)
-        {
-            StorageNode san = storageNodeService.findByName(serverNode.getExternalStorage());
-            serverNode.connectToSan(san);
-        }
-        insertTo.putInRack(serverNode);
-        rackNodeService.save(insertTo);
-    }
+    @GetMapping(value = "/racks")
+    public List<RackNode> getRacksNodes() { return (List<RackNode>) rackNodeService.findAll(); }
+    @GetMapping(value = "/racks/racknumbers")
+    public List<String> getRacksNodesNumbers() { return (List<String>) rackNodeService.getAllRackNumber(); }
+
+
+
+//    @PostMapping(value = "/neo4j/servers" ,consumes = "application/json", produces = "application/json")
+//    public void newServer(@RequestBody ServerNode serverNode) {
+//        RackNode insertTo = rackNodeService.findByName(serverNode.getRackNumber());
+//        if(serverNode.getExternalStorage() != null)
+//        {
+//            StorageNode san = storageNodeService.findByName(serverNode.getExternalStorage());
+//            serverNode.connectToSan(san);
+//        }
+//        insertTo.putInRack(serverNode);
+//        rackNodeService.save(insertTo);
+//    }
 
 //    @PostMapping(value = "/neo4j/lan/connect" ,consumes = "application/json", produces = "application/json")
 //    public void connectLan(@RequestParam String fromSerial, @RequestParam String toSerial, @RequestParam String netType){
