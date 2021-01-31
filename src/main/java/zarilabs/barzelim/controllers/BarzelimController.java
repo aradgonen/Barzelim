@@ -102,6 +102,13 @@ public class BarzelimController {
     @Resource
     LinkRelationService linkRelationService;
 
+    @PostMapping(value = "/racks" ,consumes = "application/json", produces = "application/json")
+    public void newRack(@RequestBody RackNode rackNode) {
+        //check if it already exists
+        RackNode test = rackNodeService.findByName(rackNode.getName());
+        System.out.println(test);
+        rackNodeService.save(rackNode);
+    }
 //    @GetMapping(value = "/neo4j/device/connections/{serialNumber}")
 //    public List<XDeviceNode> getDeviceConnectionsBySerial(@PathVariable("serialNumber") String serialNumber){
 //        List<XDeviceNode> temp = deviceNodeService.getAllConnections(serialNumber);
