@@ -96,7 +96,7 @@ function DetailedRackCard(rack){
       <>
         <ResponsiveNeoGraph id="neo4j"
           containerId={"neo4j"}
-          neo4jUri={"bolt://localhost:7687"}
+          neo4jUri={"bolt://"+process.env.REACT_APP_SIMPLIDC_NEO4J_DB+":7687"}
           neo4jUser={"neo4j"}
           neo4jPassword={"shMador1"}
           neo4jcommand={`MATCH (a {serialNumber: "${props.uData.serialNumber}"})-[r]-(b) RETURN r, b,a`}

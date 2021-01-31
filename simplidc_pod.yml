@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simplidc
+spec:
+  selector:
+    matchLabels:
+      app: neo4j
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: neo4j
+    spec:
+      containers:
+        - name: neo4j
+          image: neo4j:latest
+          ports:
+            - containerPort: 7474
+            - containerPort: 7687
+        - name: simplidc
+          image: simplidc:test
+          ports:
+            - containerPort: 8080

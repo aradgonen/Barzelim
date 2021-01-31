@@ -100,8 +100,38 @@ public class BarzelimController {
     @Resource
     StorageNodeService storageNodeService;
     @Resource
+    NetworkNodeService networkNodeService;
+    @Resource
     LinkRelationService linkRelationService;
 
+
+    @PostMapping(value = "/racks" ,consumes = "application/json", produces = "application/json")
+    public void newRack(@RequestBody RackNode rackNode) {
+        //check if it already exists
+        RackNode test = rackNodeService.findByName(rackNode.getName());
+        System.out.println(test);
+        rackNodeService.save(rackNode);
+    }
+
+    @PostMapping("/devices/xdevice")
+    XDeviceNode newXDeviceNode(@RequestBody XDeviceNode newXDevice) {
+        return deviceNodeService.save(newXDevice);
+    }
+
+    @PostMapping("/devices/storage")
+    StorageNode newStorageDevice(@RequestBody StorageNode newStorageDevice) {
+        return storageNodeService.save(newStorageDevice);
+    }
+
+    @PostMapping("/devices/networks")
+    NetworkNode newNetworkDevice(@RequestBody NetworkNode newNetworkDevice) {
+        return networkNodeService.save(newNetworkDevice);
+    }
+
+    @PostMapping("/devices/server")
+    ServerNode newServerDevice(@RequestBody ServerNode newServerDevice) {
+        return serverNodeService.save(newServerDevice);
+    }
 //    @GetMapping(value = "/neo4j/device/connections/{serialNumber}")
 //    public List<XDeviceNode> getDeviceConnectionsBySerial(@PathVariable("serialNumber") String serialNumber){
 //        List<XDeviceNode> temp = deviceNodeService.getAllConnections(serialNumber);
