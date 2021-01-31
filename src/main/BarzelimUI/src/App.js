@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import './App.css';
 import Racktable from './rack-table/racktable';
 import DcView from './DcView/dc_view'
-import TopNav from './UI/Components/Navbar/Navbar';
+import TopNav from './UI/Components/Navbar/navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import dataReciver from './utilities/dataReciver'
 import FirstTimePage from './FirstTimePage/FirstTImePage'
