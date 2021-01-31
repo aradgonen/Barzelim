@@ -28,24 +28,24 @@ const NeoGraph = (props) => {
       server_user: neo4jUser,
       server_password: neo4jPassword,
       labels: {
-        "DeviceNode": {
+        "StorageNode":{
+          caption:"name",
+          image:storage_icon
+      },
+        "ServerNode":{
+          caption:"name",
+          image:server_icon
+      },
+        "XDeviceNode": {
             caption:"name"
         },
         "NetworkNode":{
             caption:"name",
             image:network_icon
         },
-        "StorageNode":{
-            caption:"name",
-            image:storage_icon
-        },
         "RackNode":{
             caption:"name",
             image:rack_icon
-        },
-        "ServerNode":{
-            caption:"name",
-            image:server_icon
         }
       },
       relationships: {
