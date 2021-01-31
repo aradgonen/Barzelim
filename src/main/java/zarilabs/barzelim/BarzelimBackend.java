@@ -95,7 +95,7 @@ public class BarzelimBackend {
 			linkRelationService.save(link_a);
 
 
-			System.out.println("a");
+			System.out.println("SimpliDC server started!");
 		};
 	}
 //	@Bean
