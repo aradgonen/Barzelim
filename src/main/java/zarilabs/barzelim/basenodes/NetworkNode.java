@@ -13,21 +13,21 @@ import org.neo4j.ogm.annotation.Relationship;
 public class NetworkNode extends XDeviceNode {
 
     @Id @GeneratedValue private Long id;
-    private boolean isLayer3;
     private boolean isLayer2;
+    private boolean isLayer3;
 
     private NetworkNode(){
         super();
     }
     public NetworkNode(boolean isLayer3, boolean isLayer2) {
-        this.isLayer3 = isLayer3;
         this.isLayer2 = isLayer2;
+        this.isLayer3 = isLayer3;
     }
 
     public NetworkNode(String serialNumber, String name, String vendor, String osType, String osVersion, int rackNumber, String clusterName, int uNumber,  boolean isLayer3, boolean isLayer2) {
         super(serialNumber, name, vendor, osType, osVersion, rackNumber, clusterName, uNumber);
-        this.isLayer3 = isLayer3;
         this.isLayer2 = isLayer2;
+        this.isLayer3 = isLayer3;
     }
 
     @Override

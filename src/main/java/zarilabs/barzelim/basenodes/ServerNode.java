@@ -12,21 +12,21 @@ import org.neo4j.ogm.annotation.Relationship;
 
 public class ServerNode extends XDeviceNode {
     @Id @GeneratedValue private Long id;
-    private String fromFactor;
+    private String formFactor;
     private String externalStorage;
 
     private ServerNode(){
         super();
     }
 
-    public ServerNode(String fromFactor, String externalStorage) {
-        this.fromFactor = fromFactor;
+    public ServerNode(String formFactor, String externalStorage) {
+        this.formFactor = formFactor;
         this.externalStorage = externalStorage;
     }
 
-    public ServerNode(String serialNumber, String name, String vendor, String osType, String osVersion, int rackNumber, String clusterName, int uNumber, String fromFactor, String externalStorage) {
+    public ServerNode(String serialNumber, String name, String vendor, String osType, String osVersion, int rackNumber, String clusterName, int uNumber, String formFactor, String externalStorage) {
         super(serialNumber, name, vendor, osType, osVersion, rackNumber, clusterName, uNumber);
-        this.fromFactor = fromFactor;
+        this.formFactor = formFactor;
         this.externalStorage = externalStorage;
     }
     @Relationship(type = "SAN")
@@ -37,7 +37,7 @@ public class ServerNode extends XDeviceNode {
     @Override
     public String toString() {
         return "ServerNode{" +
-                "fromFactor='" + fromFactor + '\'' +
+                "fromFactor='" + formFactor + '\'' +
                 ", externalStorage='" + externalStorage + '\'' +
                 '}';
     }
