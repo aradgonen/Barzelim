@@ -42,7 +42,20 @@ class Racktable extends React.Component {
     renderU(rack){
       let rackContent = rack.data.reverse()
       return rackContent.map((u,index) => {
+        if(u.formFactor == "blade"){
+
+            if(u.vendor == "hp"){
+              //if its hp blade, so put it in a rack in the appropiet size
+            }
+            if(u.vendor == "cisco"){
+              //if its cisco blade, so put it in a rack in the appropiet size
+            }
+            if(u.vendor == "ibm"){
+              //if its ibm blade, so put it in a rack in the appropiet size
+            }
+        }
         return(
+
           <tbody>
                 <tr>
                   <td bgcolor="#000000" width="3%" >{rack.data.length - index}</td>
