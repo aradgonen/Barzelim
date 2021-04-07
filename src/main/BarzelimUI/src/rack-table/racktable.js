@@ -54,6 +54,7 @@ class Racktable extends React.Component {
               //if its ibm blade, so put it in a rack in the appropiet size
             }
         }
+        else{
         return(
 
           <tbody>
@@ -64,6 +65,7 @@ class Racktable extends React.Component {
                 </tr>
           </tbody>
         )
+        }
       })
     }
     openInfoModal(u){
