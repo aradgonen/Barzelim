@@ -119,7 +119,6 @@ function DetailedRackCard(rack) {
       },
     });
 
-<<<<<<< HEAD
       let rackContent = rack.data
 
       // return rackContent.map((u,index) => {
@@ -159,37 +158,6 @@ function DetailedRackCard(rack) {
                       <StyledTableCell align="center"onClick={() => handleModal(<UDetails uData={u} title={"Detailed Info"}/>)}>{u.name}</StyledTableCell>
                       <SideTableCell align="center" width="3%" onClick={() =>handleModal(<UConnectionInfo uData={u} title={"Connection Info"}/>)}>{index}</SideTableCell>
                     </TableRow>
-=======
-      let rackContent = rack.data.reverse()
-      return rackContent.map((u,index) => {
-        if(u.formFactor == "Blade" || u.size > 1){
-          return(
-            <Multi_U_Component size={u.size}>
-            </Multi_U_Component>
-          )
-        }
-        return(
-          <TableRow>
-          <SideTableCell align="center" width="3%">{rack.data.length - index}</SideTableCell>
-          <StyledTableCell align="center"onClick={() => handleModal(<UDetails uData={u} title={"Detailed Info"}/>)}>{u.name}</StyledTableCell>
-          <SideTableCell align="center" width="3%" onClick={() =>handleModal(<UConnectionInfo uData={u} title={"Connection Info"}/>)}>{rack.data.length - index}</SideTableCell>
-        </TableRow>
-        )
-      })
-  
-  }
-  function UDetails(props) {
-    let dataArray = []
-    Object.entries(props.uData).forEach(([key, value]) => {
-      if(key !== '_links') {
-        if(typeof(value) === 'object'){
-          Object.entries(value).forEach(([name,data]) => {
-            dataArray.push(<div>{name} : {data}</div>)
-          })
-        }
-        else{
-          dataArray.push(<div>{key} : {value}</div>)
->>>>>>> 447f2443a6d4b0d4c571d7ca043b9457c693eeec
         }
 
         rackComponents.unshift(device);
