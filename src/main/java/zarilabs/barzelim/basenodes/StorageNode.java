@@ -25,8 +25,8 @@ public class StorageNode extends XDeviceNode {
         this.extramgmtIps = extramgmtIps;
     }
 
-    public StorageNode(String serialNumber, String name, String vendor, String osType, String osVersion, int rackNumber, String clusterName, int uNumber, String arrayType, String arrayProtocol, String extramgmtIps) {
-        super(serialNumber, name, vendor, osType, osVersion, rackNumber, clusterName, uNumber);
+    public StorageNode(String serialNumber, String name, String vendor, String osType, String osVersion, int rackNumber, String clusterName, int uNumber, String arrayType, String arrayProtocol, String extramgmtIps,int size) {
+        super(serialNumber, name, vendor, osType, osVersion, rackNumber, clusterName, uNumber,size);
         this.arrayType = arrayType;
         this.arrayProtocol = arrayProtocol;
         this.extramgmtIps = extramgmtIps;

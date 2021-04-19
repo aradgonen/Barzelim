@@ -24,8 +24,8 @@ public class ServerNode extends XDeviceNode {
         this.externalStorage = externalStorage;
     }
 
-    public ServerNode(String serialNumber, String name, String vendor, String osType, String osVersion, int rackNumber, String clusterName, int uNumber, String formFactor, String externalStorage) {
-        super(serialNumber, name, vendor, osType, osVersion, rackNumber, clusterName, uNumber);
+    public ServerNode(String serialNumber, String name, String vendor, String osType, String osVersion, int rackNumber, String clusterName, int uNumber, String formFactor, String externalStorage,int size) {
+        super(serialNumber, name, vendor, osType, osVersion, rackNumber, clusterName, uNumber,size);
         this.formFactor = formFactor;
         this.externalStorage = externalStorage;
     }
