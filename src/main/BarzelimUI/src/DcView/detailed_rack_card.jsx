@@ -25,6 +25,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid'
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import Multi_U_Component from './multiple_u_component';
 function DetailedRackCard(rack){
   const StyledTableCell = withStyles((theme) => ({
     head: {
@@ -115,6 +116,12 @@ function DetailedRackCard(rack){
 
       let rackContent = rack.data.reverse()
       return rackContent.map((u,index) => {
+        if(u.formFactor == "Blade" || u.size > 1){
+          return(
+            <Multi_U_Component size={u.size}>
+            </Multi_U_Component>
+          )
+        }
         return(
           <TableRow>
           <SideTableCell align="center" width="3%">{rack.data.length - index}</SideTableCell>

@@ -24,8 +24,8 @@ public class NetworkNode extends XDeviceNode {
         this.isLayer3 = isLayer3;
     }
 
-    public NetworkNode(String serialNumber, String name, String vendor, String osType, String osVersion, int rackNumber, String clusterName, int uNumber,  boolean isLayer3, boolean isLayer2) {
-        super(serialNumber, name, vendor, osType, osVersion, rackNumber, clusterName, uNumber);
+    public NetworkNode(String serialNumber, String name, String vendor, String osType, String osVersion, int rackNumber, String clusterName, int uNumber,  boolean isLayer3, boolean isLayer2,int size) {
+        super(serialNumber, name, vendor, osType, osVersion, rackNumber, clusterName, uNumber,size);
         this.isLayer2 = isLayer2;
         this.isLayer3 = isLayer3;
     }

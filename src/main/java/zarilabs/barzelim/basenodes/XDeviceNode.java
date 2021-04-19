@@ -5,12 +5,6 @@ import lombok.Setter;
 import org.neo4j.ogm.annotation.GeneratedValue;
 import org.neo4j.ogm.annotation.Id;
 import org.neo4j.ogm.annotation.NodeEntity;
-//import org.neo4j.ogm.annotation.Relationship;
-//
-//import javax.persistence.Entity;
-//
-//import javax.persistence.Inheritance;
-//import javax.persistence.InheritanceType;
 
 @Getter @Setter
 @NodeEntity
@@ -24,10 +18,11 @@ public class XDeviceNode {
     private int rackNumber;
     private String clusterName;
     private int uNumber;
+    private int size;
 
     protected XDeviceNode() {}
 
-    public XDeviceNode(String serialNumber, String name, String vendor, String osType, String osVersion, int rackNumber, String clusterName, int uNumber) {
+    public XDeviceNode(String serialNumber, String name, String vendor, String osType, String osVersion, int rackNumber, String clusterName, int uNumber, int size) {
         this.serialNumber = serialNumber;
         this.name = name;
         this.vendor = vendor;
@@ -36,6 +31,7 @@ public class XDeviceNode {
         this.rackNumber = rackNumber;
         this.clusterName = clusterName;
         this.uNumber = uNumber;
+        this.size = size;
     }
 
     @Override
@@ -49,6 +45,7 @@ public class XDeviceNode {
                 ", rackNumber=" + rackNumber +
                 ", clusterName='" + clusterName + '\'' +
                 ", uNumber=" + uNumber +
+                ", size=" + size +
                 '}';
     }
 }
