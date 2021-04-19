@@ -27,15 +27,10 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid'
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-<<<<<<< HEAD
 
 import MultiUDevice from './multiUDevice'
 
 function DetailedRackCard(rack) {
-=======
-import Multi_U_Component from './multiple_u_component';
-function DetailedRackCard(rack){
->>>>>>> 447f2443a6d4b0d4c571d7ca043b9457c693eeec
   const StyledTableCell = withStyles((theme) => ({
     head: {
       backgroundColor: theme.palette.common.black,

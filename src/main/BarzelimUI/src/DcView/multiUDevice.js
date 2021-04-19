@@ -3,8 +3,6 @@ import UDetails from './UDetails';
 import UConnectionInfo from './UConnectionInfo';
 
 import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
 import TableCell from '@material-ui/core/TableCell';
 
 import { withStyles } from '@material-ui/core/styles';
