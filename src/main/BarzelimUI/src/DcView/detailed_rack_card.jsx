@@ -7,9 +7,11 @@ import {
   useHistory 
 } from "react-router-dom";
 import rack_icon from './rack.svg'
+import UDetails from './UDetails';
+import UConnectionInfo from './UConnectionInfo';
+
 import { ModalProvider } from './modalContext'
 import { ModalContext } from './modalContext'
-import {ResponsiveNeoGraph} from "../UI/Components/NeoGraph/NeoGraph.js"
 import Table from '@material-ui/core/Table';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import TableBody from '@material-ui/core/TableBody';
@@ -25,7 +27,10 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid'
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-function DetailedRackCard(rack){
+
+import MultiUDevice from './multiUDevice'
+
+function DetailedRackCard(rack) {
   const StyledTableCell = withStyles((theme) => ({
     head: {
       backgroundColor: theme.palette.common.black,
@@ -36,7 +41,7 @@ function DetailedRackCard(rack){
     },
   }))(TableCell);  
   const SideTableCell = withStyles((theme) => ({
-    body: {
+    body: { 
       backgroundColor: theme.palette.common.black,
       color: theme.palette.common.white,
     },
@@ -79,6 +84,7 @@ function DetailedRackCard(rack){
               </Card>
             </Grid>
           </ModalProvider>
+
         )
       }
   }
@@ -88,7 +94,7 @@ function DetailedRackCard(rack){
     )
   }
 }
-  function renderU(rack,handleModal){
+  function renderU(rack,handleModal) {
     const StyledTableCell = withStyles((theme) => ({
       head: {
         backgroundColor: theme.palette.common.black,
@@ -113,49 +119,60 @@ function DetailedRackCard(rack){
       },
     });
 
-      let rackContent = rack.data.reverse()
-      return rackContent.map((u,index) => {
-        return(
-          <TableRow>
-          <SideTableCell align="center" width="3%">{rack.data.length - index}</SideTableCell>
-          <StyledTableCell align="center"onClick={() => handleModal(<UDetails uData={u} title={"Detailed Info"}/>)}>{u.name}</StyledTableCell>
-          <SideTableCell align="center" width="3%" onClick={() =>handleModal(<UConnectionInfo uData={u} title={"Connection Info"}/>)}>{rack.data.length - index}</SideTableCell>
-        </TableRow>
-        )
-      })
+      let rackContent = rack.data
+
+      // return rackContent.map((u,index) => {
+      //   if (u.size !== 1) {
+      //     // Create the new multiUDevice
+      //   }
+      //   return(
+      //     <TableRow>
+      //     <SideTableCell align="center" width="3%">{rack.data.length - index}</SideTableCell>
+      //     <StyledTableCell align="center"onClick={() => handleModal(<UDetails uData={u} title={"Detailed Info"}/>)}>{u.name}</StyledTableCell>
+      //     <SideTableCell align="center" width="3%" onClick={() =>handleModal(<UConnectionInfo uData={u} title={"Connection Info"}/>)}>{rack.data.length - index}</SideTableCell>
+      //   </TableRow>
+      //   )
+      // })
+
+      let rackComponents = new Array(0);
+      let device;
+      //for (let deviceIndex = 0; deviceIndex < rackContent.length; deviceIndex++) {
+      rackContent.forEach((u, index) => {
+        console.log("Printing data in creating rack")
+        console.log("index = " + index)
+        console.log("data")
+        console.log(rackContent[index])
+        if (rackContent[index].size !== 1) {
+          device = <MultiUDevice
+                    u = {rackContent[index]}
+                    upperUNumber = {index}
+                    bottomUNumber = {index}
+                    type = {""}
+                    handleModal = {handleModal}
+                    numberOfU = {3}
+                    />
+        } else {
+          console.log("rack - " + index + " rack.data.length - " + rack.data.length)
+          device = <TableRow>
+                      <SideTableCell align="center" width="3%">{index}</SideTableCell>
+                      <StyledTableCell align="center"onClick={() => handleModal(<UDetails uData={u} title={"Detailed Info"}/>)}>{u.name}</StyledTableCell>
+                      <SideTableCell align="center" width="3%" onClick={() =>handleModal(<UConnectionInfo uData={u} title={"Connection Info"}/>)}>{index}</SideTableCell>
+                    </TableRow>
+        }
+
+        rackComponents.unshift(device);
+      });
+      
+        
+      // for (let rowIndex = 0; rowIndex < rackContent;) {
+      //   if(rackContent[rowIndex].size !== 1) {
+      //     let multiU = <MultiUDevice></MultiUDevice>
+      //     rackContent[rowIndex] = 
+      //   }
+      // }
+      //rackComponents = rackComponents.reverse();
+      return rackComponents;
   
   }
-  function UDetails(props) {
-    let dataArray = []
-    Object.entries(props.uData).forEach(([key, value]) => {
-      if(key !== '_links') {
-        if(typeof(value) === 'object'){
-          Object.entries(value).forEach(([name,data]) => {
-            dataArray.push(<div>{name} : {data}</div>)
-          })
-        }
-        else{
-          dataArray.push(<div>{key} : {value}</div>)
-        }
-      }
-    })
-    return (
-      <>
-      {dataArray}
-      </>
-    );
-  }
-  function UConnectionInfo(props) {
-    return (
-      <>
-        <ResponsiveNeoGraph id="neo4j"
-          containerId={"neo4j"}
-          neo4jUri={"bolt://"+process.env.REACT_APP_SIMPLIDC_NEO4J_DB+":7687"}
-          neo4jUser={process.env.REACT_APP_SIMPLIDC_NEO4J_USER}
-          neo4jPassword={process.env.REACT_APP_SIMPLIDC_NEO4J_PASSWORD}
-          neo4jcommand={`MATCH (a {serialNumber: "${props.uData.serialNumber}"})-[r]-(b) RETURN r, b,a`}
-        />
-      </>
-    );
-  }
+  
   export default DetailedRackCard;
