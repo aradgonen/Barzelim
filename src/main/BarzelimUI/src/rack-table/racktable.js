@@ -1,9 +1,12 @@
 import React from 'react';
-import {Card,Table, Container, Row} from 'react-bootstrap';
+import {Card, Container, Row} from 'react-bootstrap';
 import UModal from './Umodal';
 import rack_34u from './rack_34u.png';
 
+
+
 class Racktable extends React.Component {
+
   state = { showInfoModal: false , showDeviceConnectionModal: false, curU:''};
 
   showInfoModal = (u) => {
@@ -15,25 +18,11 @@ class Racktable extends React.Component {
   hideModal = () => {
     this.setState({ showInfoModal: false, showDeviceConnectionModal: false });
   };
+  
     renderRack(){
       return this.props.dc.map(rack => {
         return(
-          <Card className="ml-auto mr-auto">
-            <Card.Body key = {rack.rack_id}>
-              <Card.Title>Rack #{rack.rack_id}</Card.Title>
-                <Card.Subtitle className="mb-2 text-muted">{rack.network}</Card.Subtitle>
-                  <Table responsive hover borderless > 
-                    <thead>
-                      <tr>
-                        <th bgcolor="#000000" width="3%"></th>
-                        <th bgcolor="#000000"></th>
-                        <th bgcolor="#000000" width="3%"></th>
-                      </tr>
-                    </thead>
-                      {this.renderU(rack)}
-                  </Table>
-            </Card.Body>
-          </Card>
+<div></div>
 
         )
       })
@@ -46,6 +35,7 @@ class Racktable extends React.Component {
 
             if(u.vendor == "hp"){
               //if its hp blade, so put it in a rack in the appropiet size
+
             }
             if(u.vendor == "cisco"){
               //if its cisco blade, so put it in a rack in the appropiet size
@@ -54,16 +44,11 @@ class Racktable extends React.Component {
               //if its ibm blade, so put it in a rack in the appropiet size
             }
         }
+        else{
         return(
-
-          <tbody>
-                <tr>
-                  <td bgcolor="#000000" width="3%" >{rack.data.length - index}</td>
-                  <td align='center' onClick={() => this.openInfoModal(u)}>{u.name}</td>
-                  <td bgcolor="#606060" width="3%" onClick={() => this.openDeviceConnectionModal(u)}>{rack.data.length - index}</td>
-                </tr>
-          </tbody>
+<div></div>
         )
+        }
       })
     }
     openInfoModal(u){
