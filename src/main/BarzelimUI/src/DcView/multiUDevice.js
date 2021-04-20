@@ -7,6 +7,7 @@ import TableCell from '@material-ui/core/TableCell';
 
 import { withStyles } from '@material-ui/core/styles';
 import TableRow from '@material-ui/core/TableRow';
+import { Fragment } from 'react';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -102,15 +103,12 @@ export default function MultiUDevice({u, upperUNumber, bottomUNumber, type, hand
             </TableRow>    
         }
     return (
-      <div>
-        {rowContent}
-      </div>
+      <Fragment>{rowContent}</Fragment>
+        
     );
   }
 
   return (
-    <div className={classes.root}>
       <MultiUDeviceCreation></MultiUDeviceCreation>
-    </div>
   );
 }

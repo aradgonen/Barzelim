@@ -45,7 +45,7 @@ public class BarzelimBackend {
 			StorageNode device_c = new StorageNode("25445424354","NetApp-LAB","NetApp","ONTAP","9.3",69,"",33,"NetApp","SAN","1.1.1.1",1);
 			ServerNode device_d = new ServerNode("sdfkjsdbkkfdj78dvj","linux","cisco","rhel","8",79,"",35,"Pizza","EMC-PROD",2);
 			NetworkNode device_e = new NetworkNode("kdhf89df","access switch","cisco","nxos","10",79,"",42,false,true,2);
-			StorageNode device_f = new StorageNode("ofjsea8","EMC-PROD","EMC","Enginuity","5977",79,"",40,"EMC","SAN","1.1.1.2",40);
+			StorageNode device_f = new StorageNode("ofjsea8","EMC-PROD","EMC","Enginuity","5977",79,"",31,"EMC","SAN","1.1.1.2",30);
 			//define racks
 			RackNode rack_a = new RackNode(69,"LAB",42);
 			RackNode rack_b = new RackNode(79,"PROD",44);

@@ -75,12 +75,12 @@ const dataReciver = {
                 tempRack[currentRackDevice.unumber - 1] = {unumber:currentRackDevice.unumber - 1, data:currentRackDevice} //currentRackDevice //TODO: change the u data to this format : {unumber:currentRackDevice.unumber - 1, data:currentRackDevice}
                 
                 // starting on one U lower than the multiU device, Us will be occupied by the size of the device
-                if (currentRackDevice.size !== 1) {
-                    for (let occupiedIndex = currentRackDevice.unumber - 2; occupiedIndex <= currentRackDevice.unumber - currentRackDevice.size && occupiedIndex >= 0; occupiedIndex--) {
-                        tempRack[occupiedIndex] = 'extensionOfDevice'
-                        console.log(`extensionOfDevice in rack ${curRack.name}`)
-                    }
-                }
+                // if (currentRackDevice.size !== 1) {
+                //     for (let occupiedIndex = currentRackDevice.unumber - 2; occupiedIndex <= currentRackDevice.unumber - currentRackDevice.size && occupiedIndex >= 0; occupiedIndex--) {
+                //         tempRack[occupiedIndex] = 'extensionOfDevice'
+                //         console.log(`extensionOfDevice in rack ${curRack.name}`)
+                //     }
+                // }
             })
 
             // fill the empty cells with the "empty" json
@@ -115,24 +115,24 @@ const dataReciver = {
             // console.log("spliced example")
             // console.log(arr)
 
-            let spliceIndex = 0;
-            while (spliceIndex < tempRack.length) {
-                if(tempRack[spliceIndex] === 'extensionOfDevice') {
-                    let spliced = tempRack.splice(spliceIndex, 1)
-                    console.log(`SPLICED!!!!!! ${curRack.name} + ${spliceIndex}`)
-                    console.log(spliced)
-                    //alert(`${spliceIndex} in ${curRack.id}`)
-                } else {
-                    // only advences the index if there wasn't a splice, because in case of splice - the index doesn't change
-                    // data: [{},{},"extensionOfDevice","extensionOfDevice", {}]
-                    // keys: (0, 1, 2, 3, 4)
-                    // after 1 splice:
-                    // data: [{},{}, "extensionOfDevice", {}]
-                    // keys: (0, 1, 2, 3)
-                    // key number 2 was spliced - so key 3 has become the new key 2 - the index doesn't need to advance when spliced
-                    spliceIndex++
-                }
-            }
+            // let spliceIndex = 0;
+            // while (spliceIndex < tempRack.length) {
+            //     if(tempRack[spliceIndex] === 'extensionOfDevice') {
+            //         let spliced = tempRack.splice(spliceIndex, 1)
+            //         console.log(`SPLICED!!!!!! ${curRack.name} + ${spliceIndex}`)
+            //         console.log(spliced)
+            //         //alert(`${spliceIndex} in ${curRack.id}`)
+            //     } else {
+            //         // only advences the index if there wasn't a splice, because in case of splice - the index doesn't change
+            //         // data: [{},{},"extensionOfDevice","extensionOfDevice", {}]
+            //         // keys: (0, 1, 2, 3, 4)
+            //         // after 1 splice:
+            //         // data: [{},{}, "extensionOfDevice", {}]
+            //         // keys: (0, 1, 2, 3)
+            //         // key number 2 was spliced - so key 3 has become the new key 2 - the index doesn't need to advance when spliced
+            //         spliceIndex++
+            //     }
+            // }
             
             data = tempRack;
 

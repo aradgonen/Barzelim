@@ -95,8 +95,6 @@ function DetailedRackCard(rack) {
   }
 }
   function renderU(rack,handleModal) {
-    console.log("printing the rack: --------------")
-    console.log(rack)
     const StyledTableCell = withStyles((theme) => ({
       head: {
         backgroundColor: theme.palette.common.black,
@@ -138,29 +136,44 @@ function DetailedRackCard(rack) {
 
       let rackComponents = new Array(0);
       let device;
+      
       //for (let deviceIndex = 0; deviceIndex < rackContent.length; deviceIndex++) {
+        let u_counter = 1;
       rackContent.forEach((u, index) => {
         console.log("Printing data in creating rack")
         console.log("index = " + index)
         console.log("data")
-        console.log(rackContent[index].data)
-        if (rackContent[index].data.size > 1) {
+        console.log(rackContent[index])
+        if(u.data.reserved){
+          u_counter = u_counter + 1
+          return
+        }
+        if (u.data.size > 1) {
           device = <MultiUDevice
-                    u = {rackContent[index].data}
-                    upperUNumber = {parseInt(u.data.unumber)}
-                    bottomUNumber = {parseInt(u.data.unumber) - (rackContent[index].data.size +1)} //the first +1 is the difference between array and physical location
-                    // the second on is how it's supposed to be calculated - if a device top u is 37, and it's size is 2 - the most bottom u is 36 (top u - size +1)
+                    u = {u.data}
+                    upperUNumber = {index+1}
+                    bottomUNumber = {(index+1)-u.data.size+1}
                     type = {""}
                     handleModal = {handleModal}
-                    numberOfU = {rackContent[index].data.size}
+                    numberOfU = {u.data.size}
                     />
+          // u_counter = u_counter + u.data.size -2
         } else {
           console.log("rack - " + index + " rack.data.length - " + rack.data.length)
+          // let cur_free_u;
+          // if(last_big_u !==0){
+          //   cur_free_u = index+1
+          // }
+          // else{
+          //   cur_free_u = index+last_big_u-1
+          //   if(cur_free_u < 1){cur_free_u = 1}
+          // }
           device = <TableRow>
-                      <SideTableCell align="center" width="3%">{Number(u.unumber) + 1}</SideTableCell>
+                      <SideTableCell align="center" width="3%">{index+1}</SideTableCell>
                       <StyledTableCell align="center"onClick={() => handleModal(<UDetails uData={u.data} title={"Detailed Info"}/>)}>{u.data.name}</StyledTableCell>
-                      <SideTableCell align="center" width="3%" onClick={() =>handleModal(<UConnectionInfo uData={u.data} title={"Connection Info"}/>)}>{Number(u.unumber) + 1}</SideTableCell>
+                      <SideTableCell align="center" width="3%" onClick={() =>handleModal(<UConnectionInfo uData={u.data} title={"Connection Info"}/>)}>{index+1}</SideTableCell>
                     </TableRow>
+          u_counter = u_counter + 1
         }
 
         rackComponents.unshift(device);

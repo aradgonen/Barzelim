@@ -35,7 +35,18 @@ function DcView(props) {
 }
 function RenderSingleRack(rack){
   return(
-    <DetailedRackCard rack={rack}/>
+    <DetailedRackCard rack={fillReservedU(rack)}/>
   )
+}
+function fillReservedU(rack){
+  if(rack !== undefined)
+  rack.data.forEach((u, index) => {
+    if(u.data.size > 1){
+      for(let i=1;i<u.data.size;i++){
+        rack.data[index-i].data.reserved = true
+      }
+    }
+  });
+  return rack
 }
   export default DcView;
