@@ -95,6 +95,8 @@ function DetailedRackCard(rack) {
   }
 }
   function renderU(rack,handleModal) {
+    console.log("printing the rack: --------------")
+    console.log(rack)
     const StyledTableCell = withStyles((theme) => ({
       head: {
         backgroundColor: theme.palette.common.black,
@@ -141,22 +143,23 @@ function DetailedRackCard(rack) {
         console.log("Printing data in creating rack")
         console.log("index = " + index)
         console.log("data")
-        console.log(rackContent[index])
-        if (rackContent[index].size !== 1) {
+        console.log(rackContent[index].data)
+        if (rackContent[index].data.size > 1) {
           device = <MultiUDevice
-                    u = {rackContent[index]}
-                    upperUNumber = {index}
-                    bottomUNumber = {index}
+                    u = {rackContent[index].data}
+                    upperUNumber = {parseInt(u.data.unumber)}
+                    bottomUNumber = {parseInt(u.data.unumber) - (rackContent[index].data.size +1)} //the first +1 is the difference between array and physical location
+                    // the second on is how it's supposed to be calculated - if a device top u is 37, and it's size is 2 - the most bottom u is 36 (top u - size +1)
                     type = {""}
                     handleModal = {handleModal}
-                    numberOfU = {3}
+                    numberOfU = {rackContent[index].data.size}
                     />
         } else {
           console.log("rack - " + index + " rack.data.length - " + rack.data.length)
           device = <TableRow>
-                      <SideTableCell align="center" width="3%">{index}</SideTableCell>
-                      <StyledTableCell align="center"onClick={() => handleModal(<UDetails uData={u} title={"Detailed Info"}/>)}>{u.name}</StyledTableCell>
-                      <SideTableCell align="center" width="3%" onClick={() =>handleModal(<UConnectionInfo uData={u} title={"Connection Info"}/>)}>{index}</SideTableCell>
+                      <SideTableCell align="center" width="3%">{Number(u.unumber) + 1}</SideTableCell>
+                      <StyledTableCell align="center"onClick={() => handleModal(<UDetails uData={u.data} title={"Detailed Info"}/>)}>{u.data.name}</StyledTableCell>
+                      <SideTableCell align="center" width="3%" onClick={() =>handleModal(<UConnectionInfo uData={u.data} title={"Connection Info"}/>)}>{Number(u.unumber) + 1}</SideTableCell>
                     </TableRow>
         }
 
