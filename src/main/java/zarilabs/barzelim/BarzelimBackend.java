@@ -51,7 +51,8 @@ public class BarzelimBackend {
 
 			//define BladeEnclosure
 			BladeEnclosureNode bladeEnclosureNode = new BladeEnclosureNode("Enclusre123456741", "HPE Enclosure 1","HPE", "OA", "5", 82, "", 20,10, 16, "HPE Enclosure");
-
+			BladeEnclosureNode bladeEnclosureNode1 = new BladeEnclosureNode("gbsckjasncklas","IBMEncA","IBM","MM","1",82, "",40,9,8,"IBM Enclosure");
+			BladeEnclosureNode bladeEnclosureNode2 = new BladeEnclosureNode("sdsdsdsdsd","UCS Blades 1","Cisco","UCS","1",82, "",30,6,8,"Cisco UCS Enclosure");
 
 			//define blades
 			ServerNode enclosureDevice_1 = new ServerNode("EnclosureDeviceA", "EnclosureDeviceA", "HPE", "rhel", "8", 82, "", 20, "Blade", "EMC-PROD",1);
@@ -61,7 +62,19 @@ public class BarzelimBackend {
 			ServerNode enclosureDevice_14 = new ServerNode("EnclosureDeviceE", "EnclosureDeviceE", "HPE", "rhel", "8", 82, "", 19, "Blade", "EMC-PROD",1);
 			ServerNode enclosureDevice_16 = new ServerNode("EnclosureDeviceF", "EnclosureDeviceF", "HPE", "rhel", "8", 82, "", 19, "Blade", "EMC-PROD",1);
 
+			ServerNode enclosureDevice_11 = new ServerNode("EnclosureDeviceA1", "EnclosureDeviceA11", "IBM", "rhel", "8", 82, "", 40, "Blade", "EMC-PROD",1);
+			ServerNode enclosureDevice_41 = new ServerNode("EnclosureDeviceB1", "EnclosureDeviceB11", "IBM", "rhel", "8", 82, "", 40, "Blade", "EMC-PROD",1);
+			ServerNode enclosureDevice_51 = new ServerNode("EnclosureDeviceC1", "EnclosureDeviceC11", "IBM", "rhel", "8", 82, "", 40, "Blade", "EMC-PROD",1);
+			ServerNode enclosureDevice_81 = new ServerNode("EnclosureDeviceD1", "EnclosureDeviceD11", "IBM", "rhel", "8", 82, "", 40, "Blade", "EMC-PROD",1);
+			ServerNode enclosureDevice_141 = new ServerNode("EnclosureDeviceE1", "EnclosureDeviceE11", "IBM", "rhel", "8", 82, "", 40, "Blade", "EMC-PROD",1);
+			ServerNode enclosureDevice_161 = new ServerNode("EnclosureDeviceF1", "EnclosureDeviceF11", "IBM", "rhel", "8", 82, "", 40, "Blade", "EMC-PROD",1);
 
+			ServerNode enclosureDevice_111 = new ServerNode("EnclosureDeviceA11", "EnclosureDeviceA111", "Cisco", "rhel", "8", 82, "", 30, "Blade", "EMC-PROD",1);
+			ServerNode enclosureDevice_411 = new ServerNode("EnclosureDeviceB11", "EnclosureDeviceB111", "Cisco", "rhel", "8", 82, "", 30, "Blade", "EMC-PROD",1);
+			ServerNode enclosureDevice_511 = new ServerNode("EnclosureDeviceC11", "EnclosureDeviceC111", "Cisco", "rhel", "8", 82, "", 30, "Blade", "EMC-PROD",1);
+			ServerNode enclosureDevice_811 = new ServerNode("EnclosureDeviceD11", "EnclosureDeviceD111", "Cisco", "rhel", "8", 82, "", 30, "Blade", "EMC-PROD",1);
+			ServerNode enclosureDevice_1411 = new ServerNode("EnclosureDeviceE11", "EnclosureDeviceE111", "Cisco", "rhel", "8", 82, "", 30, "Blade", "EMC-PROD",1);
+			ServerNode enclosureDevice_1611 = new ServerNode("EnclosureDeviceF11", "EnclosureDeviceF111", "Cisco", "rhel", "8", 82, "", 30, "Blade", "EMC-PROD",1);
 			//put blades in enclosure
 			bladeEnclosureNode.insertServerIntoEnclosure(enclosureDevice_1, 1);
 			bladeEnclosureNode.insertServerIntoEnclosure(enclosureDevice_4, 4);
@@ -70,6 +83,19 @@ public class BarzelimBackend {
 			bladeEnclosureNode.insertServerIntoEnclosure(enclosureDevice_14, 14);
 			bladeEnclosureNode.insertServerIntoEnclosure(enclosureDevice_16, 16);
 
+			bladeEnclosureNode1.insertServerIntoEnclosure(enclosureDevice_11, 1);
+			bladeEnclosureNode1.insertServerIntoEnclosure(enclosureDevice_41, 3);
+			bladeEnclosureNode1.insertServerIntoEnclosure(enclosureDevice_51, 4);
+			bladeEnclosureNode1.insertServerIntoEnclosure(enclosureDevice_81, 5);
+			bladeEnclosureNode1.insertServerIntoEnclosure(enclosureDevice_141, 6);
+			bladeEnclosureNode1.insertServerIntoEnclosure(enclosureDevice_161, 8);
+
+			bladeEnclosureNode2.insertServerIntoEnclosure(enclosureDevice_111, 1);
+			bladeEnclosureNode2.insertServerIntoEnclosure(enclosureDevice_411, 3);
+			bladeEnclosureNode2.insertServerIntoEnclosure(enclosureDevice_511, 4);
+			bladeEnclosureNode2.insertServerIntoEnclosure(enclosureDevice_811, 5);
+			bladeEnclosureNode2.insertServerIntoEnclosure(enclosureDevice_1411, 6);
+			bladeEnclosureNode2.insertServerIntoEnclosure(enclosureDevice_1611, 8);
 
 			//define racks
 			RackNode rack_a = new RackNode(69,"LAB",42);
@@ -94,7 +120,8 @@ public class BarzelimBackend {
 			rack_b.putInRack(device_e);
 			rack_b.putInRack(device_f);
 			rack_e.putInRack(bladeEnclosureNode);
-
+			rack_e.putInRack(bladeEnclosureNode1);
+			rack_e.putInRack(bladeEnclosureNode2);
 
 			device_b.connectToSan(device_c);
 			device_d.connectToSan(device_f);
@@ -129,7 +156,23 @@ public class BarzelimBackend {
 			serverNodeService.save(enclosureDevice_16);
 
 			bladeEnclosureNodeService.save(bladeEnclosureNode);
+			serverNodeService.save(enclosureDevice_11);
+			serverNodeService.save(enclosureDevice_41);
+			serverNodeService.save(enclosureDevice_51);
+			serverNodeService.save(enclosureDevice_81);
+			serverNodeService.save(enclosureDevice_141);
+			serverNodeService.save(enclosureDevice_161);
 
+			bladeEnclosureNodeService.save(bladeEnclosureNode1);
+
+			serverNodeService.save(enclosureDevice_111);
+			serverNodeService.save(enclosureDevice_411);
+			serverNodeService.save(enclosureDevice_511);
+			serverNodeService.save(enclosureDevice_811);
+			serverNodeService.save(enclosureDevice_1411);
+			serverNodeService.save(enclosureDevice_1611);
+
+			bladeEnclosureNodeService.save(bladeEnclosureNode2);
 
 			System.out.println("********************************************************************");
 			System.out.println("**********************SimpliDC server started!**********************");

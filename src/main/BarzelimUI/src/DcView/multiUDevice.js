@@ -91,6 +91,18 @@ export default function MultiUDevice({u, upperUNumber, bottomUNumber, type, hand
           align: 'center',
           'writing-mode': 'vertical-rl',
           // 'text-orientation': 'upright'
+        },
+        UCSCard:{
+          minWidth: '49%',
+          maxWidth: '49%',
+          minHeight: 80,
+          raised: true
+        },
+        UCSTypography:{
+          noWrap: false,
+          maxWidth: '12%',
+          display: 'inline',
+          align: 'center',
         }
       });
 
@@ -145,11 +157,65 @@ export default function MultiUDevice({u, upperUNumber, bottomUNumber, type, hand
               <SideTableCell align="center" width="3%" onClick={() =>handleModal(<UConnectionInfo uData={u} title={"Connection Info"}/>)}>{upperUNumber}</SideTableCell>
           </TableRow>
     }
-    if(u.enclosureType == "IBM Enclosure"){
-
+    else if(u.enclosureType == "IBM Enclosure"){
+      rowContent[0] =
+      <TableRow>
+      <SideTableCell align="center" width="3%">{upperUNumber}</SideTableCell>
+      <TopU rowSpan={numberOfU} align="center" ><Typography onClick={() => handleModal(<UDetails uData={{'enclosureType':u.enclosureType,'osVersion':u.osVersion}} title={"Detailed Info"}/>)}>{u.name}</Typography>
+        <Grid container alignItems="center" className={classes.root}>
+          <Card variant="outlined" className={classes.Card}><CardContent><Typography className={classes.Typography}>{u.serverNodes[0].name ? u.serverNodes[0].name : "Empty"}</Typography></CardContent></Card>
+          <Divider orientation="vertical"  />
+          <Card variant="outlined" className={classes.Card}><CardContent><Typography className={classes.Typography}>{u.serverNodes[1].name ? u.serverNodes[1].name : "Empty"}</Typography></CardContent></Card>
+          <Divider orientation="vertical"  />
+          <Card variant="outlined" className={classes.Card}><CardContent><Typography className={classes.Typography}>{u.serverNodes[2].name ? u.serverNodes[2].name : "Empty"}</Typography></CardContent></Card>
+          <Divider orientation="vertical"  />
+          <Card variant="outlined" className={classes.Card}><CardContent><Typography className={classes.Typography}>{u.serverNodes[3].name ? u.serverNodes[3].name : "Empty"}</Typography></CardContent></Card>
+          <Divider orientation="vertical"  />
+          <Card variant="outlined" className={classes.Card}><CardContent><Typography className={classes.Typography}>{u.serverNodes[4].name ? u.serverNodes[4].name : "Empty"}</Typography></CardContent></Card>
+          <Divider orientation="vertical"  />
+          <Card variant="outlined" className={classes.Card}><CardContent><Typography className={classes.Typography}>{u.serverNodes[5].name ? u.serverNodes[5].name : "Empty"}</Typography></CardContent></Card>
+          <Divider orientation="vertical"  />
+          <Card variant="outlined" className={classes.Card}><CardContent><Typography className={classes.Typography}>{u.serverNodes[6].name ? u.serverNodes[6].name : "Empty"}</Typography></CardContent></Card>
+          <Divider orientation="vertical"  />
+          <Card variant="outlined" className={classes.Card}><CardContent><Typography className={classes.Typography}>{u.serverNodes[7].name ? u.serverNodes[7].name : "Empty"}</Typography></CardContent></Card>
+          <Divider orientation="vertical"  />
+        </Grid>
+      </TopU>
+      <SideTableCell align="center" width="3%" onClick={() =>handleModal(<UConnectionInfo uData={u} title={"Connection Info"}/>)}>{upperUNumber}</SideTableCell>
+  </TableRow>
     }
-    if(u.enclosureType == "Cisco UCS Enclosure"){
-      
+    else if(u.enclosureType == "Cisco UCS Enclosure"){
+      rowContent[0] =  
+      <TableRow>
+          <SideTableCell align="center" width="3%">{upperUNumber}</SideTableCell>
+          <TopU rowSpan={numberOfU} align="center" ><Typography onClick={() => handleModal(<UDetails uData={{'enclosureType':u.enclosureType,'osVersion':u.osVersion}} title={"Detailed Info"}/>)}>{u.name}</Typography>
+            <Grid container alignItems="center" className={classes.root}>
+              <Card variant="outlined" className={classes.UCSCard}><CardContent><Typography className={classes.UCSTypography}>{u.serverNodes[0].name ? u.serverNodes[0].name : "Empty"}</Typography></CardContent></Card>
+              <Divider orientation="vertical"  />
+              <Card variant="outlined" className={classes.UCSCard}><CardContent><Typography className={classes.UCSTypography}>{u.serverNodes[1].name ? u.serverNodes[1].name : "Empty"}</Typography></CardContent></Card>
+              <Divider orientation="vertical"  />
+            </Grid>
+            <Grid container alignItems="center" className={classes.root}>
+              <Card variant="outlined" className={classes.UCSCard}><CardContent><Typography className={classes.UCSTypography}>{u.serverNodes[2].name ? u.serverNodes[2].name : "Empty"}</Typography></CardContent></Card>
+              <Divider orientation="vertical"  />
+              <Card variant="outlined" className={classes.UCSCard}><CardContent><Typography className={classes.UCSTypography}>{u.serverNodes[3].name ? u.serverNodes[3].name : "Empty"}</Typography></CardContent></Card>
+              <Divider orientation="vertical"  />
+            </Grid>
+            <Grid container alignItems="center" className={classes.root}>
+              <Card variant="outlined" className={classes.UCSCard}><CardContent><Typography className={classes.UCSTypography}>{u.serverNodes[4].name ? u.serverNodes[4].name : "Empty"}</Typography></CardContent></Card>
+              <Divider orientation="vertical"  />
+              <Card variant="outlined" className={classes.UCSCard}><CardContent><Typography className={classes.UCSTypography}>{u.serverNodes[5].name ? u.serverNodes[5].name : "Empty"}</Typography></CardContent></Card>
+              <Divider orientation="vertical"  />
+            </Grid>
+            <Grid container alignItems="center" className={classes.root}>
+              <Card variant="outlined" className={classes.UCSCard}><CardContent><Typography className={classes.UCSTypography}>{u.serverNodes[6].name ? u.serverNodes[6].name : "Empty"}</Typography></CardContent></Card>
+              <Divider orientation="vertical"  />
+              <Card variant="outlined" className={classes.UCSCard}><CardContent><Typography className={classes.UCSTypography}>{u.serverNodes[7].name ? u.serverNodes[7].name : "Empty"}</Typography></CardContent></Card>
+              <Divider orientation="vertical"  />
+            </Grid>
+          </TopU>
+          <SideTableCell align="center" width="3%" onClick={() =>handleModal(<UConnectionInfo uData={u} title={"Connection Info"}/>)}>{upperUNumber}</SideTableCell>
+      </TableRow>
     }
     else{
       rowContent[0] =
