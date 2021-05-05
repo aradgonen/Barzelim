@@ -50,7 +50,7 @@ public class BarzelimBackend {
 
 
 			//define BladeEnclosure
-			BladeEnclosureNode bladeEnclosureNode = new BladeEnclosureNode("Enclusre123456741", "HPE Enclosure 1","HPE", "OA", "5", 82, "", 20,2, 16, "HPE Enclosure");
+			BladeEnclosureNode bladeEnclosureNode = new BladeEnclosureNode("Enclusre123456741", "HPE Enclosure 1","HPE", "OA", "5", 82, "", 20,10, 16, "HPE Enclosure");
 
 
 			//define blades
