@@ -103,6 +103,20 @@ export default function MultiUDevice({u, upperUNumber, bottomUNumber, type, hand
           maxWidth: '12%',
           display: 'inline',
           align: 'center',
+        },
+        emptyUCSCard:{
+          minWidth: '49%',
+          maxWidth: '49%',
+          minHeight: 80,
+          raised: true,
+          backgroundColor: "grey"
+        },
+        emptyCard:{
+          minWidth: '12%',
+          maxWidth: '12%',
+          minHeight: 350,
+          raised: true,
+          backgroundColor: "grey"
         }
       });
 
@@ -118,39 +132,39 @@ export default function MultiUDevice({u, upperUNumber, bottomUNumber, type, hand
               <SideTableCell align="center" width="3%">{upperUNumber}</SideTableCell>
               <TopU rowSpan={numberOfU} align="center" ><Typography onClick={() => handleModal(<UDetails uData={{'enclosureType':u.enclosureType,'osVersion':u.osVersion}} title={"Detailed Info"}/>)}>{u.name}</Typography>
                 <Grid container alignItems="center" className={classes.root}>
-                  <Card variant="outlined" className={classes.Card}><CardContent><Typography className={classes.Typography}>{u.serverNodes[0].name ? u.serverNodes[0].name : "Empty"}</Typography></CardContent></Card>
+                  <Card variant="outlined" className={u.serverNodes[0].name ? classes.Card : classes.emptyCard}><CardContent><Typography className={classes.Typography}>{u.serverNodes[0].name ? u.serverNodes[0].name : "Empty"}</Typography></CardContent></Card>
                   <Divider orientation="vertical"  />
-                  <Card variant="outlined" className={classes.Card}><CardContent><Typography className={classes.Typography}>{u.serverNodes[1].name ? u.serverNodes[1].name : "Empty"}</Typography></CardContent></Card>
+                  <Card variant="outlined" className={u.serverNodes[1].name ? classes.Card : classes.emptyCard}><CardContent><Typography className={classes.Typography}>{u.serverNodes[1].name ? u.serverNodes[1].name : "Empty"}</Typography></CardContent></Card>
                   <Divider orientation="vertical"  />
-                  <Card variant="outlined" className={classes.Card}><CardContent><Typography className={classes.Typography}>{u.serverNodes[2].name ? u.serverNodes[2].name : "Empty"}</Typography></CardContent></Card>
+                  <Card variant="outlined" className={u.serverNodes[2].name ? classes.Card : classes.emptyCard}><CardContent><Typography className={classes.Typography}>{u.serverNodes[2].name ? u.serverNodes[2].name : "Empty"}</Typography></CardContent></Card>
                   <Divider orientation="vertical"  />
-                  <Card variant="outlined" className={classes.Card}><CardContent><Typography className={classes.Typography}>{u.serverNodes[3].name ? u.serverNodes[3].name : "Empty"}</Typography></CardContent></Card>
+                  <Card variant="outlined" className={u.serverNodes[3].name ? classes.Card : classes.emptyCard}><CardContent><Typography className={classes.Typography}>{u.serverNodes[3].name ? u.serverNodes[3].name : "Empty"}</Typography></CardContent></Card>
                   <Divider orientation="vertical"  />
-                  <Card variant="outlined" className={classes.Card}><CardContent><Typography className={classes.Typography}>{u.serverNodes[4].name ? u.serverNodes[4].name : "Empty"}</Typography></CardContent></Card>
+                  <Card variant="outlined" className={u.serverNodes[4].name ? classes.Card : classes.emptyCard}><CardContent><Typography className={classes.Typography}>{u.serverNodes[4].name ? u.serverNodes[4].name : "Empty"}</Typography></CardContent></Card>
                   <Divider orientation="vertical"  />
-                  <Card variant="outlined" className={classes.Card}><CardContent><Typography className={classes.Typography}>{u.serverNodes[5].name ? u.serverNodes[5].name : "Empty"}</Typography></CardContent></Card>
+                  <Card variant="outlined" className={u.serverNodes[5].name ? classes.Card : classes.emptyCard}><CardContent><Typography className={classes.Typography}>{u.serverNodes[5].name ? u.serverNodes[5].name : "Empty"}</Typography></CardContent></Card>
                   <Divider orientation="vertical"  />
-                  <Card variant="outlined" className={classes.Card}><CardContent><Typography className={classes.Typography}>{u.serverNodes[6].name ? u.serverNodes[6].name : "Empty"}</Typography></CardContent></Card>
+                  <Card variant="outlined" className={u.serverNodes[6].name ? classes.Card : classes.emptyCard}><CardContent><Typography className={classes.Typography}>{u.serverNodes[6].name ? u.serverNodes[6].name : "Empty"}</Typography></CardContent></Card>
                   <Divider orientation="vertical"  />
-                  <Card variant="outlined" className={classes.Card}><CardContent><Typography className={classes.Typography}>{u.serverNodes[7].name ? u.serverNodes[7].name : "Empty"}</Typography></CardContent></Card>
+                  <Card variant="outlined" className={u.serverNodes[7].name ? classes.Card : classes.emptyCard}><CardContent><Typography className={classes.Typography}>{u.serverNodes[7].name ? u.serverNodes[7].name : "Empty"}</Typography></CardContent></Card>
                   <Divider orientation="vertical"  />
                 </Grid>
                 <Grid container alignItems="center" className={classes.root}>
-                  <Card variant="outlined" className={classes.Card}><CardContent><Typography className={classes.Typography}>{u.serverNodes[8].name ? u.serverNodes[8].name : "Empty"}</Typography></CardContent></Card>
+                  <Card variant="outlined" className={u.serverNodes[8].name ? classes.Card : classes.emptyCard}><CardContent><Typography className={classes.Typography}>{u.serverNodes[8].name ? u.serverNodes[8].name : "Empty"}</Typography></CardContent></Card>
                   <Divider orientation="vertical"  />
-                  <Card variant="outlined" className={classes.Card}><CardContent><Typography className={classes.Typography}>{u.serverNodes[9].name ? u.serverNodes[9].name : "Empty"}</Typography></CardContent></Card>
+                  <Card variant="outlined" className={u.serverNodes[9].name ? classes.Card : classes.emptyCard}><CardContent><Typography className={classes.Typography}>{u.serverNodes[9].name ? u.serverNodes[9].name : "Empty"}</Typography></CardContent></Card>
                   <Divider orientation="vertical"  />
-                  <Card variant="outlined" className={classes.Card}><CardContent><Typography className={classes.Typography}>{u.serverNodes[10].name ? u.serverNodes[10].name : "Empty"}</Typography></CardContent></Card>
+                  <Card variant="outlined" className={u.serverNodes[10].name ? classes.Card : classes.emptyCard}><CardContent><Typography className={classes.Typography}>{u.serverNodes[10].name ? u.serverNodes[10].name : "Empty"}</Typography></CardContent></Card>
                   <Divider orientation="vertical"  />
-                  <Card variant="outlined" className={classes.Card}><CardContent><Typography className={classes.Typography}>{u.serverNodes[11].name ? u.serverNodes[11].name : "Empty"}</Typography></CardContent></Card>
+                  <Card variant="outlined" className={u.serverNodes[11].name ? classes.Card : classes.emptyCard}><CardContent><Typography className={classes.Typography}>{u.serverNodes[11].name ? u.serverNodes[11].name : "Empty"}</Typography></CardContent></Card>
                   <Divider orientation="vertical"  />
-                  <Card variant="outlined" className={classes.Card}><CardContent><Typography className={classes.Typography}>{u.serverNodes[12].name ? u.serverNodes[12].name : "Empty"}</Typography></CardContent></Card>
+                  <Card variant="outlined" className={u.serverNodes[12].name ? classes.Card : classes.emptyCard}><CardContent><Typography className={classes.Typography}>{u.serverNodes[12].name ? u.serverNodes[12].name : "Empty"}</Typography></CardContent></Card>
                   <Divider orientation="vertical"  />
-                  <Card variant="outlined" className={classes.Card}><CardContent><Typography className={classes.Typography}>{u.serverNodes[13].name ? u.serverNodes[13].name : "Empty"}</Typography></CardContent></Card>
+                  <Card variant="outlined" className={u.serverNodes[13].name ? classes.Card : classes.emptyCard}><CardContent><Typography className={classes.Typography}>{u.serverNodes[13].name ? u.serverNodes[13].name : "Empty"}</Typography></CardContent></Card>
                   <Divider orientation="vertical"  />
-                  <Card variant="outlined" className={classes.Card}><CardContent><Typography className={classes.Typography}>{u.serverNodes[14].name ? u.serverNodes[14].name : "Empty"}</Typography></CardContent></Card>
+                  <Card variant="outlined" className={u.serverNodes[14].name ? classes.Card : classes.emptyCard}><CardContent><Typography className={classes.Typography}>{u.serverNodes[14].name ? u.serverNodes[14].name : "Empty"}</Typography></CardContent></Card>
                   <Divider orientation="vertical"  />
-                  <Card variant="outlined" className={classes.Card}><CardContent><Typography className={classes.Typography}>{u.serverNodes[15].name ? u.serverNodes[15].name : "Empty"}</Typography></CardContent></Card>
+                  <Card variant="outlined" className={u.serverNodes[15].name ? classes.Card : classes.emptyCard}><CardContent><Typography className={classes.Typography}>{u.serverNodes[15].name ? u.serverNodes[15].name : "Empty"}</Typography></CardContent></Card>
                   <Divider orientation="vertical"  />
                 </Grid>
               </TopU>
@@ -163,21 +177,21 @@ export default function MultiUDevice({u, upperUNumber, bottomUNumber, type, hand
       <SideTableCell align="center" width="3%">{upperUNumber}</SideTableCell>
       <TopU rowSpan={numberOfU} align="center" ><Typography onClick={() => handleModal(<UDetails uData={{'enclosureType':u.enclosureType,'osVersion':u.osVersion}} title={"Detailed Info"}/>)}>{u.name}</Typography>
         <Grid container alignItems="center" className={classes.root}>
-          <Card variant="outlined" className={classes.Card}><CardContent><Typography className={classes.Typography}>{u.serverNodes[0].name ? u.serverNodes[0].name : "Empty"}</Typography></CardContent></Card>
+          <Card variant="outlined" className={u.serverNodes[0].name ? classes.Card : classes.emptyCard}><CardContent><Typography className={classes.Typography}>{u.serverNodes[0].name ? u.serverNodes[0].name : "Empty"}</Typography></CardContent></Card>
           <Divider orientation="vertical"  />
-          <Card variant="outlined" className={classes.Card}><CardContent><Typography className={classes.Typography}>{u.serverNodes[1].name ? u.serverNodes[1].name : "Empty"}</Typography></CardContent></Card>
+          <Card variant="outlined" className={u.serverNodes[1].name ? classes.Card : classes.emptyCard}><CardContent><Typography className={classes.Typography}>{u.serverNodes[1].name ? u.serverNodes[1].name : "Empty"}</Typography></CardContent></Card>
           <Divider orientation="vertical"  />
-          <Card variant="outlined" className={classes.Card}><CardContent><Typography className={classes.Typography}>{u.serverNodes[2].name ? u.serverNodes[2].name : "Empty"}</Typography></CardContent></Card>
+          <Card variant="outlined" className={u.serverNodes[2].name ? classes.Card : classes.emptyCard}><CardContent><Typography className={classes.Typography}>{u.serverNodes[2].name ? u.serverNodes[2].name : "Empty"}</Typography></CardContent></Card>
           <Divider orientation="vertical"  />
-          <Card variant="outlined" className={classes.Card}><CardContent><Typography className={classes.Typography}>{u.serverNodes[3].name ? u.serverNodes[3].name : "Empty"}</Typography></CardContent></Card>
+          <Card variant="outlined" className={u.serverNodes[3].name ? classes.Card : classes.emptyCard}><CardContent><Typography className={classes.Typography}>{u.serverNodes[3].name ? u.serverNodes[3].name : "Empty"}</Typography></CardContent></Card>
           <Divider orientation="vertical"  />
-          <Card variant="outlined" className={classes.Card}><CardContent><Typography className={classes.Typography}>{u.serverNodes[4].name ? u.serverNodes[4].name : "Empty"}</Typography></CardContent></Card>
+          <Card variant="outlined" className={u.serverNodes[4].name ? classes.Card : classes.emptyCard}><CardContent><Typography className={classes.Typography}>{u.serverNodes[4].name ? u.serverNodes[4].name : "Empty"}</Typography></CardContent></Card>
           <Divider orientation="vertical"  />
-          <Card variant="outlined" className={classes.Card}><CardContent><Typography className={classes.Typography}>{u.serverNodes[5].name ? u.serverNodes[5].name : "Empty"}</Typography></CardContent></Card>
+          <Card variant="outlined" className={u.serverNodes[5].name ? classes.Card : classes.emptyCard}><CardContent><Typography className={classes.Typography}>{u.serverNodes[5].name ? u.serverNodes[5].name : "Empty"}</Typography></CardContent></Card>
           <Divider orientation="vertical"  />
-          <Card variant="outlined" className={classes.Card}><CardContent><Typography className={classes.Typography}>{u.serverNodes[6].name ? u.serverNodes[6].name : "Empty"}</Typography></CardContent></Card>
+          <Card variant="outlined" className={u.serverNodes[6].name ? classes.Card : classes.emptyCard}><CardContent><Typography className={classes.Typography}>{u.serverNodes[6].name ? u.serverNodes[6].name : "Empty"}</Typography></CardContent></Card>
           <Divider orientation="vertical"  />
-          <Card variant="outlined" className={classes.Card}><CardContent><Typography className={classes.Typography}>{u.serverNodes[7].name ? u.serverNodes[7].name : "Empty"}</Typography></CardContent></Card>
+          <Card variant="outlined" className={u.serverNodes[7].name ? classes.Card : classes.emptyCard}><CardContent><Typography className={classes.Typography}>{u.serverNodes[7].name ? u.serverNodes[7].name : "Empty"}</Typography></CardContent></Card>
           <Divider orientation="vertical"  />
         </Grid>
       </TopU>
@@ -190,27 +204,27 @@ export default function MultiUDevice({u, upperUNumber, bottomUNumber, type, hand
           <SideTableCell align="center" width="3%">{upperUNumber}</SideTableCell>
           <TopU rowSpan={numberOfU} align="center" ><Typography onClick={() => handleModal(<UDetails uData={{'enclosureType':u.enclosureType,'osVersion':u.osVersion}} title={"Detailed Info"}/>)}>{u.name}</Typography>
             <Grid container alignItems="center" className={classes.root}>
-              <Card variant="outlined" className={classes.UCSCard}><CardContent><Typography className={classes.UCSTypography}>{u.serverNodes[0].name ? u.serverNodes[0].name : "Empty"}</Typography></CardContent></Card>
+              <Card variant="outlined" className={u.serverNodes[0].name ? classes.UCSCard : classes.emptyUCSCard}><CardContent><Typography className={classes.UCSTypography}>{u.serverNodes[0].name ? u.serverNodes[0].name : "Empty"}</Typography></CardContent></Card>
               <Divider orientation="vertical"  />
-              <Card variant="outlined" className={classes.UCSCard}><CardContent><Typography className={classes.UCSTypography}>{u.serverNodes[1].name ? u.serverNodes[1].name : "Empty"}</Typography></CardContent></Card>
-              <Divider orientation="vertical"  />
-            </Grid>
-            <Grid container alignItems="center" className={classes.root}>
-              <Card variant="outlined" className={classes.UCSCard}><CardContent><Typography className={classes.UCSTypography}>{u.serverNodes[2].name ? u.serverNodes[2].name : "Empty"}</Typography></CardContent></Card>
-              <Divider orientation="vertical"  />
-              <Card variant="outlined" className={classes.UCSCard}><CardContent><Typography className={classes.UCSTypography}>{u.serverNodes[3].name ? u.serverNodes[3].name : "Empty"}</Typography></CardContent></Card>
+              <Card variant="outlined" className={u.serverNodes[1].name ? classes.UCSCard : classes.emptyUCSCard}><CardContent><Typography className={classes.UCSTypography}>{u.serverNodes[1].name ? u.serverNodes[1].name : "Empty"}</Typography></CardContent></Card>
               <Divider orientation="vertical"  />
             </Grid>
             <Grid container alignItems="center" className={classes.root}>
-              <Card variant="outlined" className={classes.UCSCard}><CardContent><Typography className={classes.UCSTypography}>{u.serverNodes[4].name ? u.serverNodes[4].name : "Empty"}</Typography></CardContent></Card>
+              <Card variant="outlined" className={u.serverNodes[2].name ? classes.UCSCard : classes.emptyUCSCard}><CardContent><Typography className={classes.UCSTypography}>{u.serverNodes[2].name ? u.serverNodes[2].name : "Empty"}</Typography></CardContent></Card>
               <Divider orientation="vertical"  />
-              <Card variant="outlined" className={classes.UCSCard}><CardContent><Typography className={classes.UCSTypography}>{u.serverNodes[5].name ? u.serverNodes[5].name : "Empty"}</Typography></CardContent></Card>
+              <Card variant="outlined" className={u.serverNodes[3].name ? classes.UCSCard : classes.emptyUCSCard}><CardContent><Typography className={classes.UCSTypography}>{u.serverNodes[3].name ? u.serverNodes[3].name : "Empty"}</Typography></CardContent></Card>
               <Divider orientation="vertical"  />
             </Grid>
             <Grid container alignItems="center" className={classes.root}>
-              <Card variant="outlined" className={classes.UCSCard}><CardContent><Typography className={classes.UCSTypography}>{u.serverNodes[6].name ? u.serverNodes[6].name : "Empty"}</Typography></CardContent></Card>
+              <Card variant="outlined" className={u.serverNodes[4].name ? classes.UCSCard : classes.emptyUCSCard}><CardContent><Typography className={classes.UCSTypography}>{u.serverNodes[4].name ? u.serverNodes[4].name : "Empty"}</Typography></CardContent></Card>
               <Divider orientation="vertical"  />
-              <Card variant="outlined" className={classes.UCSCard}><CardContent><Typography className={classes.UCSTypography}>{u.serverNodes[7].name ? u.serverNodes[7].name : "Empty"}</Typography></CardContent></Card>
+              <Card variant="outlined" className={u.serverNodes[5].name ? classes.UCSCard : classes.emptyUCSCard}><CardContent><Typography className={classes.UCSTypography}>{u.serverNodes[5].name ? u.serverNodes[5].name : "Empty"}</Typography></CardContent></Card>
+              <Divider orientation="vertical"  />
+            </Grid>
+            <Grid container alignItems="center" className={classes.root}>
+              <Card variant="outlined" className={u.serverNodes[6].name ? classes.UCSCard : classes.emptyUCSCard}><CardContent><Typography className={classes.UCSTypography}>{u.serverNodes[6].name ? u.serverNodes[6].name : "Empty"}</Typography></CardContent></Card>
+              <Divider orientation="vertical"  />
+              <Card variant="outlined" className={u.serverNodes[7].name ? classes.UCSCard : classes.emptyUCSCard}><CardContent><Typography className={classes.UCSTypography}>{u.serverNodes[7].name ? u.serverNodes[7].name : "Empty"}</Typography></CardContent></Card>
               <Divider orientation="vertical"  />
             </Grid>
           </TopU>
