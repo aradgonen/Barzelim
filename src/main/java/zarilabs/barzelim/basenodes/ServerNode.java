@@ -15,7 +15,7 @@ public class ServerNode extends XDeviceNode {
     private String formFactor;
     private String externalStorage;
 
-    private ServerNode(){
+    public ServerNode(){
         super();
     }
 
