@@ -1,4 +1,6 @@
+// import { Button } from 'bootstrap';
 import React from 'react';
+import Button from '@material-ui/core/Button';
 
 function UDetails(props) {
     let dataArray = []
@@ -17,6 +19,7 @@ function UDetails(props) {
     return (
       <>
       {dataArray}
+      {/* <Button variant="contained" color="primary">Edit U</Button> */}
       </>
     );
   }

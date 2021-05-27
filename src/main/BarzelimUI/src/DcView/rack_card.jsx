@@ -10,7 +10,7 @@ import {CardColumns,Card,Table,Container} from 'react-bootstrap'
 import rack_icon from './rack.svg'
 function RackCard(props){
     let history = useHistory()
-    console.log(props)
+    // console.log(props)
     return props.data.dc.map(rack => {
       return(
         <Card className="ml-auto mr-auto text-center" onClick={()=>handleRackClick(rack.rack_id)}>  
@@ -25,7 +25,7 @@ function RackCard(props){
     })
     function handleRackClick(rack_id) {
 
-        console.log("CLICKED")
+        // console.log("CLICKED")
         history.push(`/rack/${rack_id}`);
       }
   }

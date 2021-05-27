@@ -6,7 +6,7 @@ class TopNav extends React.Component {
         .then(res => res.json())
         .then((data) => {
           //this.setState({ contacts: data })
-          console.log(data)
+          // console.log(data)
         })
         .catch(console.log)
       }

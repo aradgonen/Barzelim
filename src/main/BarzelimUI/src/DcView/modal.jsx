@@ -7,9 +7,9 @@ const UniversalModal = () => {
   if (modal) {
     return ReactDOM.createPortal(
       <>
-      <Button variant="primary" onClick={() => handleModal()}>
+      {/* <Button variant="primary" onClick={() => handleModal()}>
         Launch demo modal
-      </Button>
+      </Button> */}
 
       <Modal show={() => handleModal()} onHide={() => handleModal()}>
         <Modal.Header closeButton>

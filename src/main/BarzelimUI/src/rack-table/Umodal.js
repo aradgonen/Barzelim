@@ -29,7 +29,7 @@ class UModal extends React.Component {
     window.open("ssh://"+link , link);
   };
   componentDidCatch(error){
-    console.log()
+    // console.log()
   }
   async getCurUData(uSerialNumber){
     let uData;
@@ -37,7 +37,7 @@ class UModal extends React.Component {
       uData = (await fetch('/neo4j/devices/device/connections/'+uSerialNumber)).json()
     }
     catch{
-      console.log()
+      // console.log()
     }
     return uData;
   }
@@ -60,7 +60,7 @@ class UModal extends React.Component {
         })
       }
       catch(error){
-        console.log()
+        // console.log()
       }
 
       try{

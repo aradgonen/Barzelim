@@ -27,7 +27,7 @@ class App extends Component {
 
   handleChange = event => {
     let state_ = {...this.state}
-    console.log(event.target.value)
+    // console.log(event.target.value)
     state_.searchTerm = event.target.value
     state_.searchResults = DC.filter(rack =>
       JSON.stringify(rack).toLowerCase().includes(state_.searchTerm.toLowerCase().trim()));
@@ -59,15 +59,15 @@ class App extends Component {
     let state_ = {...this.state}
     state_.searchResults = DC;
     this.setState(state_)
-    console.log(devices)
-    console.log(racks)
-    console.log(DC)
+    // console.log(devices)
+    // console.log(racks)
+    // console.log(DC)
     
     
     // this happens LAST insted of FIRST becuase it async - WE NEED TO FIX THIS!!!!!!!
-    console.log("in will mount")
-    console.log(`value of first time = ${Cookies.get(`firstTime${config.version}`)}`)
-    console.log(`state show first time = ${this.state.showFirstTimeScreen}`)
+    // console.log("in will mount")
+    // console.log(`value of first time = ${Cookies.get(`firstTime${config.version}`)}`)
+    // console.log(`state show first time = ${this.state.showFirstTimeScreen}`)
 
   }
 
@@ -77,24 +77,24 @@ class App extends Component {
       this.showFirstTimeScreenHandler()
     }
 
-    console.log("in did mount")
-    console.log(`value of first time = ${Cookies.get(`firstTime${config.version}`)}`)
-    console.log(`state show first time = ${this.state.showFirstTimeScreen}`)
+    // console.log("in did mount")
+    // console.log(`value of first time = ${Cookies.get(`firstTime${config.version}`)}`)
+    // console.log(`state show first time = ${this.state.showFirstTimeScreen}`)
 
   }
 
   render() {
-    console.log("in render")
-    console.log(`value of first time = ${Cookies.get(`firstTime${config.version}`)}`)
-    console.log(`state show first time = ${this.state.showFirstTimeScreen}`)
+    // console.log("in render")
+    // console.log(`value of first time = ${Cookies.get(`firstTime${config.version}`)}`)
+    // console.log(`state show first time = ${this.state.showFirstTimeScreen}`)
 
     let popUp
     if(this.state.showFirstTimeScreen === true) {
-      console.log("in render - show first time is true!, counter = " + counter)
+      // console.log("in render - show first time is true!, counter = " + counter)
       counter++
       popUp = <FirstTimePage show={this.props.showFirstTimeScreen} hide={this.hideFirstTimeScreenHandler}/>
     } else {
-      console.log("in render - show first time is false!, counter = " + counter)
+      // console.log("in render - show first time is false!, counter = " + counter)
       counter++
       popUp = <div></div>
     }

@@ -24,7 +24,7 @@ const dataReciver = {
         try{
             devicesRaw = await fetch('/api/barzelim/devices')
             devicesRaw = await devicesRaw.json()
-            console.log(devicesRaw)
+            // console.log(devicesRaw)
             return devicesRaw
         }
         catch{
@@ -42,8 +42,8 @@ const dataReciver = {
         try {
             racks = await (await fetch('/api/barzelim/racks')).json()
             // racks = racks['_embedded']['racks']
-            console.log('racks')
-            console.log(racks)
+            // console.log('racks')
+            // console.log(racks)
         } catch {
             console.error()
         }
@@ -59,8 +59,8 @@ const dataReciver = {
             let data = []
             let tempRack = new Array(curRack.size)
             tempRack.fill('emptyCell',0,tempRack.length) //fill the temp array with empty data
-            console.log("devices")
-            console.log(devices)
+            // console.log("devices")
+            // console.log(devices)
             devices.forEach(device => {
                 if(curRack.name === device.rackNumber){
                     //curRackDevices[device.unumber] = device
@@ -90,8 +90,8 @@ const dataReciver = {
                 }
             }
 
-            console.log(`Data array of ${curRack.name}`)
-            console.log(tempRack)
+            // console.log(`Data array of ${curRack.name}`)
+            // console.log(tempRack)
 
             // let arr = [{1:1},{2:2},'extensionOfDevice', 'extensionOfDevice', {3:3}]
             // let spliceIndex2 = 0;
@@ -146,8 +146,8 @@ const dataReciver = {
             //         data[i] = {unumber:i}
             //     }
             // }
-            console.log(`creating rack ${curRack.id} with the data`);
-            console.log(data);
+            // console.log(`creating rack ${curRack.id} with the data`);
+            // console.log(data);
             return {rack_id:curRack.name, data:data, network: curRack.networkId}
         })
         // let dc = []
