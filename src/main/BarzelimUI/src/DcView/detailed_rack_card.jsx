@@ -157,6 +157,7 @@ function DetailedRackCard(rack) {
                     type = {""}
                     handleModal = {handleModal}
                     numberOfU = {u.data.size}
+                    rack_id={rack.rack_id}
                     />
           // u_counter = u_counter + u.data.size -2
         } else {
@@ -171,12 +172,11 @@ function DetailedRackCard(rack) {
           // }
           device = <TableRow>
                       <SideTableCell align="center" width="3%">{index+1} </SideTableCell>
-                    <StyledTableCell align="center" onClick={() => handleModal(<UDetails uData={u.data} title={"Detailed Info"}/>)}>{u.data.name}</StyledTableCell>
-                      <SideTableCell align="center" width="3%" onClick={() =>handleModal(<UConnectionInfo uData={u.data} title={"Connection Info"}/>)}>{index+1}</SideTableCell>
+                    <StyledTableCell align="center" onClick={() => handleModal(<UDetails rack_id={rack.rack_id} uData={u.data} title={"Detailed Info"}/>)}>{u.data.name}</StyledTableCell>
+                      <SideTableCell align="center" width="3%" onClick={() =>handleModal(<UConnectionInfo  uData={u.data} title={"Connection Info"}/>)}>{index+1}</SideTableCell>
                     </TableRow>
           u_counter = u_counter + 1
         }
-
         rackComponents.unshift(device);
       });
       

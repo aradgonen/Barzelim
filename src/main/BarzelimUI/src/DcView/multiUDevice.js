@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function MultiUDevice({u, upperUNumber, bottomUNumber, type, handleModal,  numberOfU}) {
+export default function MultiUDevice({u, upperUNumber, bottomUNumber, type, handleModal,  numberOfU, rack_id}) {
     const TopU = withStyles((theme) => ({
         root: {
             borderBottom: "none"
@@ -130,7 +130,7 @@ export default function MultiUDevice({u, upperUNumber, bottomUNumber, type, hand
       rowContent[0] =  
           <TableRow>
               <SideTableCell align="center" width="3%">{upperUNumber}</SideTableCell>
-              <TopU rowSpan={numberOfU} align="center" ><Typography onClick={() => handleModal(<UDetails uData={{'enclosureType':u.enclosureType,'osVersion':u.osVersion}} title={"Detailed Info"}/>)}>{u.name}</Typography>
+              <TopU rowSpan={numberOfU} align="center" ><Typography onClick={() => handleModal(<UDetails rack_id={rack_id} uData={{'enclosureType':u.enclosureType,'osVersion':u.osVersion}} title={"Detailed Info"}/>)}>{u.name}</Typography>
                 <Grid container alignItems="center" className={classes.root}>
                   <Card variant="outlined" className={u.serverNodes[0].name ? classes.Card : classes.emptyCard}><CardContent><Typography className={classes.Typography}>{u.serverNodes[0].name ? u.serverNodes[0].name : "Empty"}</Typography></CardContent></Card>
                   <Divider orientation="vertical"  />
@@ -175,7 +175,7 @@ export default function MultiUDevice({u, upperUNumber, bottomUNumber, type, hand
       rowContent[0] =
       <TableRow>
       <SideTableCell align="center" width="3%">{upperUNumber}</SideTableCell>
-      <TopU rowSpan={numberOfU} align="center" ><Typography onClick={() => handleModal(<UDetails uData={{'enclosureType':u.enclosureType,'osVersion':u.osVersion}} title={"Detailed Info"}/>)}>{u.name}</Typography>
+      <TopU rowSpan={numberOfU} align="center" ><Typography onClick={() => handleModal(<UDetails rack_id={rack_id} uData={{'enclosureType':u.enclosureType,'osVersion':u.osVersion}} title={"Detailed Info"}/>)}>{u.name}</Typography>
         <Grid container alignItems="center" className={classes.root}>
           <Card variant="outlined" className={u.serverNodes[0].name ? classes.Card : classes.emptyCard}><CardContent><Typography className={classes.Typography}>{u.serverNodes[0].name ? u.serverNodes[0].name : "Empty"}</Typography></CardContent></Card>
           <Divider orientation="vertical"  />
@@ -202,7 +202,7 @@ export default function MultiUDevice({u, upperUNumber, bottomUNumber, type, hand
       rowContent[0] =  
       <TableRow>
           <SideTableCell align="center" width="3%">{upperUNumber}</SideTableCell>
-          <TopU rowSpan={numberOfU} align="center" ><Typography onClick={() => handleModal(<UDetails uData={{'enclosureType':u.enclosureType,'osVersion':u.osVersion}} title={"Detailed Info"}/>)}>{u.name}</Typography>
+          <TopU rowSpan={numberOfU} align="center" ><Typography onClick={() => handleModal(<UDetails rack_id={rack_id} uData={{'enclosureType':u.enclosureType,'osVersion':u.osVersion}} title={"Detailed Info"}/>)}>{u.name}</Typography>
             <Grid container alignItems="center" className={classes.root}>
               <Card variant="outlined" className={u.serverNodes[0].name ? classes.UCSCard : classes.emptyUCSCard}><CardContent><Typography className={classes.UCSTypography}>{u.serverNodes[0].name ? u.serverNodes[0].name : "Empty"}</Typography></CardContent></Card>
               <Divider orientation="vertical"  />
@@ -235,7 +235,7 @@ export default function MultiUDevice({u, upperUNumber, bottomUNumber, type, hand
       rowContent[0] =
           <TableRow>
           <SideTableCell align="center" width="3%">{upperUNumber}</SideTableCell>
-          <TopU rowSpan={numberOfU} align="center" onClick={() => handleModal(<UDetails uData={u} title={"Detailed Info"}/>)}>{u.name}</TopU>
+          <TopU rowSpan={numberOfU} align="center" onClick={() => handleModal(<UDetails rack_id={rack_id} uData={u} title={"Detailed Info"}/>)}>{u.name}</TopU>
           <SideTableCell align="center" width="3%" onClick={() =>handleModal(<UConnectionInfo uData={u} title={"Connection Info"}/>)}>{upperUNumber}</SideTableCell>
           </TableRow>
 
