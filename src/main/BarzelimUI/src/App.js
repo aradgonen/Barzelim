@@ -1,118 +1,142 @@
-import React, {Component} from 'react';
-import './App.css';
-import Racktable from './rack-table/racktable';
-import DcView from './DcView/dc_view'
-import TopNav from './UI/Components/Navbar/navbar';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import dataReciver from './utilities/dataReciver'
-import FirstTimePage from './FirstTimePage/FirstTImePage'
-import Cookies from 'js-cookie'
-import {BrowserRouter} from 'react-router-dom'
-import { ModalProvider } from './DcView/modalContext'
-const config = require('./config.json');
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Router, Switch, Route, Link } from "react-router-dom";
 
-//const DC = require('../src/rack-table/dc')
-let DC = [];
-let counter = 0;
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
 
+import Login from "./UI/Components/Login";
+import Register from "./UI/Components/Register";
+import Home from "./UI/Components/Home";
+import Profile from "./UI/Components/Profile";
+import BoardUser from "./UI/Components/BoardUser";
+import BoardModerator from "./UI/Components/BoardModerator";
+import BoardAdmin from "./UI/Components/BoardAdmin";
 
-//https://github.com/arnab-datta/counter-app/blob/master/src/App.js
-class App extends Component {
-  state = {
-    searchTerm : "",
-    searchResults : [],
-    showFirstTimeScreen: false
+import { logout } from "./actions/auth";
+import { clearMessage } from "./actions/message";
+
+import { history } from "./helpers/history";
+
+const App = () => {
+  const [showModeratorBoard, setShowModeratorBoard] = useState(false);
+  const [showAdminBoard, setShowAdminBoard] = useState(false);
+
+  // const [searchTerm, setSearchTerm] = useState("");
+  // const [searchResult, setSearchResult] = useState("");
+  // const [showFirstTimeScreen, setShowFirstTimeScreen] = useState(false);
+  
+
+  const { user: currentUser } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    history.listen((location) => {
+      dispatch(clearMessage()); // clear message when changing location
+    });
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (currentUser) {
+      setShowModeratorBoard(currentUser.roles.includes("ROLE_MODERATOR"));
+      setShowAdminBoard(currentUser.roles.includes("ROLE_ADMIN"));
+    }
+  }, [currentUser]);
+
+  const logOut = () => {
+    dispatch(logout());
   };
 
+  return (
+    <Router history={history}>
+      <div>
+        <nav className="navbar navbar-expand navbar-dark bg-dark">
+        <img
+                        alt=""
+                        src="../../dns-24px.svg"
+                        width="30"
+                        height="30"
+                        className="d-inline-block align-top"
+                    />
+          <Link to={"/"} className="navbar-brand">
+            SimpliDC
+          </Link>
+          <div className="navbar-nav mr-auto">
+            <li className="nav-item">
+              <Link to={"/home"} className="nav-link">
+                Home
+              </Link>
+            </li>
 
-  handleChange = event => {
-    let state_ = {...this.state}
-    // console.log(event.target.value)
-    state_.searchTerm = event.target.value
-    state_.searchResults = DC.filter(rack =>
-      JSON.stringify(rack).toLowerCase().includes(state_.searchTerm.toLowerCase().trim()));
-    this.setState(state_)
-  };
+            {showModeratorBoard && (
+              <li className="nav-item">
+                <Link to={"/mod"} className="nav-link">
+                  Moderator Board
+                </Link>
+              </li>
+            )}
 
-  showFirstTimeScreenHandler = () => {
-    let state_ = {...this.state}
-    state_.showFirstTimeScreen = true
-    this.setState(state_)
-  }
+            {showAdminBoard && (
+              <li className="nav-item">
+                <Link to={"/admin"} className="nav-link">
+                  Admin Board
+                </Link>
+              </li>
+            )}
 
-  hideFirstTimeScreenHandler = () => {
-    let state_ = {...this.state}
-    state_.showFirstTimeScreen = false
-    this.setState(state_)
-  }
+            {currentUser && (
+              <li className="nav-item">
+                <Link to={"/user"} className="nav-link">
+                  User
+                </Link>
+              </li>
+            )}
+          </div>
 
-  async componentWillMount() {
+          {currentUser ? (
+            <div className="navbar-nav ml-auto">
+              <li className="nav-item">
+                <Link to={"/profile"} className="nav-link">
+                  {currentUser.username}
+                </Link>
+              </li>
+              <li className="nav-item">
+                <a href="/login" className="nav-link" onClick={logOut}>
+                  LogOut
+                </a>
+              </li>
+            </div>
+          ) : (
+            <div className="navbar-nav ml-auto">
+              <li className="nav-item">
+                <Link to={"/login"} className="nav-link">
+                  Login
+                </Link>
+              </li>
 
-    // TODO - set the real data in the state
-    // state_.searchResults = DC;
-    // this.setState(state_)
+              <li className="nav-item">
+                <Link to={"/register"} className="nav-link">
+                  Sign Up
+                </Link>
+              </li>
+            </div>
+          )}
+        </nav>
 
-    let devices = await dataReciver.getDevices()
-    let racks = await dataReciver.getRacks()
-    DC = await dataReciver.createDc(racks, devices)
-
-    let state_ = {...this.state}
-    state_.searchResults = DC;
-    this.setState(state_)
-    // console.log(devices)
-    // console.log(racks)
-    // console.log(DC)
-    
-    
-    // this happens LAST insted of FIRST becuase it async - WE NEED TO FIX THIS!!!!!!!
-    // console.log("in will mount")
-    // console.log(`value of first time = ${Cookies.get(`firstTime${config.version}`)}`)
-    // console.log(`state show first time = ${this.state.showFirstTimeScreen}`)
-
-  }
-
-  componentDidMount() {
-    if(Cookies.get(`firstTime${config.version}`) === undefined) {
-      Cookies.set(`firstTime${config.version}`, false, { expires: 365 })
-      this.showFirstTimeScreenHandler()
-    }
-
-    // console.log("in did mount")
-    // console.log(`value of first time = ${Cookies.get(`firstTime${config.version}`)}`)
-    // console.log(`state show first time = ${this.state.showFirstTimeScreen}`)
-
-  }
-
-  render() {
-    // console.log("in render")
-    // console.log(`value of first time = ${Cookies.get(`firstTime${config.version}`)}`)
-    // console.log(`state show first time = ${this.state.showFirstTimeScreen}`)
-
-    let popUp
-    if(this.state.showFirstTimeScreen === true) {
-      // console.log("in render - show first time is true!, counter = " + counter)
-      counter++
-      popUp = <FirstTimePage show={this.props.showFirstTimeScreen} hide={this.hideFirstTimeScreenHandler}/>
-    } else {
-      // console.log("in render - show first time is false!, counter = " + counter)
-      counter++
-      popUp = <div></div>
-    }
-    let dcRackView = <React.Fragment>
-                <ModalProvider>
-                        <TopNav></TopNav>
-                        {popUp}
-                        <input type="text" placeholder="Type any vaule to search in the DC..." value={this.state.searchTerm} onChange={this.handleChange}/>
-                        {/* <Racktable dc={this.state.searchResults}></Racktable> */}
-                          <DcView dc={this.state.searchResults}></DcView>
-                          </ModalProvider>
-                      </React.Fragment>
-
-    return (
-      <BrowserRouter>
-      {dcRackView}
-      </BrowserRouter>
-    )}
-  }
+        <div className="container mt-3">
+          <Switch>
+            <Route exact path={["/", "/home"]} component={Home} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/register" component={Register} />
+            <Route exact path="/profile" component={Profile} />
+            <Route path="/user" component={BoardUser} />
+            <Route path="/mod" component={BoardModerator} />
+            <Route path="/admin" component={BoardAdmin} />
+          </Switch>
+        </div>
+      </div>
+    </Router>
+  );
+};
 
 export default App;
