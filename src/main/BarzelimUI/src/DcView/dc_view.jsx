@@ -14,24 +14,25 @@ import ReactDOM from 'react-dom'
 import rackEdit from './rackEdit'
 function DcView(props) {
   return(
-      <Router>
-        <Switch>
-              <Route path="/rack/edit/:id" render={(routerProps) => {renderSingleRackEdit()}}/>
-              <Route path="/rack/:id" render={(routerProps) => RenderSingleRack(props.dc.find(rack=> rack.rack_id==routerProps.match.params.id))}/>
-              <Route exact path="">
-              <Container>
-                <Col>
-                  <CardColumns>
-                  <RackCard data={props}/>
-                  </CardColumns>
-                  </Col>
-                  <Col>
-                  </Col>
-              </Container>
-              </Route>
-              {/* props.dc.find(rack=> rack.rack_id=id))}/> */}
-        </Switch>
-      </Router>
+      // <Router>
+      //   <Switch>
+      //         <Route path="/rack/edit/:id" render={(routerProps) => {renderSingleRackEdit()}}/>
+      //         <Route path="/rack/:id" render={(routerProps) => RenderSingleRack(props.dc.find(rack=> rack.rack_id==routerProps.match.params.id))}/>
+      //         <Route exact path="">
+      //         <Container>
+      //           <Col>
+      //             <CardColumns>
+      //             <RackCard data={props}/>
+      //             </CardColumns>
+      //             </Col>
+      //             <Col>
+      //             </Col>
+      //         </Container>
+      //         </Route>
+      //         {/* props.dc.find(rack=> rack.rack_id=id))}/> */}
+      //   </Switch>
+      // </Router>
+      <div/>
     )
 }
 function RenderSingleRack(rack){
