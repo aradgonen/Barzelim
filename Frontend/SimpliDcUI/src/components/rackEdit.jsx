@@ -3,8 +3,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
-  useHistory 
+  Link
 } from "react-router-dom";
 import rack_icon from '../images/rack.svg'
 import UDetails from './UDetails';

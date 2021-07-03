@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { ModalContext } from "./modalContext";
-import { Modal,Button } from 'react-bootstrap'
+import { Modal } from 'react-bootstrap'
 const UniversalModal = () => {
   let { modalContent, handleModal, modal } = React.useContext(ModalContext);
   if (modal) {

@@ -2,15 +2,11 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
   useHistory 
 } from "react-router-dom";
 
 function UDetails(props) {
-  let history = useHistory()
+  let _history = useHistory()
     let dataArray = []
     Object.entries(props.uData).forEach(([key, value]) => {
       if(key !== '_links') {
@@ -32,7 +28,7 @@ function UDetails(props) {
     );
     function handleEditButton(rack_id){
     
-      history.push(`/rack/edit/${rack_id}`);
+      _history.push(`/rack/edit/${rack_id}`);
     }
   }
 

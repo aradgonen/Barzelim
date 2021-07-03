@@ -12,18 +12,7 @@ import { Divider, Typography } from '@material-ui/core';
 import { Grid } from '@material-ui/core';
 import { Card } from '@material-ui/core';
 import { CardContent } from '@material-ui/core';
-import FitText from '@kennethormandy/react-fittext';
  
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-  paper: {
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-  },
-}));
 
 export default function MultiUDevice({u, upperUNumber, bottomUNumber, type, handleModal,  numberOfU, rack_id}) {
     const TopU = withStyles((theme) => ({
@@ -38,43 +27,14 @@ export default function MultiUDevice({u, upperUNumber, bottomUNumber, type, hand
           fontSize: 14,
         },
       }))(TableCell);
-      const MidU = withStyles((theme) => ({
-        root: {
-            borderBottom: "none",
-            borderTop: "none"
-        },
-        head: {
-          backgroundColor: theme.palette.common.black,
-          color: theme.palette.common.white,
-        },
-        body: {
-          fontSize: 14,
-        },
-      }))(TableCell);
-      const BottomU = withStyles((theme) => ({
-        root: {
-            borderTop: "none"
-        },
-        head: {
-          backgroundColor: theme.palette.common.black,
-          color: theme.palette.common.white,
-        },
-        body: {
-          fontSize: 14,
-        },
-      }))(TableCell);
+
       const SideTableCell = withStyles((theme) => ({
         body: { 
           backgroundColor: theme.palette.common.black,
           color: theme.palette.common.white,
         },
       }))(TableCell);  
-      const HPUCell = withStyles((theme) => ({
-        body: { 
-          backgroundColor: theme.palette.common.black,
-          color: theme.palette.common.white,
-        },
-      }))(TableCell);  
+
       const useStyles = makeStyles({
         table: {   
         },
@@ -128,7 +88,7 @@ export default function MultiUDevice({u, upperUNumber, bottomUNumber, type, hand
   
     if(u.enclosureType == "HPE Enclosure") {
       rowContent[0] =  
-          <TableRow>
+          <TableRow key={91+"hp"+rack_id}>
               <SideTableCell align="center" width="3%">{upperUNumber}</SideTableCell>
               <TopU rowSpan={numberOfU} align="center" ><Typography onClick={() => handleModal(<UDetails rack_id={rack_id} uData={{'enclosureType':u.enclosureType,'osVersion':u.osVersion}} title={"Detailed Info"}/>)}>{u.name}</Typography>
                 <Grid container alignItems="center" className={classes.root}>
@@ -173,7 +133,7 @@ export default function MultiUDevice({u, upperUNumber, bottomUNumber, type, hand
     }
     else if(u.enclosureType == "IBM Enclosure"){
       rowContent[0] =
-      <TableRow>
+      <TableRow key={"ibm"+rack_id}>
       <SideTableCell align="center" width="3%">{upperUNumber}</SideTableCell>
       <TopU rowSpan={numberOfU} align="center" ><Typography onClick={() => handleModal(<UDetails rack_id={rack_id} uData={{'enclosureType':u.enclosureType,'osVersion':u.osVersion}} title={"Detailed Info"}/>)}>{u.name}</Typography>
         <Grid container alignItems="center" className={classes.root}>
@@ -200,7 +160,7 @@ export default function MultiUDevice({u, upperUNumber, bottomUNumber, type, hand
     }
     else if(u.enclosureType == "Cisco UCS Enclosure"){
       rowContent[0] =  
-      <TableRow>
+      <TableRow key={"ucs"+163+"id"+rack_id}>
           <SideTableCell align="center" width="3%">{upperUNumber}</SideTableCell>
           <TopU rowSpan={numberOfU} align="center" ><Typography onClick={() => handleModal(<UDetails rack_id={rack_id} uData={{'enclosureType':u.enclosureType,'osVersion':u.osVersion}} title={"Detailed Info"}/>)}>{u.name}</Typography>
             <Grid container alignItems="center" className={classes.root}>
@@ -233,7 +193,7 @@ export default function MultiUDevice({u, upperUNumber, bottomUNumber, type, hand
     }
     else{
       rowContent[0] =
-          <TableRow>
+          <TableRow key={196+"id"+rack_id}>
           <SideTableCell align="center" width="3%">{upperUNumber}</SideTableCell>
           <TopU rowSpan={numberOfU} align="center" onClick={() => handleModal(<UDetails rack_id={rack_id} uData={u} title={"Detailed Info"}/>)}>{u.name}</TopU>
           <SideTableCell align="center" width="3%" onClick={() =>handleModal(<UConnectionInfo uData={u} title={"Connection Info"}/>)}>{upperUNumber}</SideTableCell>
@@ -241,7 +201,7 @@ export default function MultiUDevice({u, upperUNumber, bottomUNumber, type, hand
 
     }
       rowContent[rowContent.length - 1] =  
-          <TableRow>
+          <TableRow key={204+"id"+rack_id}>
               <SideTableCell align="center" width="3%">{bottomUNumber}</SideTableCell>
               <SideTableCell align="center" width="3%" onClick={() =>handleModal(<UConnectionInfo uData={u} title={"Connection Info"}/>)}>{bottomUNumber}</SideTableCell>
           </TableRow>    
@@ -249,7 +209,7 @@ export default function MultiUDevice({u, upperUNumber, bottomUNumber, type, hand
       // for each U - between the Top and Bottom (not include them) create the rows
       for (let rowIndex = 1; rowIndex < numberOfU -1 ; rowIndex++) {
           rowContent[rowIndex] =  
-          <TableRow>
+          <TableRow key={212+"id"+rowIndex}>
               <SideTableCell align="center" width="3%">{upperUNumber - rowIndex}</SideTableCell>
               <SideTableCell align="center" width="3%" onClick={() =>handleModal(<UConnectionInfo uData={u} title={"Connection Info"}/>)}>{upperUNumber - rowIndex}</SideTableCell>
           </TableRow>    
