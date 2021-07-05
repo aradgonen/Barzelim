@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 import { ModalProvider } from './modal/modalContext';
 
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -13,25 +13,28 @@ import Profile from "./components/Profile";
 import BoardUser from "./components/BoardUser";
 import BoardModerator from "./components/BoardModerator";
 import BoardAdmin from "./components/BoardAdmin";
-
+import DataService from "./services/data.service";
 import { logout } from "./actions/auth";
 import { clearMessage } from "./actions/message";
-
+import { setDc } from "./actions/dc";
+import { setSearchTerm } from "./actions/search";
 import { history } from "./helpers/history";
 import simplidc_logo from "./images/dns-24px.svg"
+import DetailedRackCard from './components/detailed_rack_card'
 
 const App = () => {
   const [showModeratorBoard, setShowModeratorBoard] = useState(false);
   const [showAdminBoard, setShowAdminBoard] = useState(false);
 
   const { user: currentUser } = useSelector((state) => state.auth);
+  const dc = useSelector((state) => state.dc);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    history.listen((location) => {
-      dispatch(clearMessage()); // clear message when changing location
-    });
-  }, [dispatch]);
+  // useEffect(() => {
+  //   history.listen((location) => {
+  //     dispatch(clearMessage()); // clear message when changing location
+  //   });
+  // }, [dispatch]);
 
   useEffect(() => {
     if (currentUser) {
@@ -40,12 +43,25 @@ const App = () => {
     }
   }, [currentUser]);
 
+  useEffect(() => {
+    DataService.getDevices().then(
+      (devicesResponse) =>{
+        DataService.getRacks().then(
+          (racksResponse) =>{
+            dispatch(setDc(DataService.getDc(racksResponse,devicesResponse)));
+          }
+        )
+      }
+    )
+}, [dispatch]);
   const logOut = () => {
     dispatch(logout());
   };
 
   return (
-    <Router history={history}>
+    <div>
+    <ModalProvider>
+    <BrowserRouter>
       <div>
         <nav className="navbar navbar-expand navbar-dark bg-dark">
           <Link to={"/"} className="navbar-brand">
@@ -118,22 +134,26 @@ const App = () => {
             </div>
           )}
         </nav>
+        <input className="" type="text" placeholder="Type any vaule to search in the DC..." onChange={e => dispatch(setSearchTerm(e.target.value))}/>
 
         <div className="container mt-3">
-        <ModalProvider>
+
           <Switch>
-            <Route exact path={["/", "/home"]} component={Home} />
+            <Route exact path={["/", "/home"]} component={Home}/>
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/profile" component={Profile} />
             <Route path="/user" component={BoardUser} />
             <Route path="/mod" component={BoardModerator} />
             <Route path="/admin" component={BoardAdmin} />
+            <Route path="/rack/:id" component={DetailedRackCard}/>
           </Switch>
-          </ModalProvider>
+
         </div>
       </div>
-    </Router>
+    </BrowserRouter>
+    </ModalProvider>
+    </div>
   );
 };
 

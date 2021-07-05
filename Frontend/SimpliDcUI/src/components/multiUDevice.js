@@ -91,6 +91,7 @@ export default function MultiUDevice({u, upperUNumber, bottomUNumber, type, hand
           <TableRow key={91+"hp"+rack_id}>
               <SideTableCell align="center" width="3%">{upperUNumber}</SideTableCell>
               <TopU rowSpan={numberOfU} align="center" ><Typography onClick={() => handleModal(<UDetails rack_id={rack_id} uData={{'enclosureType':u.enclosureType,'osVersion':u.osVersion}} title={"Detailed Info"}/>)}>{u.name}</Typography>
+
                 <Grid container alignItems="center" className={classes.root}>
                   <Card variant="outlined" className={u.serverNodes[0].name ? classes.Card : classes.emptyCard}><CardContent><Typography className={classes.Typography}>{u.serverNodes[0].name ? u.serverNodes[0].name : "Empty"}</Typography></CardContent></Card>
                   <Divider orientation="vertical"  />
@@ -129,6 +130,7 @@ export default function MultiUDevice({u, upperUNumber, bottomUNumber, type, hand
                 </Grid>
               </TopU>
               <SideTableCell align="center" width="3%" onClick={() =>handleModal(<UConnectionInfo uData={u} title={"Connection Info"}/>)}>{upperUNumber}</SideTableCell>
+
           </TableRow>
     }
     else if(u.enclosureType == "IBM Enclosure"){
@@ -136,6 +138,7 @@ export default function MultiUDevice({u, upperUNumber, bottomUNumber, type, hand
       <TableRow key={"ibm"+rack_id}>
       <SideTableCell align="center" width="3%">{upperUNumber}</SideTableCell>
       <TopU rowSpan={numberOfU} align="center" ><Typography onClick={() => handleModal(<UDetails rack_id={rack_id} uData={{'enclosureType':u.enclosureType,'osVersion':u.osVersion}} title={"Detailed Info"}/>)}>{u.name}</Typography>
+
         <Grid container alignItems="center" className={classes.root}>
           <Card variant="outlined" className={u.serverNodes[0].name ? classes.Card : classes.emptyCard}><CardContent><Typography className={classes.Typography}>{u.serverNodes[0].name ? u.serverNodes[0].name : "Empty"}</Typography></CardContent></Card>
           <Divider orientation="vertical"  />
@@ -156,6 +159,7 @@ export default function MultiUDevice({u, upperUNumber, bottomUNumber, type, hand
         </Grid>
       </TopU>
       <SideTableCell align="center" width="3%" onClick={() =>handleModal(<UConnectionInfo uData={u} title={"Connection Info"}/>)}>{upperUNumber}</SideTableCell>
+
   </TableRow>
     }
     else if(u.enclosureType == "Cisco UCS Enclosure"){
@@ -163,6 +167,7 @@ export default function MultiUDevice({u, upperUNumber, bottomUNumber, type, hand
       <TableRow key={"ucs"+163+"id"+rack_id}>
           <SideTableCell align="center" width="3%">{upperUNumber}</SideTableCell>
           <TopU rowSpan={numberOfU} align="center" ><Typography onClick={() => handleModal(<UDetails rack_id={rack_id} uData={{'enclosureType':u.enclosureType,'osVersion':u.osVersion}} title={"Detailed Info"}/>)}>{u.name}</Typography>
+
             <Grid container alignItems="center" className={classes.root}>
               <Card variant="outlined" className={u.serverNodes[0].name ? classes.UCSCard : classes.emptyUCSCard}><CardContent><Typography className={classes.UCSTypography}>{u.serverNodes[0].name ? u.serverNodes[0].name : "Empty"}</Typography></CardContent></Card>
               <Divider orientation="vertical"  />
@@ -189,6 +194,7 @@ export default function MultiUDevice({u, upperUNumber, bottomUNumber, type, hand
             </Grid>
           </TopU>
           <SideTableCell align="center" width="3%" onClick={() =>handleModal(<UConnectionInfo uData={u} title={"Connection Info"}/>)}>{upperUNumber}</SideTableCell>
+
       </TableRow>
     }
     else{
@@ -196,7 +202,9 @@ export default function MultiUDevice({u, upperUNumber, bottomUNumber, type, hand
           <TableRow key={196+"id"+rack_id}>
           <SideTableCell align="center" width="3%">{upperUNumber}</SideTableCell>
           <TopU rowSpan={numberOfU} align="center" onClick={() => handleModal(<UDetails rack_id={rack_id} uData={u} title={"Detailed Info"}/>)}>{u.name}</TopU>
+
           <SideTableCell align="center" width="3%" onClick={() =>handleModal(<UConnectionInfo uData={u} title={"Connection Info"}/>)}>{upperUNumber}</SideTableCell>
+
           </TableRow>
 
     }
@@ -204,6 +212,7 @@ export default function MultiUDevice({u, upperUNumber, bottomUNumber, type, hand
           <TableRow key={204+"id"+rack_id}>
               <SideTableCell align="center" width="3%">{bottomUNumber}</SideTableCell>
               <SideTableCell align="center" width="3%" onClick={() =>handleModal(<UConnectionInfo uData={u} title={"Connection Info"}/>)}>{bottomUNumber}</SideTableCell>
+
           </TableRow>    
       
       // for each U - between the Top and Bottom (not include them) create the rows
@@ -212,6 +221,7 @@ export default function MultiUDevice({u, upperUNumber, bottomUNumber, type, hand
           <TableRow key={212+"id"+rowIndex}>
               <SideTableCell align="center" width="3%">{upperUNumber - rowIndex}</SideTableCell>
               <SideTableCell align="center" width="3%" onClick={() =>handleModal(<UConnectionInfo uData={u} title={"Connection Info"}/>)}>{upperUNumber - rowIndex}</SideTableCell>
+
           </TableRow>    
       }
 

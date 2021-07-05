@@ -1,34 +1,16 @@
-import React, { useState, useEffect } from "react";
-
-import DataService from "../services/data.service";
-
-import FirstTimePage from '../components/FirstTImePage';
+import React from "react";
 import DcView from '../components/dc_view';
+import { useDispatch, useSelector } from "react-redux";
 
-
-const Home = () => {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [searchResults, setSearchResults] = useState([]);
-  const [dc, setDc] = useState([]);
-  useEffect(() => {
-      DataService.getDevices().then(
-        (devicesResponse) =>{
-          DataService.getRacks().then(
-            (racksResponse) =>{
-              setDc(DataService.getDc(racksResponse,devicesResponse))
-            }
-          )
-        }
-      )
-  }, []);
+const Home = (props) => {
+  let dc = useSelector((state) => state.dc);
+  let searchTerm = useSelector((state) => state.search);
+  console.log(searchTerm);
+  
   return (
-    <React.Fragment>
-
-                        <input className="" type="text" placeholder="Type any vaule to search in the DC..." value={searchTerm} onChange={e => setSearchTerm(e.target.value)}/>
-                          <DcView dc={(searchTerm.length!==0?(dc.filter(rack =>
-      JSON.stringify(rack).toLowerCase().includes(searchTerm.toLowerCase().trim()))):(dc))}></DcView>
-
-                      </React.Fragment>
+      <DcView dc={(searchTerm.length!=0?(dc.filter(rack =>
+JSON.stringify(rack).toLowerCase().includes(searchTerm.toLowerCase().trim()))):(dc))}>
+      </DcView>
   );
 };
 

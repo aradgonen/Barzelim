@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{} from 'react';
 import UDetails from './UDetails.js';
 import UConnectionInfo from './UConnectionInfo.js';
 import { ModalProvider } from '../modal/modalContext.jsx'
@@ -15,8 +15,15 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid'
 import MultiUDevice from './multiUDevice'
+import { useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from "react-redux";
 
-function DetailedRackCard(rack) {
+function DetailedRackCard() {
+  const dispatch = useDispatch();
+  let { id } = useParams();
+  const dc = useSelector((state) => state.dc);
+  let rack = (dc.filter(rack=>rack.rack_id == id))[0];
+  rack = fillReservedU(rack);
   const StyledTableCell = withStyles((theme) => ({
     head: {
       backgroundColor: theme.palette.common.black,
@@ -37,10 +44,9 @@ function DetailedRackCard(rack) {
   const classes = useStyles();
   let { handleModal } = React.useContext(ModalContext);
   try{
-    if(rack !== undefined){
-      rack=rack.rack
+    if(rack != undefined){
         return(
-          <>
+          <React.Fragment>
             <ModalProvider>
             <Grid container spacing={0} direction="column" alignItems="center" justify="center">
               <Card className={classes.Card} key={rack.rack_id}>
@@ -65,9 +71,13 @@ function DetailedRackCard(rack) {
               </Card>
             </Grid>
             </ModalProvider>
-          </>
+            </React.Fragment>
 
         )
+      }
+      else{
+        return(<div></div>)
+
       }
   }
   catch{
@@ -115,9 +125,9 @@ function DetailedRackCard(rack) {
                     key={"multiudevice"+index}/>
         } else {
           device = <TableRow key={index}>
-                      <SideTableCell align="center" width="3%">{index+1} </SideTableCell>
+                    <SideTableCell align="center" >{index+1}</SideTableCell>
                     <StyledTableCell align="center" onClick={() => handleModal(<UDetails rack_id={rack.rack_id} uData={u.data} title={"Detailed Info"}/>)}>{u.data.name}</StyledTableCell>
-                      <SideTableCell align="center" width="3%" onClick={() =>handleModal(<UConnectionInfo  uData={u.data} title={"Connection Info"}/>)}>{index+1}</SideTableCell>
+                    <SideTableCell align="center" width="3%" onClick={() =>handleModal(<UConnectionInfo  uData={u.data} title={"Connection Info"}/>)}>{index+1}</SideTableCell>
                     </TableRow>
           u_counter = u_counter + 1
         }
@@ -127,5 +137,15 @@ function DetailedRackCard(rack) {
       return rackComponents;
   
   }
-  
+  function fillReservedU(rack){
+    if(rack !== undefined)
+    rack.data.forEach((u, index) => {
+      if(u.data.size > 1){
+        for(let i=1;i<u.data.size;i++){
+          rack.data[index-i].data.reserved = true
+        }
+      }
+    });
+    return rack
+  }
   export default DetailedRackCard;
