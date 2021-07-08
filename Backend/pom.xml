@@ -116,7 +116,7 @@
 				<artifactId>frontend-maven-plugin</artifactId>
 				<version>1.11.0</version>
 			<configuration>
-				<workingDirectory>src/main/BarzelimUI</workingDirectory>
+				<workingDirectory>../Frontend/SimpliDcUI</workingDirectory>
 				<installDirectory>target</installDirectory>
 			</configuration>
 				<executions>
@@ -164,7 +164,7 @@
 						<configuration>
 							<target>
 								<copy todir="${project.build.directory}/classes/public">
-									<fileset dir="${project.basedir}/src/main/BarzelimUI/build" />
+									<fileset dir="${project.basedir}/../Frontend/SimpliDcUI/build" />
 								</copy>
 							</target>
 						</configuration>
