@@ -10,6 +10,9 @@ const getRacks = () => {
   return axios.get(API_URL + "racks", { headers:{'Access-Control-Allow-Origin': '*'}});
 };
 
+const getHomelessDevices = () => {
+  return axios.get(API_URL + "homelessdevices", { headers:{'Access-Control-Allow-Origin': '*'}}); 
+};
 const getDc = (racks,devices) => {
 
   // for each rack in dc - insert the devices into the rack and then add an rack object to the dc object
@@ -45,5 +48,6 @@ return dc
 export default {
   getDc,
   getRacks,
-  getDevices
+  getDevices,
+  getHomelessDevices,
 };

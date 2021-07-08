@@ -3,6 +3,7 @@ package zarilabs.barzelim.neo4jrepositories;
 //import org.neo4j.ogm.model.Result;
 //import org.neo4j.ogm.session.Session;
 //import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.neo4j.annotation.Query;
 import org.springframework.data.neo4j.repository.Neo4jRepository;
 //import org.springframework.data.neo4j.repository.support.SimpleNeo4jRepository;
 //import org.springframework.data.repository.CrudRepository;
@@ -10,6 +11,8 @@ import org.springframework.data.neo4j.repository.Neo4jRepository;
 //import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 //import org.springframework.stereotype.Repository;
 import zarilabs.barzelim.basenodes.XDeviceNode;
+
+import java.util.List;
 //import zarilabs.barzelim.baseobjects.Device;
 
 //import java.util.ArrayList;
@@ -34,5 +37,7 @@ import zarilabs.barzelim.basenodes.XDeviceNode;
 //}
 public interface DeviceNodeService extends Neo4jRepository<XDeviceNode, Long> {
     XDeviceNode findByserialNumber(String serialNumber);
+    @Query("MATCH (device:XDeviceNode) WHERE NOT (device)-[:IN]-(:RackNode) RETURN device")
+    List<XDeviceNode> getHomelessDevices();
 }
 

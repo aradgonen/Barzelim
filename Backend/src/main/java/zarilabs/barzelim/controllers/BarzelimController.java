@@ -96,4 +96,9 @@ public class BarzelimController {
     @GetMapping(value = "/racks/racknumbers")
     public List<String> getRacksNodesNumbers() { return (List<String>) rackNodeService.getAllRackNumber(); }
 
+    @GetMapping(value = "/homelessdevices")
+    public List<XDeviceNode> getHomelessDevices()
+    {
+        return deviceNodeService.getHomelessDevices();
+    }
 }

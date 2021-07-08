@@ -21,6 +21,7 @@ import { setSearchTerm } from "./actions/search";
 import { history } from "./helpers/history";
 import simplidc_logo from "./images/dns-24px.svg"
 import DetailedRackCard from './components/detailed_rack_card'
+import AddDevicesToRack from './components/AddDevicesToRack'
 
 const App = () => {
   const [showModeratorBoard, setShowModeratorBoard] = useState(false);
@@ -95,6 +96,13 @@ const App = () => {
                 </Link>
               </li>
             )}
+            {showAdminBoard && (
+              <li className="nav-item">
+                <Link to={"/homelessdevices"} className="nav-link">
+                  Homeless Devices
+                </Link>
+              </li>
+            )}
           </div>
 
           {currentUser ? (
@@ -139,6 +147,7 @@ const App = () => {
             <Route path="/mod" component={BoardModerator} />
             <Route path="/admin" component={BoardAdmin} />
             <Route path="/rack/:id" component={DetailedRackCard}/>
+            <Route exact path ="/homelessdevices" component={AddDevicesToRack}/>
           </Switch>
 
         </div>
