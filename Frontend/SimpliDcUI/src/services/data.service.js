@@ -1,13 +1,13 @@
 import axios from "axios";
 
-const API_URL = "/api/barzelim/";
+const API_URL = "/";
 
 const getDevices = () => {
-  return axios.get(API_URL + "devices", { headers:{'Access-Control-Allow-Origin': '*'}});
+  return axios.get(API_URL + "getAllDevices", { headers:{'Access-Control-Allow-Origin': '*'}});
 };
 
 const getRacks = () => {
-  return axios.get(API_URL + "racks", { headers:{'Access-Control-Allow-Origin': '*'}});
+  return axios.get(API_URL + "getAllRacks", { headers:{'Access-Control-Allow-Origin': '*'}});
 };
 
 const getHomelessDevices = () => {
