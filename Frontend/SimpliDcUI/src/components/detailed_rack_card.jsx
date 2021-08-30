@@ -125,7 +125,7 @@ function DetailedRackCard() {
                     key={"multiudevice"+index}/>
         } else {
           device = <TableRow key={index}>
-                    <SideTableCell align="center" >{index+1}</SideTableCell>
+                    <SideTableCell align="center" width="3%">{index+1}</SideTableCell>
                     <StyledTableCell align="center" onClick={() => handleModal(<UDetails rack_id={rack.rack_id} uData={u.data} title={"Detailed Info"}/>)}>{u.data.name}</StyledTableCell>
                     <SideTableCell align="center" width="3%" onClick={() =>handleModal(<UConnectionInfo  uData={u.data} title={"Connection Info"}/>)}>{index+1}</SideTableCell>
                     </TableRow>

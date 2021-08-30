@@ -1,0 +1,20 @@
+[
+	{
+		"model": "simplidc_backend.models.Network",
+        "pk" : 1,
+		"fields": {
+                    "serialNumber" : "a1a2a3a4a5a6",
+                    "name" : "access switch",
+                    "vendor": "cisco",
+                    "osType" : "nxos",
+                    "osVersion" : "10",
+                    "rackNumber" : 69,
+                    "clusterName" : "",
+                    "uNumber" : 41,
+                    "size" : 1,
+                    "isLayer2" : false,
+                    "isLayer3" : true
+                }
+	}
+]
+

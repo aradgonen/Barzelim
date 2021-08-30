@@ -22,14 +22,14 @@ const getDc = (racks,devices) => {
     let tempRack = new Array(curRack.size)
     tempRack.fill('emptyCell',0,tempRack.length) //fill the temp array with empty data
     devices.data.forEach(device => {
-        if(curRack.name === device.rackNumber){
+        if(parseInt(curRack.name) == device.rackNumber){
             //curRackDevices[device.unumber] = device
             curRackDevices.push(device)
         }
     })
     curRackDevices.forEach(currentRackDevice => {
         // currentRackDevice.unumber - 1 because if the real u is X, the place in the array is x - 1 
-        tempRack[currentRackDevice.unumber - 1] = {unumber:currentRackDevice.unumber - 1, data:currentRackDevice} //currentRackDevice //TODO: change the u data to this format : {unumber:currentRackDevice.unumber - 1, data:currentRackDevice}
+        tempRack[currentRackDevice.uNumber - 1] = {unumber:currentRackDevice.uNumber - 1, data:currentRackDevice} //currentRackDevice //TODO: change the u data to this format : {unumber:currentRackDevice.unumber - 1, data:currentRackDevice}
     })
 
     // fill the empty cells with the "empty" json
