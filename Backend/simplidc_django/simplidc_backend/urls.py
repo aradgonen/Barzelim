@@ -1,10 +1,10 @@
 from django.conf.urls import url
-from simplidc_backend.views.Device import *
-from simplidc_backend.views.Storage import *
-from simplidc_backend.views.Network import *
-from simplidc_backend.views.Server import *
-from simplidc_backend.views.Rack import *
-from simplidc_backend.views.Connectors import *
+from .views.Device import *
+from .views.Storage import *
+from .views.Network import *
+from .views.Server import *
+from .views.Rack import *
+from .views.Connectors import *
 from django.urls import path
 urlpatterns = [
     path('device',deviceDetails),

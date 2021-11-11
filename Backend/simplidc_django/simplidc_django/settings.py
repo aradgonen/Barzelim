@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-+hzyokmxq61bl%42-h-+$mh1el4dykl801=3*pvxr51*emyz8*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -82,7 +82,8 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-NEOMODEL_NEO4J_BOLT_URL = 'bolt://neo4j:shMador1@192.168.38.128:7687'
+NEOMODEL_NEO4J_BOLT_URL = 'bolt://neo4j:shMador1@localhost:7687'
+NEOMODEL_ENCRYPTED_CONNECTION = False
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
